@@ -48,3 +48,5 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('employees', App\Http\Livewire\Crud::class);
