@@ -1,0 +1,11 @@
+npm run dev
+npm run build 
+
+to start up js
+
+------------------------------------------------------------------------------------------------
+
+Branch Text:
+
+"creating auth route to login page for unregistered/unauthorized users"
+
