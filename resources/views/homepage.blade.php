@@ -128,7 +128,6 @@
 
       .navbar-grid {
         width: 90vw;
-        margin-top: 5vh;
         display: grid;
         grid-template-columns: 80% 10% 10%; 
         grid-template-rows: min-content; 
@@ -207,9 +206,9 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            <form id="logout-form" method="POST" action="http://localhost:8000/logout" x-data>
-                <input type="hidden" name="_token" value="ILj4d27Ei6xy4uDu6MfaTVOIW6ZrU0zqDtO1Q2if">
-                <button class="block py-2 text-left text-sm leading-5 text-white hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out bg-transparent border-none" id="logout-button">Log Out</button>
+            <form method="POST" action="http://localhost:8000/logout" x-data>
+              <input type="hidden" name="_token" value="EUhKpyOr6KeXtBSdllFg202RSbUwUd9v247BVk9Y">
+              <a class="block w-full py-2 text-left text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out" href="http://localhost:8000/logout" @click.prevent="$root.submit();">Log Out</a>
             </form>
           </div>
         </div>
