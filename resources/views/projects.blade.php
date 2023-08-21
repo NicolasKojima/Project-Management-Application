@@ -126,6 +126,14 @@
         position: relative;
       }
 
+      .navbar-grid {
+        width: 90vw;
+        display: grid;
+        grid-template-columns: 90% 10%; 
+        grid-template-rows: min-content; 
+        position: relative;
+      }
+
       .project-description {
         font-size: small;
       }
@@ -164,6 +172,23 @@
           font-size: 3.5rem;
         }
       }
+
+      .btn-primary {
+      width:120px;
+    }
+
+    .btn-secondary {
+      width:120px;
+    }
+
+    .links {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      justify-content: center;
+    }
+
+
     </style>
 
     
@@ -175,14 +200,14 @@
           <div class="row">
             <div class="col-sm-8 col-md-7 py-4">
               <h4 class="text-white">DC Department Introduction</h4>
-              <p class="company-intro"> >include the DC teams goals as a department< </p>
+              <p class="company-intro"> The Digital Communications Department (DC) is a department which focuses on the monitoring, analysis, and distribution of Data, as well as the creation, update and maintenance of Digital Websites, Tech Related Material, and EC Sites </p>
             </div>
             <div class="col-sm-4 offset-md-1 py-4">
               <h4 class="text-white">Contact information</h4>
               <ul class="list-unstyled">
-                <li><a href="#" class="text-white">Follow on Twitter</a></li>
-                <li><a href="#" class="text-white">Like on Facebook</a></li>
-                <li><a href="#" class="text-white">Email me</a></li>
+                <li><a href="#" class="text-white">Phone: 03-6452-9977</a></li>
+                <li><a href="#" class="text-white">Fax: 03-6452-9988</a></li>
+                <li><a href="#" class="text-white">Email: DigitalCommunication@e-zeal.jp</a></li>
               </ul>
             </div>
           </div>
@@ -190,13 +215,15 @@
       </div>
       <div class="navbar navbar-dark bg-dark shadow-sm">
         <div class="container">
-          <a href="#" class="navbar-brand d-flex align-items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-            <strong>Zeal Team</strong>
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+          <div class="navbar-grid">
+            <a href="#" class="navbar-brand d-flex align-items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+              <strong>Zeal Team</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
         </div>
       </div>
     </header>
@@ -205,14 +232,16 @@
       <section class="py-5 text-center container">
         <div class="row py-lg-5">
           <div class="col-lg-6 col-md-8 mx-auto">
-            <marquee>
-              <h1 style="repeat:true">Digital Communications</h1>
-            </marquee>
+            <h1>DC Project Blog</h1>
             <p>
-              <a href="contact-form" class="btn btn-primary my-2" > Contact Us</a>
-              <a href="about-us" class="btn btn-primary my-2" > About Us</a>
-              <a href="post-project" class="btn btn-secondary my-2" > Post Project</a>
-              <a href="registration" class="btn btn-secondary my-2" > Registration</a>
+              <div class="links">
+                <div class="link">
+                  <a href="dashboard" class="btn btn-primary my-2" > Profile</a>
+                </div>
+                <div class="link">
+                  <a href="post-project" class="btn btn-secondary my-2" > Post Project</a>
+                </div>
+              </div>
             </p>
           </div>
         </div>
@@ -234,7 +263,7 @@
                         <p>{{$form->name}}</p>
                       </div>
                       <div>
-                        <a class="editlink" href="{{ route('edit', $form->id) }}">Edit Form {{ $form->id }}</a>
+                        <a class="editlink" href="{{ route('edit', $form->id) }}">Edit Form </a>
                         <small class="text-muted" >{{ $form->created_at->format('Y-m-d H:i:s') }}    </small>
                       </div>
                     </div>
@@ -279,15 +308,25 @@
 
     <script>
 
-function del(){
+      function del(){
 
-  let text;
-if (confirm("Are you sure to delete ?") == true) {
-  document.getElementById("del-form").submit();
-} else {
-  return false;
-}
-}
+        let text;
+          if (confirm("Are you sure to delete ?") == true) {
+              document.getElementById("del-form").submit();
+          } else {
+              return false;
+          }
+      }
+
+      document.addEventListener("DOMContentLoaded", function() {
+        const logoutForm = document.getElementById("logout-form");
+        const logoutButton = document.getElementById("logout-button");
+
+        logoutButton.addEventListener("click", function(event) {
+            event.preventDefault();
+            logoutForm.submit();
+        });
+    });
     </script>
           <!-- <script>
                 document.addEventListener('DOMContentLoaded', function () {

@@ -13,7 +13,7 @@ class formController extends Controller
     public function index1()
     {
         $forms = form::all();
-        return view('homepage', compact('forms'));
+        return view('projects', compact('forms'));
     }
     public function delete($id)
     {
@@ -22,7 +22,7 @@ class formController extends Controller
         $forms->delete();
     }
 
-    return redirect('homepage')->with('status', 'Post Deleted Succesfully');
+    return redirect('projects')->with('status', 'Post Deleted Succesfully');
     }
     public function store(Request $request)
 {
@@ -42,6 +42,6 @@ class formController extends Controller
     $formdata->image = $image_path_new[1];
     $formdata->profilepic = $profile_image_path_new[1];
     $formdata->save();
-    return redirect('/homepage')->with('status', 'Form submitted successfully');
+    return redirect('/projects')->with('status', 'Form submitted successfully');
 
         }}

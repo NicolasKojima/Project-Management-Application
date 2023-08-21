@@ -17,7 +17,7 @@
         body{
         min-height: 100vh;
         width: 100%;
-        background: #946B6B;
+        background: #000000;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -201,20 +201,22 @@
         <div class="address details">
           <i class="fas fa-map-marker-alt"></i>
           <div class="topic">Address</div>
-          <div class="text-one">Japan, Tokyo</div>
-          <div class="text-two">Musashinoshi Sakai 2-5-13</div>
+          <div class="text-one">〒105-0004 東京都</div>
+          <div class="text-two">
+              港区新橋5-14-10 新橋スクエアビル8階
+          </div>
         </div>
         <div class="phone details">
           <i class="fas fa-phone-alt"></i>
           <div class="topic">Phone</div>
-          <div class="text-one">090-6657-5963</div>
-          <div class="text-two">080-7345-0415</div>
+          <div class="text-one">代表: 03-6452-9977</div>
+          <div class="text-two">人事部: 03-6432-0243</div>
         </div>
         <div class="email details">
           <i class="fas fa-envelope"></i>
-          <div class="topic">Email</div>
-          <div class="text-one">nicolas.kojima@gmail.com</div>
-          <div class="text-two">nicolas.t.y.kojima@gmail.com</div>
+          <div class="topic">FAX</div>
+          <div class="text-one">03-6452-9988</div>
+          <!-- <div class="text-two">nicolas.t.y.kojima@gmail.com</div> -->
         </div>
       </div>
 

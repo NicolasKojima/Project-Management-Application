@@ -24,7 +24,6 @@
     }
 
     .profilepicture  {
-      width: 300px; /* Set the desired container width */
       height: 200px; /* Set the desired container height */
       border: 1px solid #ccc; /* Optional: Add a border for visualization */
       overflow: hidden; /* Hide any image overflow */
@@ -46,6 +45,21 @@
       object-fit: cover; /* Scale the image to cover the entire container while maintaining aspect ratio */
     }
 
+    .btn-primary {
+      width:120px;
+    }
+
+    .btn-secondary {
+      width:120px;
+    }
+
+    .links {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      justify-content: center;
+    }
+
     .post-grid {
         margin-top: 5vh;
         display: grid;
@@ -53,6 +67,7 @@
         grid-template-rows: min-content; 
         position: relative;
       }
+ 
 
 
     </style>
@@ -98,8 +113,14 @@
         <div class="container">
           <h1 class="jumbotron-heading">Meet the DC team</h1>
           <p>
-            <a href="homepage" class="btn btn-primary my-2" > Homepage</a>            
-            <a href="Registration" class="btn btn-secondary my-2"> Registration</a>
+            <div class="links">
+              <div class="link">
+                <a href="dashboard" class="btn btn-primary my-2" > Profile</a>   
+              </div>
+              <div class="link">
+                <a href="registration" class="btn btn-secondary my-2"> Registration</a>
+              </div>
+            </div>
           </p>
         </div>
       </section>
@@ -112,7 +133,7 @@
       <div class="col-md-4 mb-4"> <!-- Added 'col-md-4' class for column sizing and 'mb-4' for margin-bottom -->
         <div class="card box-shadow">
           <div class="profilepicture">
-            <img class="card-img-top mx-auto" src="<?php echo asset('/storage/image/'.$indiv->profilepic)?>" alt="Card image cap">
+            <img class="card-img-top mx-auto" src="<?php echo asset('/storage/image/'.$indiv->profilepic)?>" alt="Card image cap" style="width: 100%;">
           </div>
           <div class="card-body">
             <div class="post-grid">

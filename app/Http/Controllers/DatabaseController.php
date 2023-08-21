@@ -18,7 +18,7 @@ public function update(Request $request, $id) {
     $form = Form::findOrFail($id);
     $form->update($request->all());
 
-    return redirect('homepage')->with('success', 'Form updated successfully.');
+    return redirect('projects')->with('success', 'Form updated successfully.');
 }
 
 }

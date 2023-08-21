@@ -16,6 +16,16 @@
 
         <!-- Styles -->
         @livewireStyles
+
+        <style>
+            .navbar-grid {
+                width: 100%;
+                display: grid;
+                grid-template-columns: 52% 12% 12% 12% 12%; 
+                grid-template-rows: min-content; 
+                position: relative;
+            }
+        </style>
     </head>
     <body class="font-sans antialiased">
         <x-banner />
@@ -25,11 +35,33 @@
 
             <!-- Page Heading -->
             @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
+                <div class="navbar-grid">
+                    <header class="bg-white shadow">
+                        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                            {{ $header }}
+                        </div>
+                    </header>
+                    <header class="bg-white shadow">
+                        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                            <a href="projects" class="btn btn-primary my-2" > Projects </a>          
+                        </div>
+                    </header>
+                    <header class="bg-white shadow">
+                        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                            <a href="about-us" class="btn btn-primary my-2" > About Us </a>
+                        </div>
+                    </header>
+                    <header class="bg-white shadow">
+                        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                            <a href="calendar-event" class="btn btn-primary my-2" > Calendar </a>
+                        </div>
+                    </header>
+                    <header class="bg-white shadow">
+                        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                            <a href="contact-form" class="btn btn-primary my-2" > Contact Us</a>
+                        </div>
+                    </header>
+                </div>
             @endif
 
             <!-- Page Content -->
