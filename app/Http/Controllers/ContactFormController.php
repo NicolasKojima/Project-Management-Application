@@ -15,7 +15,7 @@ class ContactFormController extends Controller
     {
         $contact = contact::all();
 
-        return view('homepage', compact('contact'));
+        return view('projects', compact('contact'));
     }
     public function store(Request $request)
 {
@@ -25,6 +25,6 @@ class ContactFormController extends Controller
     $inquirydata->inquiry= $request['inquiry'];
     $inquirydata->save();
 
-    return redirect('/homepage')->with('status', 'Form submitted successfully');
+    return redirect('/projects')->with('status', 'Form submitted successfully');
 
 }}

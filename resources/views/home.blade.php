@@ -10,8 +10,8 @@
                 <div class="card-body" align-text^>
                 <p>{{ __('You are logged in!') }}</p>
 
-                <!-- Homepage link -->
-                <a href="/homepage" class="btn btn-primary my-2">Home</a>
+                <!-- projects link -->
+                <a href="/projects" class="btn btn-primary my-2">Home</a>
 
                 <!-- Logout form -->
                 <form id="logout-form" action="{{ route('login') }}" method="POST">

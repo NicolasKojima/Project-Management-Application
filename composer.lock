@@ -48,12 +48,12 @@
                 {
                     "name": "Ben Scholzen 'DASPRiD'",
                     "email": "mail@dasprids.de",
-                    "homepage": "https://dasprids.de/",
+                    "projects": "https://dasprids.de/",
                     "role": "Developer"
                 }
             ],
             "description": "BaconQrCode is a QR code generator for PHP.",
-            "homepage": "https://github.com/Bacon/BaconQrCode",
+            "projects": "https://github.com/Bacon/BaconQrCode",
             "support": {
                 "issues": "https://github.com/Bacon/BaconQrCode/issues",
                 "source": "https://github.com/Bacon/BaconQrCode/tree/2.0.8"
@@ -150,7 +150,7 @@
                 {
                     "name": "Ben Scholzen 'DASPRiD'",
                     "email": "mail@dasprids.de",
-                    "homepage": "https://dasprids.de/",
+                    "projects": "https://dasprids.de/",
                     "role": "Developer"
                 }
             ],
@@ -208,26 +208,26 @@
                 {
                     "name": "Dragonfly Development Inc.",
                     "email": "info@dflydev.com",
-                    "homepage": "http://dflydev.com"
+                    "projects": "http://dflydev.com"
                 },
                 {
                     "name": "Beau Simensen",
                     "email": "beau@dflydev.com",
-                    "homepage": "http://beausimensen.com"
+                    "projects": "http://beausimensen.com"
                 },
                 {
                     "name": "Carlos Frutos",
                     "email": "carlos@kiwing.it",
-                    "homepage": "https://github.com/cfrutos"
+                    "projects": "https://github.com/cfrutos"
                 },
                 {
                     "name": "Colin O'Dell",
                     "email": "colinodell@gmail.com",
-                    "homepage": "https://www.colinodell.com"
+                    "projects": "https://www.colinodell.com"
                 }
             ],
             "description": "Given a deep data structure, access data by dot notation.",
-            "homepage": "https://github.com/dflydev/dflydev-dot-access-data",
+            "projects": "https://github.com/dflydev/dflydev-dot-access-data",
             "keywords": [
                 "access",
                 "data",
@@ -280,7 +280,7 @@
                 "MIT"
             ],
             "description": "A small layer on top of trigger_error(E_USER_DEPRECATED) or PSR-3 logging with options to disable all deprecations or selectively for packages.",
-            "homepage": "https://www.doctrine-project.org/",
+            "projects": "https://www.doctrine-project.org/",
             "support": {
                 "issues": "https://github.com/doctrine/deprecations/issues",
                 "source": "https://github.com/doctrine/deprecations/tree/v1.1.1"
@@ -345,7 +345,7 @@
                 }
             ],
             "description": "PHP Doctrine Inflector is a small library that can perform string manipulations with regard to upper/lowercase and singular/plural forms of words.",
-            "homepage": "https://www.doctrine-project.org/projects/inflector.html",
+            "projects": "https://www.doctrine-project.org/projects/inflector.html",
             "keywords": [
                 "inflection",
                 "inflector",
@@ -428,7 +428,7 @@
                 }
             ],
             "description": "PHP Doctrine Lexer parser library that can be used in Top-Down, Recursive Descent Parsers.",
-            "homepage": "https://www.doctrine-project.org/projects/lexer.html",
+            "projects": "https://www.doctrine-project.org/projects/lexer.html",
             "keywords": [
                 "annotations",
                 "docblock",
@@ -497,7 +497,7 @@
                 {
                     "name": "Chris Tankersley",
                     "email": "chris@ctankersley.com",
-                    "homepage": "https://github.com/dragonmantank"
+                    "projects": "https://github.com/dragonmantank"
                 }
             ],
             "description": "CRON for PHP: Calculate the next or previous run date and determine if a CRON expression is due",
@@ -564,7 +564,7 @@
                 }
             ],
             "description": "A library for validating emails against several RFCs",
-            "homepage": "https://github.com/egulias/EmailValidator",
+            "projects": "https://github.com/egulias/EmailValidator",
             "keywords": [
                 "email",
                 "emailvalidation",
@@ -625,7 +625,7 @@
             "authors": [
                 {
                     "name": "Fruitcake",
-                    "homepage": "https://fruitcake.nl"
+                    "projects": "https://fruitcake.nl"
                 },
                 {
                     "name": "Barryvdh",
@@ -633,7 +633,7 @@
                 }
             ],
             "description": "Cross-origin resource sharing library for the Symfony HttpFoundation",
-            "homepage": "https://github.com/fruitcake/php-cors",
+            "projects": "https://github.com/fruitcake/php-cors",
             "keywords": [
                 "cors",
                 "laravel",
@@ -690,7 +690,7 @@
                 {
                     "name": "Graham Campbell",
                     "email": "hello@gjcampbell.co.uk",
-                    "homepage": "https://github.com/GrahamCampbell"
+                    "projects": "https://github.com/GrahamCampbell"
                 }
             ],
             "description": "An Implementation Of The Result Type",
@@ -778,37 +778,37 @@
                 {
                     "name": "Graham Campbell",
                     "email": "hello@gjcampbell.co.uk",
-                    "homepage": "https://github.com/GrahamCampbell"
+                    "projects": "https://github.com/GrahamCampbell"
                 },
                 {
                     "name": "Michael Dowling",
                     "email": "mtdowling@gmail.com",
-                    "homepage": "https://github.com/mtdowling"
+                    "projects": "https://github.com/mtdowling"
                 },
                 {
                     "name": "Jeremy Lindblom",
                     "email": "jeremeamia@gmail.com",
-                    "homepage": "https://github.com/jeremeamia"
+                    "projects": "https://github.com/jeremeamia"
                 },
                 {
                     "name": "George Mponos",
                     "email": "gmponos@gmail.com",
-                    "homepage": "https://github.com/gmponos"
+                    "projects": "https://github.com/gmponos"
                 },
                 {
                     "name": "Tobias Nyholm",
                     "email": "tobias.nyholm@gmail.com",
-                    "homepage": "https://github.com/Nyholm"
+                    "projects": "https://github.com/Nyholm"
                 },
                 {
                     "name": "Márk Sági-Kazár",
                     "email": "mark.sagikazar@gmail.com",
-                    "homepage": "https://github.com/sagikazarmark"
+                    "projects": "https://github.com/sagikazarmark"
                 },
                 {
                     "name": "Tobias Schultze",
                     "email": "webmaster@tubo-world.de",
-                    "homepage": "https://github.com/Tobion"
+                    "projects": "https://github.com/Tobion"
                 }
             ],
             "description": "Guzzle is a PHP HTTP client library",
@@ -884,22 +884,22 @@
                 {
                     "name": "Graham Campbell",
                     "email": "hello@gjcampbell.co.uk",
-                    "homepage": "https://github.com/GrahamCampbell"
+                    "projects": "https://github.com/GrahamCampbell"
                 },
                 {
                     "name": "Michael Dowling",
                     "email": "mtdowling@gmail.com",
-                    "homepage": "https://github.com/mtdowling"
+                    "projects": "https://github.com/mtdowling"
                 },
                 {
                     "name": "Tobias Nyholm",
                     "email": "tobias.nyholm@gmail.com",
-                    "homepage": "https://github.com/Nyholm"
+                    "projects": "https://github.com/Nyholm"
                 },
                 {
                     "name": "Tobias Schultze",
                     "email": "webmaster@tubo-world.de",
-                    "homepage": "https://github.com/Tobion"
+                    "projects": "https://github.com/Tobion"
                 }
             ],
             "description": "Guzzle promises library",
@@ -978,37 +978,37 @@
                 {
                     "name": "Graham Campbell",
                     "email": "hello@gjcampbell.co.uk",
-                    "homepage": "https://github.com/GrahamCampbell"
+                    "projects": "https://github.com/GrahamCampbell"
                 },
                 {
                     "name": "Michael Dowling",
                     "email": "mtdowling@gmail.com",
-                    "homepage": "https://github.com/mtdowling"
+                    "projects": "https://github.com/mtdowling"
                 },
                 {
                     "name": "George Mponos",
                     "email": "gmponos@gmail.com",
-                    "homepage": "https://github.com/gmponos"
+                    "projects": "https://github.com/gmponos"
                 },
                 {
                     "name": "Tobias Nyholm",
                     "email": "tobias.nyholm@gmail.com",
-                    "homepage": "https://github.com/Nyholm"
+                    "projects": "https://github.com/Nyholm"
                 },
                 {
                     "name": "Márk Sági-Kazár",
                     "email": "mark.sagikazar@gmail.com",
-                    "homepage": "https://github.com/sagikazarmark"
+                    "projects": "https://github.com/sagikazarmark"
                 },
                 {
                     "name": "Tobias Schultze",
                     "email": "webmaster@tubo-world.de",
-                    "homepage": "https://github.com/Tobion"
+                    "projects": "https://github.com/Tobion"
                 },
                 {
                     "name": "Márk Sági-Kazár",
                     "email": "mark.sagikazar@gmail.com",
-                    "homepage": "https://sagikazarmark.hu"
+                    "projects": "https://sagikazarmark.hu"
                 }
             ],
             "description": "PSR-7 message implementation that also provides common utility methods",
@@ -1083,22 +1083,22 @@
                 {
                     "name": "Graham Campbell",
                     "email": "hello@gjcampbell.co.uk",
-                    "homepage": "https://github.com/GrahamCampbell"
+                    "projects": "https://github.com/GrahamCampbell"
                 },
                 {
                     "name": "Michael Dowling",
                     "email": "mtdowling@gmail.com",
-                    "homepage": "https://github.com/mtdowling"
+                    "projects": "https://github.com/mtdowling"
                 },
                 {
                     "name": "George Mponos",
                     "email": "gmponos@gmail.com",
-                    "homepage": "https://github.com/gmponos"
+                    "projects": "https://github.com/gmponos"
                 },
                 {
                     "name": "Tobias Nyholm",
                     "email": "tobias.nyholm@gmail.com",
-                    "homepage": "https://github.com/Nyholm"
+                    "projects": "https://github.com/Nyholm"
                 }
             ],
             "description": "A polyfill class for uri_template of PHP",
@@ -1164,7 +1164,7 @@
                 }
             ],
             "description": "CrawlerDetect is a PHP class for detecting bots/crawlers/spiders via the user agent",
-            "homepage": "https://github.com/JayBizzle/Crawler-Detect/",
+            "projects": "https://github.com/JayBizzle/Crawler-Detect/",
             "keywords": [
                 "crawler",
                 "crawler detect",
@@ -1230,11 +1230,11 @@
             "authors": [
                 {
                     "name": "Jens Segers",
-                    "homepage": "https://jenssegers.com"
+                    "projects": "https://jenssegers.com"
                 }
             ],
             "description": "Desktop/mobile user agent parser with support for Laravel, based on Mobiledetect",
-            "homepage": "https://github.com/jenssegers/agent",
+            "projects": "https://github.com/jenssegers/agent",
             "keywords": [
                 "Agent",
                 "browser",
@@ -1512,7 +1512,7 @@
                 }
             ],
             "description": "The Laravel Framework.",
-            "homepage": "https://laravel.com",
+            "projects": "https://laravel.com",
             "keywords": [
                 "framework",
                 "laravel"
@@ -1852,12 +1852,12 @@
                 {
                     "name": "Colin O'Dell",
                     "email": "colinodell@gmail.com",
-                    "homepage": "https://www.colinodell.com",
+                    "projects": "https://www.colinodell.com",
                     "role": "Lead Developer"
                 }
             ],
             "description": "Highly-extensible PHP Markdown parser which fully supports the CommonMark spec and GitHub-Flavored Markdown (GFM)",
-            "homepage": "https://commonmark.thephpleague.com",
+            "projects": "https://commonmark.thephpleague.com",
             "keywords": [
                 "commonmark",
                 "flavored",
@@ -1940,12 +1940,12 @@
                 {
                     "name": "Colin O'Dell",
                     "email": "colinodell@gmail.com",
-                    "homepage": "https://www.colinodell.com",
+                    "projects": "https://www.colinodell.com",
                     "role": "Lead Developer"
                 }
             ],
             "description": "Define configuration arrays with strict schemas and access values with dot notation",
-            "homepage": "https://config.thephpleague.com",
+            "projects": "https://config.thephpleague.com",
             "keywords": [
                 "array",
                 "config",
@@ -2291,12 +2291,12 @@
                 {
                     "name": "Serban Ghita",
                     "email": "serbanghita@gmail.com",
-                    "homepage": "http://mobiledetect.net",
+                    "projects": "http://mobiledetect.net",
                     "role": "Developer"
                 }
             ],
             "description": "Mobile_Detect is a lightweight PHP class for detecting mobile devices. It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.",
-            "homepage": "https://github.com/serbanghita/Mobile-Detect",
+            "projects": "https://github.com/serbanghita/Mobile-Detect",
             "keywords": [
                 "detect mobile devices",
                 "mobile",
@@ -2386,11 +2386,11 @@
                 {
                     "name": "Jordi Boggiano",
                     "email": "j.boggiano@seld.be",
-                    "homepage": "https://seld.be"
+                    "projects": "https://seld.be"
                 }
             ],
             "description": "Sends your logs to files, sockets, inboxes, databases and various web services",
-            "homepage": "https://github.com/Seldaek/monolog",
+            "projects": "https://github.com/Seldaek/monolog",
             "keywords": [
                 "log",
                 "logging",
@@ -2483,15 +2483,15 @@
                 {
                     "name": "Brian Nesbitt",
                     "email": "brian@nesbot.com",
-                    "homepage": "https://markido.com"
+                    "projects": "https://markido.com"
                 },
                 {
                     "name": "kylekatarnls",
-                    "homepage": "https://github.com/kylekatarnls"
+                    "projects": "https://github.com/kylekatarnls"
                 }
             ],
             "description": "An API extension for DateTime that supports 281 different languages.",
-            "homepage": "https://carbon.nesbot.com",
+            "projects": "https://carbon.nesbot.com",
             "keywords": [
                 "date",
                 "datetime",
@@ -2561,15 +2561,15 @@
             "authors": [
                 {
                     "name": "David Grudl",
-                    "homepage": "https://davidgrudl.com"
+                    "projects": "https://davidgrudl.com"
                 },
                 {
                     "name": "Nette Community",
-                    "homepage": "https://nette.org/contributors"
+                    "projects": "https://nette.org/contributors"
                 }
             ],
             "description": "📐 Nette Schema: validating data structures against a given Schema.",
-            "homepage": "https://nette.org",
+            "projects": "https://nette.org",
             "keywords": [
                 "config",
                 "nette"
@@ -2636,15 +2636,15 @@
             "authors": [
                 {
                     "name": "David Grudl",
-                    "homepage": "https://davidgrudl.com"
+                    "projects": "https://davidgrudl.com"
                 },
                 {
                     "name": "Nette Community",
-                    "homepage": "https://nette.org/contributors"
+                    "projects": "https://nette.org/contributors"
                 }
             ],
             "description": "🛠  Nette Utils: lightweight utilities for string & array manipulation, image handling, safe JSON encoding/decoding, validation, slug or strong password generating etc.",
-            "homepage": "https://nette.org",
+            "projects": "https://nette.org",
             "keywords": [
                 "array",
                 "core",
@@ -2844,13 +2844,13 @@
                 {
                     "name": "Paragon Initiative Enterprises",
                     "email": "security@paragonie.com",
-                    "homepage": "https://paragonie.com",
+                    "projects": "https://paragonie.com",
                     "role": "Maintainer"
                 },
                 {
                     "name": "Steve 'Sc00bz' Thomas",
                     "email": "steve@tobtu.com",
-                    "homepage": "https://www.tobtu.com",
+                    "projects": "https://www.tobtu.com",
                     "role": "Original Developer"
                 }
             ],
@@ -2920,12 +2920,12 @@
                 {
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh"
+                    "projects": "https://github.com/schmittjoh"
                 },
                 {
                     "name": "Graham Campbell",
                     "email": "hello@gjcampbell.co.uk",
-                    "homepage": "https://github.com/GrahamCampbell"
+                    "projects": "https://github.com/GrahamCampbell"
                 }
             ],
             "description": "Option Type for PHP",
@@ -3033,11 +3033,11 @@
             "authors": [
                 {
                     "name": "PHP-FIG",
-                    "homepage": "https://www.php-fig.org/"
+                    "projects": "https://www.php-fig.org/"
                 }
             ],
             "description": "Common interface for reading the clock.",
-            "homepage": "https://github.com/php-fig/clock",
+            "projects": "https://github.com/php-fig/clock",
             "keywords": [
                 "clock",
                 "now",
@@ -3086,11 +3086,11 @@
             "authors": [
                 {
                     "name": "PHP-FIG",
-                    "homepage": "https://www.php-fig.org/"
+                    "projects": "https://www.php-fig.org/"
                 }
             ],
             "description": "Common Container Interface (PHP FIG PSR-11)",
-            "homepage": "https://github.com/php-fig/container",
+            "projects": "https://github.com/php-fig/container",
             "keywords": [
                 "PSR-11",
                 "container",
@@ -3139,7 +3139,7 @@
             "authors": [
                 {
                     "name": "PHP-FIG",
-                    "homepage": "http://www.php-fig.org/"
+                    "projects": "http://www.php-fig.org/"
                 }
             ],
             "description": "Standard interfaces for event handling.",
@@ -3190,11 +3190,11 @@
             "authors": [
                 {
                     "name": "PHP-FIG",
-                    "homepage": "https://www.php-fig.org/"
+                    "projects": "https://www.php-fig.org/"
                 }
             ],
             "description": "Common interface for HTTP clients",
-            "homepage": "https://github.com/php-fig/http-client",
+            "projects": "https://github.com/php-fig/http-client",
             "keywords": [
                 "http",
                 "http-client",
@@ -3242,7 +3242,7 @@
             "authors": [
                 {
                     "name": "PHP-FIG",
-                    "homepage": "https://www.php-fig.org/"
+                    "projects": "https://www.php-fig.org/"
                 }
             ],
             "description": "Common interfaces for PSR-7 HTTP message factories",
@@ -3296,11 +3296,11 @@
             "authors": [
                 {
                     "name": "PHP-FIG",
-                    "homepage": "https://www.php-fig.org/"
+                    "projects": "https://www.php-fig.org/"
                 }
             ],
             "description": "Common interface for HTTP messages",
-            "homepage": "https://github.com/php-fig/http-message",
+            "projects": "https://github.com/php-fig/http-message",
             "keywords": [
                 "http",
                 "http-message",
@@ -3349,11 +3349,11 @@
             "authors": [
                 {
                     "name": "PHP-FIG",
-                    "homepage": "https://www.php-fig.org/"
+                    "projects": "https://www.php-fig.org/"
                 }
             ],
             "description": "Common interface for logging libraries",
-            "homepage": "https://github.com/php-fig/log",
+            "projects": "https://github.com/php-fig/log",
             "keywords": [
                 "log",
                 "psr",
@@ -3399,7 +3399,7 @@
             "authors": [
                 {
                     "name": "PHP-FIG",
-                    "homepage": "https://www.php-fig.org/"
+                    "projects": "https://www.php-fig.org/"
                 }
             ],
             "description": "Common interfaces for simple caching",
@@ -3474,11 +3474,11 @@
                 {
                     "name": "Justin Hileman",
                     "email": "justin@justinhileman.info",
-                    "homepage": "http://justinhileman.com"
+                    "projects": "http://justinhileman.com"
                 }
             ],
             "description": "An interactive shell for modern PHP.",
-            "homepage": "http://psysh.org",
+            "projects": "http://psysh.org",
             "keywords": [
                 "REPL",
                 "console",
@@ -3597,7 +3597,7 @@
                 {
                     "name": "Ben Ramsey",
                     "email": "ben@benramsey.com",
-                    "homepage": "https://benramsey.com"
+                    "projects": "https://benramsey.com"
                 }
             ],
             "description": "A PHP library for representing and manipulating collections.",
@@ -3782,11 +3782,11 @@
                 },
                 {
                     "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
+                    "projects": "https://symfony.com/contributors"
                 }
             ],
             "description": "Eases the creation of beautiful and testable command line interfaces",
-            "homepage": "https://symfony.com",
+            "projects": "https://symfony.com",
             "keywords": [
                 "cli",
                 "command line",
@@ -3853,11 +3853,11 @@
                 },
                 {
                     "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
+                    "projects": "https://symfony.com/contributors"
                 }
             ],
             "description": "Converts CSS selectors to XPath expressions",
-            "homepage": "https://symfony.com",
+            "projects": "https://symfony.com",
             "support": {
                 "source": "https://github.com/symfony/css-selector/tree/v6.0.19"
             },
@@ -3920,11 +3920,11 @@
                 },
                 {
                     "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
+                    "projects": "https://symfony.com/contributors"
                 }
             ],
             "description": "A generic function and convention to trigger deprecation notices",
-            "homepage": "https://symfony.com",
+            "projects": "https://symfony.com",
             "support": {
                 "source": "https://github.com/symfony/deprecation-contracts/tree/v3.0.2"
             },
@@ -3991,11 +3991,11 @@
                 },
                 {
                     "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
+                    "projects": "https://symfony.com/contributors"
                 }
             ],
             "description": "Provides tools to manage errors and ease debugging PHP code",
-            "homepage": "https://symfony.com",
+            "projects": "https://symfony.com",
             "support": {
                 "source": "https://github.com/symfony/error-handler/tree/v6.0.19"
             },
@@ -4074,11 +4074,11 @@
                 },
                 {
                     "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
+                    "projects": "https://symfony.com/contributors"
                 }
             ],
             "description": "Provides tools that allow your application components to communicate with each other by dispatching events and listening to them",
-            "homepage": "https://symfony.com",
+            "projects": "https://symfony.com",
             "support": {
                 "source": "https://github.com/symfony/event-dispatcher/tree/v6.0.19"
             },
@@ -4145,11 +4145,11 @@
                 },
                 {
                     "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
+                    "projects": "https://symfony.com/contributors"
                 }
             ],
             "description": "Generic abstractions related to dispatching event",
-            "homepage": "https://symfony.com",
+            "projects": "https://symfony.com",
             "keywords": [
                 "abstractions",
                 "contracts",
@@ -4214,11 +4214,11 @@
                 },
                 {
                     "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
+                    "projects": "https://symfony.com/contributors"
                 }
             ],
             "description": "Finds files and directories via an intuitive fluent interface",
-            "homepage": "https://symfony.com",
+            "projects": "https://symfony.com",
             "support": {
                 "source": "https://github.com/symfony/finder/tree/v6.0.19"
             },
@@ -4289,11 +4289,11 @@
                 },
                 {
                     "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
+                    "projects": "https://symfony.com/contributors"
                 }
             ],
             "description": "Defines an object-oriented layer for the HTTP specification",
-            "homepage": "https://symfony.com",
+            "projects": "https://symfony.com",
             "support": {
                 "source": "https://github.com/symfony/http-foundation/tree/v6.0.20"
             },
@@ -4398,11 +4398,11 @@
                 },
                 {
                     "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
+                    "projects": "https://symfony.com/contributors"
                 }
             ],
             "description": "Provides a structured process for converting a Request into a Response",
-            "homepage": "https://symfony.com",
+            "projects": "https://symfony.com",
             "support": {
                 "source": "https://github.com/symfony/http-kernel/tree/v6.0.20"
             },
@@ -4472,11 +4472,11 @@
                 },
                 {
                     "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
+                    "projects": "https://symfony.com/contributors"
                 }
             ],
             "description": "Helps sending emails",
-            "homepage": "https://symfony.com",
+            "projects": "https://symfony.com",
             "support": {
                 "source": "https://github.com/symfony/mailer/tree/v6.0.19"
             },
@@ -4550,11 +4550,11 @@
                 },
                 {
                     "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
+                    "projects": "https://symfony.com/contributors"
                 }
             ],
             "description": "Allows manipulating MIME messages",
-            "homepage": "https://symfony.com",
+            "projects": "https://symfony.com",
             "keywords": [
                 "mime",
                 "mime-type"
@@ -4630,11 +4630,11 @@
                 },
                 {
                     "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
+                    "projects": "https://symfony.com/contributors"
                 }
             ],
             "description": "Symfony polyfill for ctype functions",
-            "homepage": "https://symfony.com",
+            "projects": "https://symfony.com",
             "keywords": [
                 "compatibility",
                 "ctype",
@@ -4709,11 +4709,11 @@
                 },
                 {
                     "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
+                    "projects": "https://symfony.com/contributors"
                 }
             ],
             "description": "Symfony polyfill for intl's grapheme_* functions",
-            "homepage": "https://symfony.com",
+            "projects": "https://symfony.com",
             "keywords": [
                 "compatibility",
                 "grapheme",
@@ -4796,11 +4796,11 @@
                 },
                 {
                     "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
+                    "projects": "https://symfony.com/contributors"
                 }
             ],
             "description": "Symfony polyfill for intl's idn_to_ascii and idn_to_utf8 functions",
-            "homepage": "https://symfony.com",
+            "projects": "https://symfony.com",
             "keywords": [
                 "compatibility",
                 "idn",
@@ -4880,11 +4880,11 @@
                 },
                 {
                     "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
+                    "projects": "https://symfony.com/contributors"
                 }
             ],
             "description": "Symfony polyfill for intl's Normalizer class and related functions",
-            "homepage": "https://symfony.com",
+            "projects": "https://symfony.com",
             "keywords": [
                 "compatibility",
                 "intl",
@@ -4964,11 +4964,11 @@
                 },
                 {
                     "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
+                    "projects": "https://symfony.com/contributors"
                 }
             ],
             "description": "Symfony polyfill for the Mbstring extension",
-            "homepage": "https://symfony.com",
+            "projects": "https://symfony.com",
             "keywords": [
                 "compatibility",
                 "mbstring",
@@ -5041,11 +5041,11 @@
                 },
                 {
                     "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
+                    "projects": "https://symfony.com/contributors"
                 }
             ],
             "description": "Symfony polyfill backporting some PHP 7.2+ features to lower PHP versions",
-            "homepage": "https://symfony.com",
+            "projects": "https://symfony.com",
             "keywords": [
                 "compatibility",
                 "polyfill",
@@ -5124,11 +5124,11 @@
                 },
                 {
                     "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
+                    "projects": "https://symfony.com/contributors"
                 }
             ],
             "description": "Symfony polyfill backporting some PHP 8.0+ features to lower PHP versions",
-            "homepage": "https://symfony.com",
+            "projects": "https://symfony.com",
             "keywords": [
                 "compatibility",
                 "polyfill",
@@ -5203,11 +5203,11 @@
                 },
                 {
                     "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
+                    "projects": "https://symfony.com/contributors"
                 }
             ],
             "description": "Symfony polyfill backporting some PHP 8.1+ features to lower PHP versions",
-            "homepage": "https://symfony.com",
+            "projects": "https://symfony.com",
             "keywords": [
                 "compatibility",
                 "polyfill",
@@ -5285,11 +5285,11 @@
                 },
                 {
                     "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
+                    "projects": "https://symfony.com/contributors"
                 }
             ],
             "description": "Symfony polyfill for uuid functions",
-            "homepage": "https://symfony.com",
+            "projects": "https://symfony.com",
             "keywords": [
                 "compatibility",
                 "polyfill",
@@ -5352,11 +5352,11 @@
                 },
                 {
                     "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
+                    "projects": "https://symfony.com/contributors"
                 }
             ],
             "description": "Executes commands in sub-processes",
-            "homepage": "https://symfony.com",
+            "projects": "https://symfony.com",
             "support": {
                 "source": "https://github.com/symfony/process/tree/v6.0.19"
             },
@@ -5434,11 +5434,11 @@
                 },
                 {
                     "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
+                    "projects": "https://symfony.com/contributors"
                 }
             ],
             "description": "Maps an HTTP request to a set of configuration variables",
-            "homepage": "https://symfony.com",
+            "projects": "https://symfony.com",
             "keywords": [
                 "router",
                 "routing",
@@ -5514,11 +5514,11 @@
                 },
                 {
                     "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
+                    "projects": "https://symfony.com/contributors"
                 }
             ],
             "description": "Generic abstractions related to writing services",
-            "homepage": "https://symfony.com",
+            "projects": "https://symfony.com",
             "keywords": [
                 "abstractions",
                 "contracts",
@@ -5599,11 +5599,11 @@
                 },
                 {
                     "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
+                    "projects": "https://symfony.com/contributors"
                 }
             ],
             "description": "Provides an object-oriented API to strings and deals with bytes, UTF-8 code points and grapheme clusters in a unified way",
-            "homepage": "https://symfony.com",
+            "projects": "https://symfony.com",
             "keywords": [
                 "grapheme",
                 "i18n",
@@ -5702,11 +5702,11 @@
                 },
                 {
                     "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
+                    "projects": "https://symfony.com/contributors"
                 }
             ],
             "description": "Provides tools to internationalize your application",
-            "homepage": "https://symfony.com",
+            "projects": "https://symfony.com",
             "support": {
                 "source": "https://github.com/symfony/translation/tree/v6.0.19"
             },
@@ -5772,11 +5772,11 @@
                 },
                 {
                     "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
+                    "projects": "https://symfony.com/contributors"
                 }
             ],
             "description": "Generic abstractions related to translation",
-            "homepage": "https://symfony.com",
+            "projects": "https://symfony.com",
             "keywords": [
                 "abstractions",
                 "contracts",
@@ -5849,11 +5849,11 @@
                 },
                 {
                     "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
+                    "projects": "https://symfony.com/contributors"
                 }
             ],
             "description": "Provides an object-oriented API to generate and represent UIDs",
-            "homepage": "https://symfony.com",
+            "projects": "https://symfony.com",
             "keywords": [
                 "UID",
                 "ulid",
@@ -5938,11 +5938,11 @@
                 },
                 {
                     "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
+                    "projects": "https://symfony.com/contributors"
                 }
             ],
             "description": "Provides mechanisms for walking through any arbitrary PHP variable",
-            "homepage": "https://symfony.com",
+            "projects": "https://symfony.com",
             "keywords": [
                 "debug",
                 "dump"
@@ -6012,7 +6012,7 @@
                 }
             ],
             "description": "CssToInlineStyles is a class that enables you to convert HTML-pages/files into HTML-pages/files with inline styles. This is very useful when you're sending emails.",
-            "homepage": "https://github.com/tijsverkoyen/CssToInlineStyles",
+            "projects": "https://github.com/tijsverkoyen/CssToInlineStyles",
             "support": {
                 "issues": "https://github.com/tijsverkoyen/CssToInlineStyles/issues",
                 "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/2.2.6"
@@ -6073,12 +6073,12 @@
                 {
                     "name": "Graham Campbell",
                     "email": "hello@gjcampbell.co.uk",
-                    "homepage": "https://github.com/GrahamCampbell"
+                    "projects": "https://github.com/GrahamCampbell"
                 },
                 {
                     "name": "Vance Lucas",
                     "email": "vance@vancelucas.com",
-                    "homepage": "https://github.com/vlucas"
+                    "projects": "https://github.com/vlucas"
                 }
             ],
             "description": "Loads environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER` automagically.",
@@ -6139,11 +6139,11 @@
             "authors": [
                 {
                     "name": "Lars Moelleken",
-                    "homepage": "http://www.moelleken.org/"
+                    "projects": "http://www.moelleken.org/"
                 }
             ],
             "description": "Portable ASCII library - performance optimized (ascii) string functions for php.",
-            "homepage": "https://github.com/voku/portable-ascii",
+            "projects": "https://github.com/voku/portable-ascii",
             "keywords": [
                 "ascii",
                 "clean",
@@ -6278,11 +6278,11 @@
                 {
                     "name": "Marco Pivetta",
                     "email": "ocramius@gmail.com",
-                    "homepage": "https://ocramius.github.io/"
+                    "projects": "https://ocramius.github.io/"
                 }
             ],
             "description": "A small, lightweight utility to instantiate objects in PHP without invoking their constructors",
-            "homepage": "https://www.doctrine-project.org/projects/instantiator.html",
+            "projects": "https://www.doctrine-project.org/projects/instantiator.html",
             "keywords": [
                 "constructor",
                 "instantiate"
@@ -6420,12 +6420,12 @@
             "authors": [
                 {
                     "name": "Filipe Dobreira",
-                    "homepage": "https://github.com/filp",
+                    "projects": "https://github.com/filp",
                     "role": "Developer"
                 }
             ],
             "description": "php error handling for cool kids",
-            "homepage": "https://filp.github.io/whoops/",
+            "projects": "https://filp.github.io/whoops/",
             "keywords": [
                 "error",
                 "exception",
@@ -6549,7 +6549,7 @@
                 }
             ],
             "description": "An opinionated code formatter for PHP.",
-            "homepage": "https://laravel.com",
+            "projects": "https://laravel.com",
             "keywords": [
                 "format",
                 "formatter",
@@ -6674,24 +6674,24 @@
                 {
                     "name": "Pádraic Brady",
                     "email": "padraic.brady@gmail.com",
-                    "homepage": "https://github.com/padraic",
+                    "projects": "https://github.com/padraic",
                     "role": "Author"
                 },
                 {
                     "name": "Dave Marshall",
                     "email": "dave.marshall@atstsolutions.co.uk",
-                    "homepage": "https://davedevelopment.co.uk",
+                    "projects": "https://davedevelopment.co.uk",
                     "role": "Developer"
                 },
                 {
                     "name": "Nathanael Esayeas",
                     "email": "nathanael.esayeas@protonmail.com",
-                    "homepage": "https://github.com/ghostwriter",
+                    "projects": "https://github.com/ghostwriter",
                     "role": "Lead Developer"
                 }
             ],
             "description": "Mockery is a simple yet flexible PHP mock object framework",
-            "homepage": "https://github.com/mockery/mockery",
+            "projects": "https://github.com/mockery/mockery",
             "keywords": [
                 "BDD",
                 "TDD",
@@ -7030,7 +7030,7 @@
                 }
             ],
             "description": "Library that provides collection, processing, and rendering functionality for PHP code coverage information.",
-            "homepage": "https://github.com/sebastianbergmann/php-code-coverage",
+            "projects": "https://github.com/sebastianbergmann/php-code-coverage",
             "keywords": [
                 "coverage",
                 "testing",
@@ -7092,7 +7092,7 @@
                 }
             ],
             "description": "FilterIterator implementation that filters files based on a list of suffixes.",
-            "homepage": "https://github.com/sebastianbergmann/php-file-iterator/",
+            "projects": "https://github.com/sebastianbergmann/php-file-iterator/",
             "keywords": [
                 "filesystem",
                 "iterator"
@@ -7156,7 +7156,7 @@
                 }
             ],
             "description": "Invoke callables with a timeout",
-            "homepage": "https://github.com/sebastianbergmann/php-invoker/",
+            "projects": "https://github.com/sebastianbergmann/php-invoker/",
             "keywords": [
                 "process"
             ],
@@ -7215,7 +7215,7 @@
                 }
             ],
             "description": "Simple template engine.",
-            "homepage": "https://github.com/sebastianbergmann/php-text-template/",
+            "projects": "https://github.com/sebastianbergmann/php-text-template/",
             "keywords": [
                 "template"
             ],
@@ -7274,7 +7274,7 @@
                 }
             ],
             "description": "Utility class for timing",
-            "homepage": "https://github.com/sebastianbergmann/php-timer/",
+            "projects": "https://github.com/sebastianbergmann/php-timer/",
             "keywords": [
                 "timer"
             ],
@@ -7366,7 +7366,7 @@
                 }
             ],
             "description": "The PHP Unit Testing framework.",
-            "homepage": "https://phpunit.de/",
+            "projects": "https://phpunit.de/",
             "keywords": [
                 "phpunit",
                 "testing",
@@ -7436,7 +7436,7 @@
                 }
             ],
             "description": "Library for parsing CLI options",
-            "homepage": "https://github.com/sebastianbergmann/cli-parser",
+            "projects": "https://github.com/sebastianbergmann/cli-parser",
             "support": {
                 "issues": "https://github.com/sebastianbergmann/cli-parser/issues",
                 "source": "https://github.com/sebastianbergmann/cli-parser/tree/1.0.1"
@@ -7492,7 +7492,7 @@
                 }
             ],
             "description": "Collection of value objects that represent the PHP code units",
-            "homepage": "https://github.com/sebastianbergmann/code-unit",
+            "projects": "https://github.com/sebastianbergmann/code-unit",
             "support": {
                 "issues": "https://github.com/sebastianbergmann/code-unit/issues",
                 "source": "https://github.com/sebastianbergmann/code-unit/tree/1.0.8"
@@ -7547,7 +7547,7 @@
                 }
             ],
             "description": "Looks up which function or method a line of code belongs to",
-            "homepage": "https://github.com/sebastianbergmann/code-unit-reverse-lookup/",
+            "projects": "https://github.com/sebastianbergmann/code-unit-reverse-lookup/",
             "support": {
                 "issues": "https://github.com/sebastianbergmann/code-unit-reverse-lookup/issues",
                 "source": "https://github.com/sebastianbergmann/code-unit-reverse-lookup/tree/2.0.3"
@@ -7616,7 +7616,7 @@
                 }
             ],
             "description": "Provides the functionality to compare PHP values for equality",
-            "homepage": "https://github.com/sebastianbergmann/comparator",
+            "projects": "https://github.com/sebastianbergmann/comparator",
             "keywords": [
                 "comparator",
                 "compare",
@@ -7678,7 +7678,7 @@
                 }
             ],
             "description": "Library for calculating the complexity of PHP code units",
-            "homepage": "https://github.com/sebastianbergmann/complexity",
+            "projects": "https://github.com/sebastianbergmann/complexity",
             "support": {
                 "issues": "https://github.com/sebastianbergmann/complexity/issues",
                 "source": "https://github.com/sebastianbergmann/complexity/tree/2.0.2"
@@ -7738,7 +7738,7 @@
                 }
             ],
             "description": "Diff implementation",
-            "homepage": "https://github.com/sebastianbergmann/diff",
+            "projects": "https://github.com/sebastianbergmann/diff",
             "keywords": [
                 "diff",
                 "udiff",
@@ -7802,7 +7802,7 @@
                 }
             ],
             "description": "Provides functionality to handle HHVM/PHP environments",
-            "homepage": "http://www.github.com/sebastianbergmann/environment",
+            "projects": "http://www.github.com/sebastianbergmann/environment",
             "keywords": [
                 "Xdebug",
                 "environment",
@@ -7880,7 +7880,7 @@
                 }
             ],
             "description": "Provides the functionality to export PHP variables for visualization",
-            "homepage": "https://www.github.com/sebastianbergmann/exporter",
+            "projects": "https://www.github.com/sebastianbergmann/exporter",
             "keywords": [
                 "export",
                 "exporter"
@@ -7945,7 +7945,7 @@
                 }
             ],
             "description": "Snapshotting of global state",
-            "homepage": "http://www.github.com/sebastianbergmann/global-state",
+            "projects": "http://www.github.com/sebastianbergmann/global-state",
             "keywords": [
                 "global state"
             ],
@@ -8005,7 +8005,7 @@
                 }
             ],
             "description": "Library for counting the lines of code in PHP source code",
-            "homepage": "https://github.com/sebastianbergmann/lines-of-code",
+            "projects": "https://github.com/sebastianbergmann/lines-of-code",
             "support": {
                 "issues": "https://github.com/sebastianbergmann/lines-of-code/issues",
                 "source": "https://github.com/sebastianbergmann/lines-of-code/tree/1.0.3"
@@ -8062,7 +8062,7 @@
                 }
             ],
             "description": "Traverses array structures and object graphs to enumerate all referenced objects",
-            "homepage": "https://github.com/sebastianbergmann/object-enumerator/",
+            "projects": "https://github.com/sebastianbergmann/object-enumerator/",
             "support": {
                 "issues": "https://github.com/sebastianbergmann/object-enumerator/issues",
                 "source": "https://github.com/sebastianbergmann/object-enumerator/tree/4.0.4"
@@ -8117,7 +8117,7 @@
                 }
             ],
             "description": "Allows reflection of object attributes, including inherited and non-public ones",
-            "homepage": "https://github.com/sebastianbergmann/object-reflector/",
+            "projects": "https://github.com/sebastianbergmann/object-reflector/",
             "support": {
                 "issues": "https://github.com/sebastianbergmann/object-reflector/issues",
                 "source": "https://github.com/sebastianbergmann/object-reflector/tree/2.0.4"
@@ -8180,7 +8180,7 @@
                 }
             ],
             "description": "Provides functionality to recursively process PHP variables",
-            "homepage": "https://github.com/sebastianbergmann/recursion-context",
+            "projects": "https://github.com/sebastianbergmann/recursion-context",
             "support": {
                 "issues": "https://github.com/sebastianbergmann/recursion-context/issues",
                 "source": "https://github.com/sebastianbergmann/recursion-context/tree/4.0.5"
@@ -8235,7 +8235,7 @@
                 }
             ],
             "description": "Provides a list of PHP built-in functions that operate on resources",
-            "homepage": "https://www.github.com/sebastianbergmann/resource-operations",
+            "projects": "https://www.github.com/sebastianbergmann/resource-operations",
             "support": {
                 "issues": "https://github.com/sebastianbergmann/resource-operations/issues",
                 "source": "https://github.com/sebastianbergmann/resource-operations/tree/3.0.3"
@@ -8291,7 +8291,7 @@
                 }
             ],
             "description": "Collection of value objects that represent the types of the PHP type system",
-            "homepage": "https://github.com/sebastianbergmann/type",
+            "projects": "https://github.com/sebastianbergmann/type",
             "support": {
                 "issues": "https://github.com/sebastianbergmann/type/issues",
                 "source": "https://github.com/sebastianbergmann/type/tree/3.2.1"
@@ -8344,7 +8344,7 @@
                 }
             ],
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
-            "homepage": "https://github.com/sebastianbergmann/version",
+            "projects": "https://github.com/sebastianbergmann/version",
             "support": {
                 "issues": "https://github.com/sebastianbergmann/version/issues",
                 "source": "https://github.com/sebastianbergmann/version/tree/3.0.2"
@@ -8394,12 +8394,12 @@
                 {
                     "name": "Freek Van de Herten",
                     "email": "freek@spatie.be",
-                    "homepage": "https://spatie.be",
+                    "projects": "https://spatie.be",
                     "role": "Developer"
                 }
             ],
             "description": "A better backtrace",
-            "homepage": "https://github.com/spatie/backtrace",
+            "projects": "https://github.com/spatie/backtrace",
             "keywords": [
                 "Backtrace",
                 "spatie"
@@ -8470,7 +8470,7 @@
                 "MIT"
             ],
             "description": "Send PHP errors to Flare",
-            "homepage": "https://github.com/spatie/flare-client-php",
+            "projects": "https://github.com/spatie/flare-client-php",
             "keywords": [
                 "exception",
                 "flare",
@@ -8551,7 +8551,7 @@
                 }
             ],
             "description": "A beautiful error page for PHP applications.",
-            "homepage": "https://flareapp.io/ignition",
+            "projects": "https://flareapp.io/ignition",
             "keywords": [
                 "error",
                 "flare",
@@ -8641,7 +8641,7 @@
                 }
             ],
             "description": "A beautiful error page for Laravel applications.",
-            "homepage": "https://flareapp.io/ignition",
+            "projects": "https://flareapp.io/ignition",
             "keywords": [
                 "error",
                 "flare",
@@ -8712,11 +8712,11 @@
                 },
                 {
                     "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
+                    "projects": "https://symfony.com/contributors"
                 }
             ],
             "description": "Loads and dumps YAML files",
-            "homepage": "https://symfony.com",
+            "projects": "https://symfony.com",
             "support": {
                 "source": "https://github.com/symfony/yaml/tree/v6.0.19"
             },

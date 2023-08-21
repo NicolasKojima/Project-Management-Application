@@ -129,7 +129,7 @@
       .navbar-grid {
         width: 90vw;
         display: grid;
-        grid-template-columns: 80% 10% 10%; 
+        grid-template-columns: 90% 10%; 
         grid-template-rows: min-content; 
         position: relative;
       }
@@ -172,6 +172,23 @@
           font-size: 3.5rem;
         }
       }
+
+      .btn-primary {
+      width:120px;
+    }
+
+    .btn-secondary {
+      width:120px;
+    }
+
+    .links {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      justify-content: center;
+    }
+
+
     </style>
 
     
@@ -183,14 +200,14 @@
           <div class="row">
             <div class="col-sm-8 col-md-7 py-4">
               <h4 class="text-white">DC Department Introduction</h4>
-              <p class="company-intro"> >include the DC teams goals as a department< </p>
+              <p class="company-intro"> The Digital Communications Department (DC) is a department which focuses on the monitoring, analysis, and distribution of Data, as well as the creation, update and maintenance of Digital Websites, Tech Related Material, and EC Sites </p>
             </div>
             <div class="col-sm-4 offset-md-1 py-4">
               <h4 class="text-white">Contact information</h4>
               <ul class="list-unstyled">
-                <li><a href="#" class="text-white">Follow on Twitter</a></li>
-                <li><a href="#" class="text-white">Like on Facebook</a></li>
-                <li><a href="#" class="text-white">Email me</a></li>
+                <li><a href="#" class="text-white">Phone: 03-6452-9977</a></li>
+                <li><a href="#" class="text-white">Fax: 03-6452-9988</a></li>
+                <li><a href="#" class="text-white">Email: DigitalCommunication@e-zeal.jp</a></li>
               </ul>
             </div>
           </div>
@@ -206,10 +223,6 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            <form method="POST" action="http://localhost:8000/logout" x-data>
-              <input type="hidden" name="_token" value="EUhKpyOr6KeXtBSdllFg202RSbUwUd9v247BVk9Y">
-              <a class="block w-full py-2 text-left text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out" href="http://localhost:8000/logout" @click.prevent="$root.submit();">Log Out</a>
-            </form>
           </div>
         </div>
       </div>
@@ -223,10 +236,26 @@
               <h1 style="repeat:true">Digital Communications</h1>
             </marquee>
             <p>
-              <a href="contact-form" class="btn btn-primary my-2" > Contact Us</a>
-              <a href="about-us" class="btn btn-primary my-2" > About Us</a>
-              <a href="post-project" class="btn btn-secondary my-2" > Post Project</a>
-              <a href="registration" class="btn btn-secondary my-2" > Registration</a>
+              <div class="links">
+                <div class="link">
+                  <a href="dashboard" class="btn btn-primary my-2" > Profile</a>
+                </div>
+                <div class="link">
+                  <a href="calendar-event" class="btn btn-primary my-2" > Calendar</a>
+                </div>
+                <div class="link">
+                  <a href="contact-form" class="btn btn-primary my-2" > Contact Us</a>
+                </div>
+                <div class="link">
+                  <a href="about-us" class="btn btn-primary my-2" > About Us</a>
+                </div>
+                <div class="link">
+                  <a href="post-project" class="btn btn-secondary my-2" > Post Project</a>
+                </div>
+                <div class="link">
+                  <a href="registration" class="btn btn-secondary my-2" > Registration</a>
+                </div>
+              </div>
             </p>
           </div>
         </div>
@@ -248,7 +277,7 @@
                         <p>{{$form->name}}</p>
                       </div>
                       <div>
-                        <a class="editlink" href="{{ route('edit', $form->id) }}">Edit Form {{ $form->id }}</a>
+                        <a class="editlink" href="{{ route('edit', $form->id) }}">Edit Form </a>
                         <small class="text-muted" >{{ $form->created_at->format('Y-m-d H:i:s') }}    </small>
                       </div>
                     </div>

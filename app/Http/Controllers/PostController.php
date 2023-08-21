@@ -17,7 +17,7 @@
 
 //         //dd($posts);
 
-//         return view('homepage', compact('posts'));
+//         return view('projects', compact('posts'));
 //     }
 
 //     public function index1()

@@ -15,7 +15,7 @@ class IndivController extends Controller
     {
         $indivs = indivs::all();
 
-        return view('homepage', compact('indivs'));
+        return view('projects', compact('indivs'));
     }
     public function delete($id)
     {
@@ -46,6 +46,6 @@ class IndivController extends Controller
 
     $indivdata->save();
 
-    return redirect('/homepage')->with('status', 'Form submitted successfully');
+    return redirect('/projects')->with('status', 'Form submitted successfully');
 
 }}
