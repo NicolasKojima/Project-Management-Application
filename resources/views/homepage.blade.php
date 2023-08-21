@@ -126,6 +126,15 @@
         position: relative;
       }
 
+      .navbar-grid {
+        width: 90vw;
+        margin-top: 5vh;
+        display: grid;
+        grid-template-columns: 80% 10% 10%; 
+        grid-template-rows: min-content; 
+        position: relative;
+      }
+
       .project-description {
         font-size: small;
       }
@@ -190,13 +199,19 @@
       </div>
       <div class="navbar navbar-dark bg-dark shadow-sm">
         <div class="container">
-          <a href="#" class="navbar-brand d-flex align-items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-            <strong>Zeal Team</strong>
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+          <div class="navbar-grid">
+            <a href="#" class="navbar-brand d-flex align-items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+              <strong>Zeal Team</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <form id="logout-form" method="POST" action="http://localhost:8000/logout" x-data>
+                <input type="hidden" name="_token" value="ILj4d27Ei6xy4uDu6MfaTVOIW6ZrU0zqDtO1Q2if">
+                <button class="block py-2 text-left text-sm leading-5 text-white hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out bg-transparent border-none" id="logout-button">Log Out</button>
+            </form>
+          </div>
         </div>
       </div>
     </header>
@@ -279,15 +294,25 @@
 
     <script>
 
-function del(){
+      function del(){
 
-  let text;
-if (confirm("Are you sure to delete ?") == true) {
-  document.getElementById("del-form").submit();
-} else {
-  return false;
-}
-}
+        let text;
+          if (confirm("Are you sure to delete ?") == true) {
+              document.getElementById("del-form").submit();
+          } else {
+              return false;
+          }
+      }
+
+      document.addEventListener("DOMContentLoaded", function() {
+        const logoutForm = document.getElementById("logout-form");
+        const logoutButton = document.getElementById("logout-button");
+
+        logoutButton.addEventListener("click", function(event) {
+            event.preventDefault();
+            logoutForm.submit();
+        });
+    });
     </script>
           <!-- <script>
                 document.addEventListener('DOMContentLoaded', function () {
