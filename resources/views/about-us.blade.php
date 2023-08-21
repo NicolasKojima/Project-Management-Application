@@ -115,9 +115,6 @@
           <p>
             <div class="links">
               <div class="link">
-                <a href="projects" class="btn btn-primary my-2" > Projects </a>         
-              </div>
-              <div class="link">
                 <a href="dashboard" class="btn btn-primary my-2" > Profile</a>   
               </div>
               <div class="link">

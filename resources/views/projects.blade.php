@@ -232,28 +232,14 @@
       <section class="py-5 text-center container">
         <div class="row py-lg-5">
           <div class="col-lg-6 col-md-8 mx-auto">
-            <marquee>
-              <h1 style="repeat:true">Digital Communications</h1>
-            </marquee>
+            <h1>DC Project Blog</h1>
             <p>
               <div class="links">
                 <div class="link">
                   <a href="dashboard" class="btn btn-primary my-2" > Profile</a>
                 </div>
                 <div class="link">
-                  <a href="calendar-event" class="btn btn-primary my-2" > Calendar</a>
-                </div>
-                <div class="link">
-                  <a href="contact-form" class="btn btn-primary my-2" > Contact Us</a>
-                </div>
-                <div class="link">
-                  <a href="about-us" class="btn btn-primary my-2" > About Us</a>
-                </div>
-                <div class="link">
                   <a href="post-project" class="btn btn-secondary my-2" > Post Project</a>
-                </div>
-                <div class="link">
-                  <a href="registration" class="btn btn-secondary my-2" > Registration</a>
                 </div>
               </div>
             </p>

@@ -46,6 +46,6 @@ class IndivController extends Controller
 
     $indivdata->save();
 
-    return redirect('/projects')->with('status', 'Form submitted successfully');
+    return redirect('/about-us')->with('status', 'Form submitted successfully');
 
 }}

@@ -19,7 +19,7 @@ class CalenderController extends Controller
     {
  
         switch ($request->type) {
-           case 'create':
+            case 'create':
               $event = CrudEvents::create([
                   'event_name' => $request->event_name,
                   'event_start' => $request->event_start,
@@ -27,7 +27,7 @@ class CalenderController extends Controller
               ]);
  
               return response()->json($event);
-             break;
+            break;
   
            case 'edit':
               $event = CrudEvents::find($request->id)->update([

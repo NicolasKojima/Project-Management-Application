@@ -50,7 +50,7 @@
                 $.ajax({
                     url: 'createevent',
                     data: 'title=' + title + '&start=' + start + '&end=' + end +'&_token=' +"{{ csrf_token() }}",
-                    type: "post",
+                    type: "POST", // Change GET to POST
                     success: function (data) {
                         alert("Added Successfully");
                     }

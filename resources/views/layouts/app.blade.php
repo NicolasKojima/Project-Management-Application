@@ -21,7 +21,7 @@
             .navbar-grid {
                 width: 100%;
                 display: grid;
-                grid-template-columns: 64% 12% 12% 12%; 
+                grid-template-columns: 52% 12% 12% 12% 12%; 
                 grid-template-rows: min-content; 
                 position: relative;
             }
@@ -54,6 +54,11 @@
                     <header class="bg-white shadow">
                         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                             <a href="calendar-event" class="btn btn-primary my-2" > Calendar </a>
+                        </div>
+                    </header>
+                    <header class="bg-white shadow">
+                        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                            <a href="contact-form" class="btn btn-primary my-2" > Contact Us</a>
                         </div>
                     </header>
                 </div>

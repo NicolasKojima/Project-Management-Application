@@ -34,6 +34,7 @@ Route::middleware(['auth'])->group(function () {
     })->name('dashboard');
     
     Route::get('employees', App\Http\Livewire\Crud::class);
+
     Route::get('calendar-event', [CalenderController::class, 'index']);
     Route::post('calendar-crud-ajax', [CalenderController::class, 'calendarEvents']);
 });

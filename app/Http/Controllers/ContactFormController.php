@@ -25,6 +25,6 @@ class ContactFormController extends Controller
     $inquirydata->inquiry= $request['inquiry'];
     $inquirydata->save();
 
-    return redirect('/projects')->with('status', 'Form submitted successfully');
+    return redirect('/dashboard')->with('status', 'Form submitted successfully');
 
 }}
