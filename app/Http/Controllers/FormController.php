@@ -12,8 +12,15 @@ class formController extends Controller
     }
     public function index1()
     {
-        $forms = form::all();
+        $forms = Form::all();
         return view('projects', compact('forms'));
+    }
+
+    public function index2()
+    {
+        die('the program died');
+        $forms = Form::all();
+        return view('app', compact('forms'));
     }
     public function delete($id)
     {
