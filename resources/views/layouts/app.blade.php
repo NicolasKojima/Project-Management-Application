@@ -25,6 +25,46 @@
                 grid-template-rows: min-content; 
                 position: relative;
             }
+
+            .container-contents {
+                width: 90vw;
+                height: 70vh;
+                margin-right: auto;
+                margin-left: auto;
+                margin-top: 10px;
+                background-color:black;
+            }
+
+            .slideshow{
+                position: relative;
+            }
+
+            .prev,
+            .next {
+                cursor: pointer;
+                position: absolute;
+                top: 40%;
+                width: auto;
+                padding: 16px;
+                margin-top: -50px;
+                color: white;
+                font-weight: bold;
+                font-size: 20px;
+                border-radius: 0 3px 3px 0;
+                user-select: none;
+                -webkit-user-select: none;
+                }
+            .next {
+                right: 0;
+                border-radius: 3px 0 0 3px;
+                }
+
+                .row:after {
+                content: "";
+                display: table;
+                clear: both;
+                }
+
         </style>
     </head>
     <body class="font-sans antialiased">
@@ -60,13 +100,56 @@
                         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                             <a href="contact-form" class="btn btn-primary my-2" > Contact Us</a>
                         </div>
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
                     </header>
                 </div>
             @endif
 
             <!-- Page Content -->
             <main>
-                {{ $slot }}
+                <div class="container-contents">
+                    <div class="slideshow">
+                        @foreach ($forms as $form)
+                            <div class="mySlides">
+                                <div class="numbertext">1 / 6</div>
+                                <img class="main-image" src="<?php echo asset('/storage/image/'.$form->image)?>" alt="Main Image"></img>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            <script>
+                let slideIndex = 1;
+                showSlides(slideIndex);
+
+                // Next/previous controls
+                function plusSlides(n) {
+                showSlides(slideIndex += n);
+                }
+
+                // Thumbnail image controls
+                function currentSlide(n) {
+                showSlides(slideIndex = n);
+                }
+
+                function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("demo");
+                let captionText = document.getElementById("caption");
+                if (n > slides.length) {slideIndex = 1}
+                if (n < 1) {slideIndex = slides.length}
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex-1].style.display = "block";
+                dots[slideIndex-1].className += " active";
+                captionText.innerHTML = dots[slideIndex-1].alt;
+                }
+            </script>
             </main>
         </div>
 

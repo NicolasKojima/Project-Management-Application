@@ -328,25 +328,7 @@
         });
     });
     </script>
-          <!-- <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                    const deleteButtons = document.querySelectorAll('.delete-btn');
-                    const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
-                    let deleteForm;
-
-                    deleteButtons.forEach(button => {
-                        button.addEventListener('click', function () {
-                            deleteForm = button.closest('form');
-                        });
-                    });
-
-                    confirmDeleteBtn.addEventListener('click', function () {
-                        if (deleteForm) {
-                            deleteForm.submit();
-                        }
-                    });
-                });
-          </script> -->
+         
     </main>
 
     <footer class="text-muted py-5">

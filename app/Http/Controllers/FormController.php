@@ -16,12 +16,6 @@ class formController extends Controller
         return view('projects', compact('forms'));
     }
 
-    public function index2()
-    {
-        die('the program died');
-        $forms = Form::all();
-        return view('app', compact('forms'));
-    }
     public function delete($id)
     {
     $forms = Form::find($id);
@@ -46,6 +40,7 @@ class formController extends Controller
     $formdata->projdescription= $request['projdescription'];
     $formdata->relavance = $request['relavance'];
     $formdata->skills = $request['skills'];
+
     $formdata->image = $image_path_new[1];
     $formdata->profilepic = $profile_image_path_new[1];
     $formdata->save();
