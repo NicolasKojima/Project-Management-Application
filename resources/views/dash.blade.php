@@ -7,7 +7,7 @@ body {
   margin: 0;
 }
 
-* {
+.slideshow-container {
   box-sizing: border-box;
   max-width: 90vw;
   margin-right: auto;
@@ -34,12 +34,12 @@ img {
   cursor: pointer;
 }
 
-/* Next & previous buttons */
+
 .prev,
 .next {
   cursor: pointer;
   position: absolute;
-  top: 40%;
+  top: 50%;
   width: auto;
   padding: 16px;
   margin-top: -50px;
@@ -53,14 +53,18 @@ img {
 
 /* Position the "next button" to the right */
 .next {
+  position: absolute;
   right: 0;
-  border-radius: 3px 0 0 3px;
 }
+
+
+
 
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover,
 .next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: black;
+  /* rgba(0, 0, 0, 0.8) */
 }
 
 /* Number text (1/3 etc) */
@@ -76,7 +80,7 @@ img {
 .caption-container {
   text-align: center;
   background-color: #222;
-  padding: 2px 16px;
+  padding: 2px 0; /* Adjust the padding as needed */
   color: white;
 }
 
@@ -101,72 +105,91 @@ img {
 .demo:hover {
   opacity: 1;
 }
+
+.row {
+  max-height:100px !important;
+  object-fit: cover !important;
+}
+
+.sub-image {
+  max-height:100px !important;
+  object-fit: cover !important;
+}
+
+.main-image {
+  box-sizing: border-box;
+  max-width: 90vw;
+  margin-right: auto;
+  margin-left: auto;
+  display: block; /* Make sure the images are displayed as block elements */
+  margin: 0 auto;
+}
+
 </style>
 <body>
 
 <h2 style="text-align:center">Slideshow Gallery</h2>
 
-<div class="container">
-@foreach ($testimgs as $testimg)
-  <div class="mySlides">
-    <div class="numbertext">1 / 6</div>
-    <img class="main-image" src="<?php echo asset('/storage/image/'.$testimg->image1)?>" alt="Main Image"></img>
-  </div>
-
-  <div class="mySlides">
-    <div class="numbertext">2 / 6</div>
-    <img class="main-image" src="<?php echo asset('/storage/image/'.$testimg->image2)?>" alt="Main Image"></img>
-  </div>
-
-  <div class="mySlides">
-    <div class="numbertext">3 / 6</div>
-    <img class="main-image" src="<?php echo asset('/storage/image/'.$testimg->image3)?>" alt="Main Image"></img>
-  </div>
-    
-  <div class="mySlides">
-    <div class="numbertext">4 / 6</div>
-    <img class="main-image" src="<?php echo asset('/storage/image/'.$testimg->image4)?>" alt="Main Image"></img>
-  </div>
-
-  <div class="mySlides">
-    <div class="numbertext">5 / 6</div>
-    <img class="main-image" src="<?php echo asset('/storage/image/'.$testimg->image5)?>" alt="Main Image"></img>
-  </div>
-    
-  <div class="mySlides">
-    <div class="numbertext">6 / 6</div>
-    <img class="main-image" src="<?php echo asset('/storage/image/'.$testimg->image6)?>" alt="Main Image"></img>
-  </div>
-    
-  <a class="prev" onclick="plusSlides(-1)">❮</a>
-  <a class="next" onclick="plusSlides(1)">❯</a>
+<div class="slideshow-container">
+@foreach ($testimg as $testimg)
+  <div class="slide">
+    <div class="mySlides">
+      <div class="numbertext"> 1 / 6</div>
+      <img class="main-image" src="<?php echo asset('/storage/image/'.$testimg->image1)?>" alt="Main Image"></img>
+    </div>
+    <div class="mySlides">
+      <div class="numbertext"> 2 / 6</div>
+      <img class="main-image" src="<?php echo asset('/storage/image/'.$testimg->image2)?>" alt="Main Image"></img>
+    </div>
+    <div class="mySlides">
+      <div class="numbertext"> 3 / 6</div>
+      <img class="main-image" src="<?php echo asset('/storage/image/'.$testimg->image3)?>" alt="Main Image"></img>
+    </div>
+    <div class="mySlides">
+      <div class="numbertext"> 4 / 6</div>
+      <img class="main-image" src="<?php echo asset('/storage/image/'.$testimg->image4)?>" alt="Main Image"></img>
+    </div>
+    <div class="mySlides">
+      <div class="numbertext"> 5 / 6</div>
+      <img class="main-image" src="<?php echo asset('/storage/image/'.$testimg->image5)?>" alt="Main Image"></img>
+    </div>
+    <div class="mySlides">
+      <div class="numbertext"> 6 / 6</div>
+      <img class="main-image" src="<?php echo asset('/storage/image/'.$testimg->image6)?>" alt="Main Image"></img>
+    </div>
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+  </div>  
 
   <div class="caption-container">
     <p id="caption"></p>
   </div>
 
   <div class="row">
-    <div class="column">
-    <img class="main-image"  class="demo cursor" src="<?php echo asset('/storage/image/'.$form->image)?>" style="width:100%" onclick="currentSlide(1)" alt="Main Image"></img>
-    </div>
-    <div class="column">
-    <img class="main-image"  class="demo cursor" src="<?php echo asset('/storage/image/'.$form->image)?>" style="width:100%" onclick="currentSlide(2)" alt="Main Image"></img>
-    </div>
-    <div class="column">
-    <img class="main-image"  class="demo cursor" src="<?php echo asset('/storage/image/'.$form->image)?>" style="width:100%" onclick="currentSlide(3)" alt="Main Image"></img>
-    </div>
-    <div class="column">
-    <img class="main-image"  class="demo cursor" src="<?php echo asset('/storage/image/'.$form->image)?>" style="width:100%" onclick="currentSlide(4)" alt="Main Image"></img>
-    </div>
-    <div class="column">
-    <img class="main-image"  class="demo cursor" src="<?php echo asset('/storage/image/'.$form->image)?>" style="width:100%" onclick="currentSlide(5)" alt="Main Image"></img>
-    </div>    
-    <div class="column">
-    <img class="main-image"  class="demo cursor" src="<?php echo asset('/storage/image/'.$form->image)?>" style="width:100%" onclick="currentSlide(6)" alt="Main Image"></img>
+    <div class="row-style">
+      <div class="column">
+        <img class="sub-image"  class="demo cursor" src="<?php echo asset('/storage/image/'.$testimg->image1)?>" style="width:100%" onclick="currentSlide(1)" alt="Main Image"></img>
+      </div>
+      <div class="column">
+        <img class="sub-image"  class="demo cursor" src="<?php echo asset('/storage/image/'.$testimg->image2)?>" style="width:100%" onclick="currentSlide(2)" alt="Main Image"></img>
+      </div>
+      <div class="column">
+        <img class="sub-image"  class="demo cursor" src="<?php echo asset('/storage/image/'.$testimg->image3)?>" style="width:100%" onclick="currentSlide(3)" alt="Main Image"></img>
+      </div>
+      <div class="column">
+        <img class="sub-image"  class="demo cursor" src="<?php echo asset('/storage/image/'.$testimg->image4)?>" style="width:100%" onclick="currentSlide(4)" alt="Main Image"></img>
+      </div>
+      <div class="column">
+        <img class="sub-image"  class="demo cursor" src="<?php echo asset('/storage/image/'.$testimg->image5)?>" style="width:100%" onclick="currentSlide(5)" alt="Main Image"></img>
+      </div>
+      <div class="column">
+        <img class="sub-image"  class="demo cursor" src="<?php echo asset('/storage/image/'.$testimg->image6)?>" style="width:100%" onclick="currentSlide(6)" alt="Main Image"></img>
+      </div>
     </div>
   </div>
-@endforeach
 </div>
+@endforeach
+
 
 <script>
 let slideIndex = 1;

@@ -12,18 +12,20 @@ class TestimgController extends Controller
         return view('testimg-upload');
     }
 
-    public function index1()
+    public function indexdash()
     {
         $testimg = testimg::all();
         return view('dash', compact('testimg'));
     }
 
 
-    public function store(Request $request)
+    public function store1(Request $request)
 {
-    $this->validate($request, [
-        'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-    ]);
+    // $this->validate($request, [
+    //     'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+    // ]);
+
+
     $image1_path = $request->file('image1')->store('image', 'public');
     $image1_path_new = explode('/', $image1_path);
     $image2_path = $request->file('image2')->store('image', 'public');
@@ -36,6 +38,7 @@ class TestimgController extends Controller
     $image5_path_new = explode('/', $image5_path);
     $image6_path = $request->file('image6')->store('image', 'public');
     $image6_path_new = explode('/', $image6_path);
+
     $imgdata= new testimg();
     $imgdata->image1 = $image1_path_new[1];
     $imgdata->image2 = $image2_path_new[1];
@@ -43,6 +46,7 @@ class TestimgController extends Controller
     $imgdata->image4 = $image4_path_new[1];
     $imgdata->image5 = $image5_path_new[1];
     $imgdata->image6 = $image6_path_new[1];
+
     $imgdata->save();
     return redirect('/dash')->with('status', 'Form submitted successfully');
 

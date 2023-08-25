@@ -12,7 +12,6 @@ use App\Http\Controllers\TestimgController;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/contact-form', [ContactformController::class, 'index']);
-    Route::get('/about-us', [AboutusController::class, 'index']);
     
     Route::get('post-project', [FormController::class, 'index']);
     Route::post('store-form', [FormController::class, 'store']);
@@ -21,18 +20,19 @@ Route::middleware(['auth'])->group(function () {
     Route::post('store-form1', [IndivController::class, 'store']);
 
     Route::get('testimg-upload', [TestimgController::class, 'index']);
-    Route::post('store-form2', [TestimgController::class, 'store']);
+    Route::post('store-form2', [TestimgController::class, 'store1']);
+    Route::get('/dash', [TestimgController::class, 'indexdash'])->name('dash');
     
     Route::get('/projects', [FormController::class, 'index1'])->name('projects');
-    Route::get('/dash', [TestimgController::class, 'index1'])->name('dash');
+    Route::get('/about-us', [AboutusController::class, 'index']);
     
     Route::get('/forms/edit/{id}', [DatabaseController::class, 'edit']);
     Route::post('/forms/update/{id}', [DatabaseController::class, 'update']);
     Route::get('/forms/edit/{id}', [DatabaseController::class, 'edit'])->name('edit');
     Route::post('/forms/update/{id}', [DatabaseController::class, 'update'])->name('update');
     
-    // Route::post('/forms/{id}', [FormController::class, 'delete'])->name('delete');
-    // Route::post('/indiv/{id}', [FormController::class, 'delete'])->name('delete');
+    Route::post('/forms/{id}', [FormController::class, 'delete'])->name('delete');
+    Route::post('/indiv/{id}', [FormController::class, 'delete'])->name('delete');
     
     Route::get('/dashboard', function () {
         return view('dashboard');
