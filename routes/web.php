@@ -8,6 +8,7 @@ use App\Http\Controllers\FormController;
 use App\Http\Controllers\DatabaseController;
 use App\Http\Controllers\CalenderController;
 use App\Http\Controllers\TestimgController;
+use App\Http\Controllers\EventController;
 
 
 Route::middleware(['auth'])->group(function () {
@@ -40,10 +41,18 @@ Route::middleware(['auth'])->group(function () {
     
     Route::get('employees', App\Http\Livewire\Crud::class);
 
-    Route::get('calendar-event', [CalenderController::class, 'index']);
-    Route::post('calendar-crud-ajax', [CalenderController::class, 'calendarEvents']);
+    
+Route::get('/register-events', function () {
+    return view('register-events');
 });
+Route::get('calendar-events', [CalenderController::class, 'event_reg']);
+Route::post('calendar-crud-ajax', [CalenderController::class, 'calendarEvents']);
+
+Route::get('display-events', [EventController::class, 'displayEvents']);
+
+
 
 Route::get('/', function () {
     return view('welcome');
+});
 });
