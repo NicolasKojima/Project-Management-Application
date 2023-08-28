@@ -4,13 +4,29 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Display Events - laravelcode.com</title>
+    <title> "Name of User" 's Schedule </title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" />
+    <style>
+        .links {
+      display: grid;
+      grid-template-columns: 88% 12%;
+      gap: 5px;
+      align-items: center;
+      justify-content: center;
+    }
+    </style>
 </head>
 
 <body>
     <div class="container mt-5">
-        <h2 class="h2 text-center mb-5 border-bottom pb-3">Display Events</h2>
+        <div class="links">
+            <div class="link">
+                <h2 class="h2 text-center ">Display Events</h2>
+            </div>
+            <div class="link">
+                <a href="register-events" class="btn btn-primary my-2" > Register Event</a> 
+            </div>
+        </div>
         <table class="table">
             <thead>
                 <tr>

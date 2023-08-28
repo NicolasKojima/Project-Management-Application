@@ -9,8 +9,7 @@ class CalenderController extends Controller
 {
     public function event_reg(Request $request)
     {
-        die('ssssssssssssssss');
-
+        
         if($request->ajax()) {  
             $data = CrudEvents::whereDate('event_start', '>=', $request->start)
                 ->whereDate('event_end',   '<=', $request->end)

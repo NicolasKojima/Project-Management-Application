@@ -42,13 +42,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('employees', App\Http\Livewire\Crud::class);
 
     
-Route::get('/register-events', function () {
-    return view('register-events');
-});
-Route::get('calendar-events', [CalenderController::class, 'event_reg']);
-Route::post('calendar-crud-ajax', [CalenderController::class, 'calendarEvents']);
+    Route::get('/register-events', function () {
+        return view('/register-events');
+    });
+    Route::get('/calendar-events', [CalenderController::class, 'event_reg']);
+    Route::post('/calendar-crud-ajax', [CalenderController::class, 'calendarEvents']);
 
-Route::get('display-events', [EventController::class, 'displayEvents']);
+    Route::get('display-events', [EventController::class, 'displayEvents']);
 
 
 

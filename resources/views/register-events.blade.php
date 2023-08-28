@@ -13,7 +13,7 @@
 
 <body>
     <div class="container mt-5" style="max-width: 700px">
-        <h2 class="h2 text-center mb-5 border-bottom pb-3">Laravel FullCalender CRUD Events Example - laravelcode.com</h2>
+        <h2 class="h2 text-center mb-5 border-bottom pb-3"> Register New Event test </h2>
         <div id='full_calendar_events'>
         </div>
     </div>{{-- Scripts --}}
@@ -35,7 +35,7 @@
             var calendar = $('#full_calendar_events').fullCalendar({
                 editable: true,
                 editable: true,
-                events: SITEURL + "/calendar-event",
+                events: SITEURL + "/calendar-events",
                 displayEventTime: true,
                 eventRender: function (event, element, view) {
                     if (event.allDay === 'true') {
