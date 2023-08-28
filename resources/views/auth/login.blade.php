@@ -9,7 +9,7 @@
                 }
         </style>
         <x-slot name="logo">
-            <x-authentication-card-logo />
+            <img src="{{ asset('storage/image/ZEALTEAM_logo.jpg') }}" alt="Image" class="image-size" style="width: 250px; height: 50px;">
         </x-slot>
 
         <x-validation-errors class="mb-4" />
