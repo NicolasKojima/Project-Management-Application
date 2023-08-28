@@ -9,10 +9,14 @@
     <style>
         .links {
       display: grid;
-      grid-template-columns: 88% 12%;
+      grid-template-columns: 80% 8% 12%;
       gap: 5px;
       align-items: center;
       justify-content: center;
+    }
+
+    .link {
+        display: flex;
     }
     </style>
 </head>
@@ -21,7 +25,10 @@
     <div class="container mt-5">
         <div class="links">
             <div class="link">
-                <h2 class="h2 text-center ">Display Events</h2>
+                <h2 class="h2 text-center "> Project Schedule </h2>
+            </div>
+            <div class="link">
+                <a href="dashboard" class="btn btn-primary my-2" > profile </a> 
             </div>
             <div class="link">
                 <a href="register-events" class="btn btn-primary my-2" > Register Event</a> 

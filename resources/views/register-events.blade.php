@@ -9,11 +9,30 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    <style>
+        .links {
+      display: grid;
+      grid-template-columns: 87% 13%;
+      gap: 5px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 3rem;
+      border-bottom: black solid 2px;
+    }
+    </style>
 </head>
 
 <body>
     <div class="container mt-5" style="max-width: 700px">
-        <h2 class="h2 text-center mb-5 border-bottom pb-3"> Register New Event test </h2>
+        <div class="links">
+            <div class="link">
+                <h2 class="h2 text-center "> Register New Project Period </h2>
+            </div>
+            <div class="link">
+                <a href="display-events" class="btn btn-primary my-2" > Schedule </a> 
+            </div>
+        </div>
+
         <div id='full_calendar_events'>
         </div>
     </div>{{-- Scripts --}}
