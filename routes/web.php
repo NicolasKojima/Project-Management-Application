@@ -12,7 +12,7 @@ use App\Http\Controllers\EventController;
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/contact-form', [ContactformController::class, 'index']);
+    
     
     Route::get('post-project', [FormController::class, 'index']);
     Route::post('store-form', [FormController::class, 'store']);
@@ -25,7 +25,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dash', [TestimgController::class, 'indexdash'])->name('dash');
     
     Route::get('/projects', [FormController::class, 'index1'])->name('projects');
-    Route::get('/about-us', [AboutusController::class, 'index']);
+    Route::get('/about-us', [AboutusController::class, 'index'])->name('about-us');
+    Route::get('/contact-form', [ContactformController::class, 'index'])->name('contact-form');
     
     Route::get('/forms/edit/{id}', [DatabaseController::class, 'edit']);
     Route::post('/forms/update/{id}', [DatabaseController::class, 'update']);
@@ -48,7 +49,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/calendar-events', [CalenderController::class, 'event_reg']);
     Route::post('/calendar-crud-ajax', [CalenderController::class, 'calendarEvents']);
 
-    Route::get('display-events', [EventController::class, 'displayEvents']);
+    Route::get('display-events', [EventController::class, 'displayEvents'])->name('display-events');
 
 
 

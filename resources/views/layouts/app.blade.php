@@ -103,13 +103,13 @@
 
             <!-- Page Heading -->
             @if (isset($header))
-                <div class="navbar-grid">
+                <!-- <div class="navbar-grid"> -->
                     <header class="bg-white shadow">
                         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                             {{ $header }}
                         </div>
                     </header>
-                    <header class="bg-white shadow">
+                    <!-- <header class="bg-white shadow">
                         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                             <a href="projects" class="btn btn-primary my-2" > Projects </a>          
                         </div>
@@ -128,10 +128,8 @@
                         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                             <a href="contact-form" class="btn btn-primary my-2" > Contact Us</a>
                         </div>
-                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                    </header>
-                </div>
+                    </header> -->
+                <!-- </div> -->
             @endif
 
             <!-- Page Content -->
@@ -140,6 +138,9 @@
                     <div class="gallery-example"
                         <p>               Insert the gallery here</p>
                         <a href="dash" class="btn btn-primary my-2" >           Gallery Testing page </a>
+                        @foreach ($testimg as $testimg)
+                        @endforeach
+
                     </div>
                     <div class="description-example">
                         <p> Insert project description for each photo slide here </p>
