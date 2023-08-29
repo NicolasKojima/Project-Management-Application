@@ -1,7 +1,15 @@
 <x-guest-layout>
     <x-authentication-card>
+        <style>
+            .links {
+                display: flex;
+                gap: 5px;
+                align-items: center;
+                justify-content: center;
+                }
+        </style>
         <x-slot name="logo">
-            <x-authentication-card-logo />
+            <img src="{{ asset('storage/image/ZEALTEAM_logo.jpg') }}" alt="Image" class="image-size" style="width: 250px; height: 50px;">
         </x-slot>
 
         <x-validation-errors class="mb-4" />
@@ -31,17 +39,22 @@
                     <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                 </label>
             </div>
+            <div class="links">
+                <div class="flex items-center justify-end mt-4">
+                    @if (Route::has('password.request'))
+                        <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
+                            {{ __('Forgot your password?') }}
+                        </a>
+                    @endif
 
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
+                    <x-button class="ml-4">
+                        <a href="register" padding-right="30px"> Register</a>
+                    </x-button>
 
-                <x-button class="ml-4">
-                    {{ __('Log in') }}
-                </x-button>
+                    <x-button class="ml-4">
+                        {{ __('Log in') }}
+                    </x-button>
+                </div>
             </div>
         </form>
     </x-authentication-card>

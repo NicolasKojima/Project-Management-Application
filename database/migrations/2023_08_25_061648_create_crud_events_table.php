@@ -1,7 +1,9 @@
 <?php
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+
 class CreateCrudEventsTable extends Migration
 {
     /**
@@ -13,7 +15,8 @@ class CreateCrudEventsTable extends Migration
     {
         Schema::create('crud_events', function (Blueprint $table) {
             $table->id();
-            $table->string('event_name');
+            $table->string('employee_name');
+            $table->string('project_name');
             $table->date('event_start');
             $table->date('event_end');            
             $table->timestamps();

@@ -5,15 +5,25 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <x-application-mark class="block h-9 w-auto" />
-                    </a>
+                    <img src="{{ asset('storage/image/ZEALTEAM_logo.jpg') }}" alt="Image" class="image-size" style="width:250px; height:50px;">
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('Profile') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('projects') }}" :active="request()->routeIs('projects')">
+                        {{ __('Projects') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('about-us') }}" :active="request()->routeIs('about-us')">
+                        {{ __('Employees') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('display-events') }}" :active="request()->routeIs('display-events')">
+                        {{ __('Schedule') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('contact-form') }}" :active="request()->routeIs('contact-form')">
+                        {{ __('Contact-Us') }}
                     </x-nav-link>
                 </div>
             </div>
