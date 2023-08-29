@@ -34,6 +34,7 @@ class formController extends Controller
     $image_path_new = explode('/', $image_path);
     $profile_image_path = $request->file('profilepic')->store('image', 'public');
     $profile_image_path_new = explode('/', $profile_image_path);
+    
     $formdata= new form();
     $formdata->name= $request['name'];
     $formdata->projname= $request['projname'];

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Models\testimg;
+use App\Models\profileinfo;
 use Illuminate\Support\Facades\DB;
 class TestimgController extends Controller
 {
@@ -14,10 +14,15 @@ class TestimgController extends Controller
 
     public function indexdash()
     {
-        $testimg = testimg::all();
-        return view('dash', compact('testimg'));
+        $profileinfos = profileinfo::all();
+        return view('dashboard', compact('profileinfos'));
     }
 
+    public function dashboard()
+{
+    $profileinfoData = Profileinfo::all(); 
+    return view('layouts.app', compact('profileinfoData'));
+}
 
     public function store1(Request $request)
 {
@@ -39,15 +44,27 @@ class TestimgController extends Controller
     $image6_path = $request->file('image6')->store('image', 'public');
     $image6_path_new = explode('/', $image6_path);
 
-    $imgdata= new testimg();
-    $imgdata->image1 = $image1_path_new[1];
-    $imgdata->image2 = $image2_path_new[1];
-    $imgdata->image3 = $image3_path_new[1];
-    $imgdata->image4 = $image4_path_new[1];
-    $imgdata->image5 = $image5_path_new[1];
-    $imgdata->image6 = $image6_path_new[1];
+    $profdata= new profileinfo();
+    $profdata->image1 = $image1_path_new[1];
+    $profdata->projname1= $request['projname1'];
+    $profdata->projdescription1= $request['projdescription1'];
+    $profdata->image2 = $image2_path_new[1];
+    $profdata->projname2= $request['projname2'];
+    $profdata->projdescription2= $request['projdescription2'];
+    $profdata->image3 = $image3_path_new[1];
+    $profdata->projname3= $request['projname3'];
+    $profdata->projdescription3= $request['projdescription3'];
+    $profdata->image4 = $image4_path_new[1];
+    $profdata->projname4= $request['projname4'];
+    $profdata->projdescription4= $request['projdescription4'];
+    $profdata->image5 = $image5_path_new[1];
+    $profdata->projname5= $request['projname5'];
+    $profdata->projdescription5= $request['projdescription5'];
+    $profdata->image6 = $image6_path_new[1];
+    $profdata->projname6= $request['projname6'];
+    $profdata->projdescription6= $request['projdescription6'];
 
-    $imgdata->save();
-    return redirect('/dash')->with('status', 'Form submitted successfully');
+    $profdata->save();
+    return redirect('/dashboard')->with('status', 'Form submitted successfully');
 
         }}

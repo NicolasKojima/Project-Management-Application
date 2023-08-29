@@ -51,9 +51,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('display-events', [EventController::class, 'displayEvents'])->name('display-events');
 
+    Route::get('/dashboard', [TestimgController::class, 'dashboard'])->name('dashboard');
 
-
-Route::get('/', function () {
-    return view('welcome');
+    Route::get('/', function () {
+        return view('welcome');
 });
 });
