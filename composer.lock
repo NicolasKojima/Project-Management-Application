@@ -53,7 +53,6 @@
                 }
             ],
             "description": "BaconQrCode is a QR code generator for PHP.",
-            "projects": "https://github.com/Bacon/BaconQrCode",
             "support": {
                 "issues": "https://github.com/Bacon/BaconQrCode/issues",
                 "source": "https://github.com/Bacon/BaconQrCode/tree/2.0.8"
@@ -227,7 +226,6 @@
                 }
             ],
             "description": "Given a deep data structure, access data by dot notation.",
-            "projects": "https://github.com/dflydev/dflydev-dot-access-data",
             "keywords": [
                 "access",
                 "data",
@@ -280,7 +278,6 @@
                 "MIT"
             ],
             "description": "A small layer on top of trigger_error(E_USER_DEPRECATED) or PSR-3 logging with options to disable all deprecations or selectively for packages.",
-            "projects": "https://www.doctrine-project.org/",
             "support": {
                 "issues": "https://github.com/doctrine/deprecations/issues",
                 "source": "https://github.com/doctrine/deprecations/tree/v1.1.1"
@@ -345,7 +342,6 @@
                 }
             ],
             "description": "PHP Doctrine Inflector is a small library that can perform string manipulations with regard to upper/lowercase and singular/plural forms of words.",
-            "projects": "https://www.doctrine-project.org/projects/inflector.html",
             "keywords": [
                 "inflection",
                 "inflector",
@@ -428,7 +424,6 @@
                 }
             ],
             "description": "PHP Doctrine Lexer parser library that can be used in Top-Down, Recursive Descent Parsers.",
-            "projects": "https://www.doctrine-project.org/projects/lexer.html",
             "keywords": [
                 "annotations",
                 "docblock",
@@ -564,7 +559,6 @@
                 }
             ],
             "description": "A library for validating emails against several RFCs",
-            "projects": "https://github.com/egulias/EmailValidator",
             "keywords": [
                 "email",
                 "emailvalidation",
@@ -633,7 +627,6 @@
                 }
             ],
             "description": "Cross-origin resource sharing library for the Symfony HttpFoundation",
-            "projects": "https://github.com/fruitcake/php-cors",
             "keywords": [
                 "cors",
                 "laravel",
@@ -1164,7 +1157,6 @@
                 }
             ],
             "description": "CrawlerDetect is a PHP class for detecting bots/crawlers/spiders via the user agent",
-            "projects": "https://github.com/JayBizzle/Crawler-Detect/",
             "keywords": [
                 "crawler",
                 "crawler detect",
@@ -1234,7 +1226,6 @@
                 }
             ],
             "description": "Desktop/mobile user agent parser with support for Laravel, based on Mobiledetect",
-            "projects": "https://github.com/jenssegers/agent",
             "keywords": [
                 "Agent",
                 "browser",
@@ -1512,7 +1503,6 @@
                 }
             ],
             "description": "The Laravel Framework.",
-            "projects": "https://laravel.com",
             "keywords": [
                 "framework",
                 "laravel"
@@ -1857,7 +1847,6 @@
                 }
             ],
             "description": "Highly-extensible PHP Markdown parser which fully supports the CommonMark spec and GitHub-Flavored Markdown (GFM)",
-            "projects": "https://commonmark.thephpleague.com",
             "keywords": [
                 "commonmark",
                 "flavored",
@@ -1945,7 +1934,6 @@
                 }
             ],
             "description": "Define configuration arrays with strict schemas and access values with dot notation",
-            "projects": "https://config.thephpleague.com",
             "keywords": [
                 "array",
                 "config",
@@ -2296,7 +2284,6 @@
                 }
             ],
             "description": "Mobile_Detect is a lightweight PHP class for detecting mobile devices. It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.",
-            "projects": "https://github.com/serbanghita/Mobile-Detect",
             "keywords": [
                 "detect mobile devices",
                 "mobile",
@@ -2390,7 +2377,6 @@
                 }
             ],
             "description": "Sends your logs to files, sockets, inboxes, databases and various web services",
-            "projects": "https://github.com/Seldaek/monolog",
             "keywords": [
                 "log",
                 "logging",
@@ -2491,7 +2477,6 @@
                 }
             ],
             "description": "An API extension for DateTime that supports 281 different languages.",
-            "projects": "https://carbon.nesbot.com",
             "keywords": [
                 "date",
                 "datetime",
@@ -2569,7 +2554,6 @@
                 }
             ],
             "description": "📐 Nette Schema: validating data structures against a given Schema.",
-            "projects": "https://nette.org",
             "keywords": [
                 "config",
                 "nette"
@@ -2644,7 +2628,6 @@
                 }
             ],
             "description": "🛠  Nette Utils: lightweight utilities for string & array manipulation, image handling, safe JSON encoding/decoding, validation, slug or strong password generating etc.",
-            "projects": "https://nette.org",
             "keywords": [
                 "array",
                 "core",
@@ -3037,7 +3020,6 @@
                 }
             ],
             "description": "Common interface for reading the clock.",
-            "projects": "https://github.com/php-fig/clock",
             "keywords": [
                 "clock",
                 "now",
@@ -3090,7 +3072,6 @@
                 }
             ],
             "description": "Common Container Interface (PHP FIG PSR-11)",
-            "projects": "https://github.com/php-fig/container",
             "keywords": [
                 "PSR-11",
                 "container",
@@ -3194,7 +3175,6 @@
                 }
             ],
             "description": "Common interface for HTTP clients",
-            "projects": "https://github.com/php-fig/http-client",
             "keywords": [
                 "http",
                 "http-client",
@@ -3300,7 +3280,6 @@
                 }
             ],
             "description": "Common interface for HTTP messages",
-            "projects": "https://github.com/php-fig/http-message",
             "keywords": [
                 "http",
                 "http-message",
@@ -3353,7 +3332,6 @@
                 }
             ],
             "description": "Common interface for logging libraries",
-            "projects": "https://github.com/php-fig/log",
             "keywords": [
                 "log",
                 "psr",
@@ -3478,7 +3456,6 @@
                 }
             ],
             "description": "An interactive shell for modern PHP.",
-            "projects": "http://psysh.org",
             "keywords": [
                 "REPL",
                 "console",
@@ -3786,7 +3763,6 @@
                 }
             ],
             "description": "Eases the creation of beautiful and testable command line interfaces",
-            "projects": "https://symfony.com",
             "keywords": [
                 "cli",
                 "command line",
@@ -3857,7 +3833,6 @@
                 }
             ],
             "description": "Converts CSS selectors to XPath expressions",
-            "projects": "https://symfony.com",
             "support": {
                 "source": "https://github.com/symfony/css-selector/tree/v6.0.19"
             },
@@ -3924,7 +3899,6 @@
                 }
             ],
             "description": "A generic function and convention to trigger deprecation notices",
-            "projects": "https://symfony.com",
             "support": {
                 "source": "https://github.com/symfony/deprecation-contracts/tree/v3.0.2"
             },
@@ -3995,7 +3969,6 @@
                 }
             ],
             "description": "Provides tools to manage errors and ease debugging PHP code",
-            "projects": "https://symfony.com",
             "support": {
                 "source": "https://github.com/symfony/error-handler/tree/v6.0.19"
             },
@@ -4078,7 +4051,6 @@
                 }
             ],
             "description": "Provides tools that allow your application components to communicate with each other by dispatching events and listening to them",
-            "projects": "https://symfony.com",
             "support": {
                 "source": "https://github.com/symfony/event-dispatcher/tree/v6.0.19"
             },
@@ -4149,7 +4121,6 @@
                 }
             ],
             "description": "Generic abstractions related to dispatching event",
-            "projects": "https://symfony.com",
             "keywords": [
                 "abstractions",
                 "contracts",
@@ -4218,7 +4189,6 @@
                 }
             ],
             "description": "Finds files and directories via an intuitive fluent interface",
-            "projects": "https://symfony.com",
             "support": {
                 "source": "https://github.com/symfony/finder/tree/v6.0.19"
             },
@@ -4293,7 +4263,6 @@
                 }
             ],
             "description": "Defines an object-oriented layer for the HTTP specification",
-            "projects": "https://symfony.com",
             "support": {
                 "source": "https://github.com/symfony/http-foundation/tree/v6.0.20"
             },
@@ -4402,7 +4371,6 @@
                 }
             ],
             "description": "Provides a structured process for converting a Request into a Response",
-            "projects": "https://symfony.com",
             "support": {
                 "source": "https://github.com/symfony/http-kernel/tree/v6.0.20"
             },
@@ -4476,7 +4444,6 @@
                 }
             ],
             "description": "Helps sending emails",
-            "projects": "https://symfony.com",
             "support": {
                 "source": "https://github.com/symfony/mailer/tree/v6.0.19"
             },
@@ -4554,7 +4521,6 @@
                 }
             ],
             "description": "Allows manipulating MIME messages",
-            "projects": "https://symfony.com",
             "keywords": [
                 "mime",
                 "mime-type"
@@ -4634,7 +4600,6 @@
                 }
             ],
             "description": "Symfony polyfill for ctype functions",
-            "projects": "https://symfony.com",
             "keywords": [
                 "compatibility",
                 "ctype",
@@ -4713,7 +4678,6 @@
                 }
             ],
             "description": "Symfony polyfill for intl's grapheme_* functions",
-            "projects": "https://symfony.com",
             "keywords": [
                 "compatibility",
                 "grapheme",
@@ -4800,7 +4764,6 @@
                 }
             ],
             "description": "Symfony polyfill for intl's idn_to_ascii and idn_to_utf8 functions",
-            "projects": "https://symfony.com",
             "keywords": [
                 "compatibility",
                 "idn",
@@ -4884,7 +4847,6 @@
                 }
             ],
             "description": "Symfony polyfill for intl's Normalizer class and related functions",
-            "projects": "https://symfony.com",
             "keywords": [
                 "compatibility",
                 "intl",
@@ -4968,7 +4930,6 @@
                 }
             ],
             "description": "Symfony polyfill for the Mbstring extension",
-            "projects": "https://symfony.com",
             "keywords": [
                 "compatibility",
                 "mbstring",
@@ -5045,7 +5006,6 @@
                 }
             ],
             "description": "Symfony polyfill backporting some PHP 7.2+ features to lower PHP versions",
-            "projects": "https://symfony.com",
             "keywords": [
                 "compatibility",
                 "polyfill",
@@ -5128,7 +5088,6 @@
                 }
             ],
             "description": "Symfony polyfill backporting some PHP 8.0+ features to lower PHP versions",
-            "projects": "https://symfony.com",
             "keywords": [
                 "compatibility",
                 "polyfill",
@@ -5207,7 +5166,6 @@
                 }
             ],
             "description": "Symfony polyfill backporting some PHP 8.1+ features to lower PHP versions",
-            "projects": "https://symfony.com",
             "keywords": [
                 "compatibility",
                 "polyfill",
@@ -5289,7 +5247,6 @@
                 }
             ],
             "description": "Symfony polyfill for uuid functions",
-            "projects": "https://symfony.com",
             "keywords": [
                 "compatibility",
                 "polyfill",
@@ -5356,7 +5313,6 @@
                 }
             ],
             "description": "Executes commands in sub-processes",
-            "projects": "https://symfony.com",
             "support": {
                 "source": "https://github.com/symfony/process/tree/v6.0.19"
             },
@@ -5438,7 +5394,6 @@
                 }
             ],
             "description": "Maps an HTTP request to a set of configuration variables",
-            "projects": "https://symfony.com",
             "keywords": [
                 "router",
                 "routing",
@@ -5518,7 +5473,6 @@
                 }
             ],
             "description": "Generic abstractions related to writing services",
-            "projects": "https://symfony.com",
             "keywords": [
                 "abstractions",
                 "contracts",
@@ -5603,7 +5557,6 @@
                 }
             ],
             "description": "Provides an object-oriented API to strings and deals with bytes, UTF-8 code points and grapheme clusters in a unified way",
-            "projects": "https://symfony.com",
             "keywords": [
                 "grapheme",
                 "i18n",
@@ -5706,7 +5659,6 @@
                 }
             ],
             "description": "Provides tools to internationalize your application",
-            "projects": "https://symfony.com",
             "support": {
                 "source": "https://github.com/symfony/translation/tree/v6.0.19"
             },
@@ -5776,7 +5728,6 @@
                 }
             ],
             "description": "Generic abstractions related to translation",
-            "projects": "https://symfony.com",
             "keywords": [
                 "abstractions",
                 "contracts",
@@ -5853,7 +5804,6 @@
                 }
             ],
             "description": "Provides an object-oriented API to generate and represent UIDs",
-            "projects": "https://symfony.com",
             "keywords": [
                 "UID",
                 "ulid",
@@ -5942,7 +5892,6 @@
                 }
             ],
             "description": "Provides mechanisms for walking through any arbitrary PHP variable",
-            "projects": "https://symfony.com",
             "keywords": [
                 "debug",
                 "dump"
@@ -6012,7 +5961,6 @@
                 }
             ],
             "description": "CssToInlineStyles is a class that enables you to convert HTML-pages/files into HTML-pages/files with inline styles. This is very useful when you're sending emails.",
-            "projects": "https://github.com/tijsverkoyen/CssToInlineStyles",
             "support": {
                 "issues": "https://github.com/tijsverkoyen/CssToInlineStyles/issues",
                 "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/2.2.6"
@@ -6143,7 +6091,6 @@
                 }
             ],
             "description": "Portable ASCII library - performance optimized (ascii) string functions for php.",
-            "projects": "https://github.com/voku/portable-ascii",
             "keywords": [
                 "ascii",
                 "clean",
@@ -6282,7 +6229,6 @@
                 }
             ],
             "description": "A small, lightweight utility to instantiate objects in PHP without invoking their constructors",
-            "projects": "https://www.doctrine-project.org/projects/instantiator.html",
             "keywords": [
                 "constructor",
                 "instantiate"
@@ -6425,7 +6371,6 @@
                 }
             ],
             "description": "php error handling for cool kids",
-            "projects": "https://filp.github.io/whoops/",
             "keywords": [
                 "error",
                 "exception",
@@ -6549,7 +6494,6 @@
                 }
             ],
             "description": "An opinionated code formatter for PHP.",
-            "projects": "https://laravel.com",
             "keywords": [
                 "format",
                 "formatter",
@@ -6691,7 +6635,6 @@
                 }
             ],
             "description": "Mockery is a simple yet flexible PHP mock object framework",
-            "projects": "https://github.com/mockery/mockery",
             "keywords": [
                 "BDD",
                 "TDD",
@@ -7030,7 +6973,6 @@
                 }
             ],
             "description": "Library that provides collection, processing, and rendering functionality for PHP code coverage information.",
-            "projects": "https://github.com/sebastianbergmann/php-code-coverage",
             "keywords": [
                 "coverage",
                 "testing",
@@ -7092,7 +7034,6 @@
                 }
             ],
             "description": "FilterIterator implementation that filters files based on a list of suffixes.",
-            "projects": "https://github.com/sebastianbergmann/php-file-iterator/",
             "keywords": [
                 "filesystem",
                 "iterator"
@@ -7156,7 +7097,6 @@
                 }
             ],
             "description": "Invoke callables with a timeout",
-            "projects": "https://github.com/sebastianbergmann/php-invoker/",
             "keywords": [
                 "process"
             ],
@@ -7215,7 +7155,6 @@
                 }
             ],
             "description": "Simple template engine.",
-            "projects": "https://github.com/sebastianbergmann/php-text-template/",
             "keywords": [
                 "template"
             ],
@@ -7274,7 +7213,6 @@
                 }
             ],
             "description": "Utility class for timing",
-            "projects": "https://github.com/sebastianbergmann/php-timer/",
             "keywords": [
                 "timer"
             ],
@@ -7366,7 +7304,6 @@
                 }
             ],
             "description": "The PHP Unit Testing framework.",
-            "projects": "https://phpunit.de/",
             "keywords": [
                 "phpunit",
                 "testing",
@@ -7436,7 +7373,6 @@
                 }
             ],
             "description": "Library for parsing CLI options",
-            "projects": "https://github.com/sebastianbergmann/cli-parser",
             "support": {
                 "issues": "https://github.com/sebastianbergmann/cli-parser/issues",
                 "source": "https://github.com/sebastianbergmann/cli-parser/tree/1.0.1"
@@ -7492,7 +7428,6 @@
                 }
             ],
             "description": "Collection of value objects that represent the PHP code units",
-            "projects": "https://github.com/sebastianbergmann/code-unit",
             "support": {
                 "issues": "https://github.com/sebastianbergmann/code-unit/issues",
                 "source": "https://github.com/sebastianbergmann/code-unit/tree/1.0.8"
@@ -7547,7 +7482,6 @@
                 }
             ],
             "description": "Looks up which function or method a line of code belongs to",
-            "projects": "https://github.com/sebastianbergmann/code-unit-reverse-lookup/",
             "support": {
                 "issues": "https://github.com/sebastianbergmann/code-unit-reverse-lookup/issues",
                 "source": "https://github.com/sebastianbergmann/code-unit-reverse-lookup/tree/2.0.3"
@@ -7616,7 +7550,6 @@
                 }
             ],
             "description": "Provides the functionality to compare PHP values for equality",
-            "projects": "https://github.com/sebastianbergmann/comparator",
             "keywords": [
                 "comparator",
                 "compare",
@@ -7678,7 +7611,6 @@
                 }
             ],
             "description": "Library for calculating the complexity of PHP code units",
-            "projects": "https://github.com/sebastianbergmann/complexity",
             "support": {
                 "issues": "https://github.com/sebastianbergmann/complexity/issues",
                 "source": "https://github.com/sebastianbergmann/complexity/tree/2.0.2"
@@ -7738,7 +7670,6 @@
                 }
             ],
             "description": "Diff implementation",
-            "projects": "https://github.com/sebastianbergmann/diff",
             "keywords": [
                 "diff",
                 "udiff",
@@ -7802,7 +7733,6 @@
                 }
             ],
             "description": "Provides functionality to handle HHVM/PHP environments",
-            "projects": "http://www.github.com/sebastianbergmann/environment",
             "keywords": [
                 "Xdebug",
                 "environment",
@@ -7880,7 +7810,6 @@
                 }
             ],
             "description": "Provides the functionality to export PHP variables for visualization",
-            "projects": "https://www.github.com/sebastianbergmann/exporter",
             "keywords": [
                 "export",
                 "exporter"
@@ -7945,7 +7874,6 @@
                 }
             ],
             "description": "Snapshotting of global state",
-            "projects": "http://www.github.com/sebastianbergmann/global-state",
             "keywords": [
                 "global state"
             ],
@@ -8005,7 +7933,6 @@
                 }
             ],
             "description": "Library for counting the lines of code in PHP source code",
-            "projects": "https://github.com/sebastianbergmann/lines-of-code",
             "support": {
                 "issues": "https://github.com/sebastianbergmann/lines-of-code/issues",
                 "source": "https://github.com/sebastianbergmann/lines-of-code/tree/1.0.3"
@@ -8062,7 +7989,6 @@
                 }
             ],
             "description": "Traverses array structures and object graphs to enumerate all referenced objects",
-            "projects": "https://github.com/sebastianbergmann/object-enumerator/",
             "support": {
                 "issues": "https://github.com/sebastianbergmann/object-enumerator/issues",
                 "source": "https://github.com/sebastianbergmann/object-enumerator/tree/4.0.4"
@@ -8117,7 +8043,6 @@
                 }
             ],
             "description": "Allows reflection of object attributes, including inherited and non-public ones",
-            "projects": "https://github.com/sebastianbergmann/object-reflector/",
             "support": {
                 "issues": "https://github.com/sebastianbergmann/object-reflector/issues",
                 "source": "https://github.com/sebastianbergmann/object-reflector/tree/2.0.4"
@@ -8180,7 +8105,6 @@
                 }
             ],
             "description": "Provides functionality to recursively process PHP variables",
-            "projects": "https://github.com/sebastianbergmann/recursion-context",
             "support": {
                 "issues": "https://github.com/sebastianbergmann/recursion-context/issues",
                 "source": "https://github.com/sebastianbergmann/recursion-context/tree/4.0.5"
@@ -8235,7 +8159,6 @@
                 }
             ],
             "description": "Provides a list of PHP built-in functions that operate on resources",
-            "projects": "https://www.github.com/sebastianbergmann/resource-operations",
             "support": {
                 "issues": "https://github.com/sebastianbergmann/resource-operations/issues",
                 "source": "https://github.com/sebastianbergmann/resource-operations/tree/3.0.3"
@@ -8291,7 +8214,6 @@
                 }
             ],
             "description": "Collection of value objects that represent the types of the PHP type system",
-            "projects": "https://github.com/sebastianbergmann/type",
             "support": {
                 "issues": "https://github.com/sebastianbergmann/type/issues",
                 "source": "https://github.com/sebastianbergmann/type/tree/3.2.1"
@@ -8344,7 +8266,6 @@
                 }
             ],
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
-            "projects": "https://github.com/sebastianbergmann/version",
             "support": {
                 "issues": "https://github.com/sebastianbergmann/version/issues",
                 "source": "https://github.com/sebastianbergmann/version/tree/3.0.2"
@@ -8399,7 +8320,6 @@
                 }
             ],
             "description": "A better backtrace",
-            "projects": "https://github.com/spatie/backtrace",
             "keywords": [
                 "Backtrace",
                 "spatie"
@@ -8470,7 +8390,6 @@
                 "MIT"
             ],
             "description": "Send PHP errors to Flare",
-            "projects": "https://github.com/spatie/flare-client-php",
             "keywords": [
                 "exception",
                 "flare",
@@ -8551,7 +8470,6 @@
                 }
             ],
             "description": "A beautiful error page for PHP applications.",
-            "projects": "https://flareapp.io/ignition",
             "keywords": [
                 "error",
                 "flare",
@@ -8641,7 +8559,6 @@
                 }
             ],
             "description": "A beautiful error page for Laravel applications.",
-            "projects": "https://flareapp.io/ignition",
             "keywords": [
                 "error",
                 "flare",
@@ -8716,7 +8633,6 @@
                 }
             ],
             "description": "Loads and dumps YAML files",
-            "projects": "https://symfony.com",
             "support": {
                 "source": "https://github.com/symfony/yaml/tree/v6.0.19"
             },
