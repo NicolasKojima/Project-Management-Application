@@ -9,6 +9,9 @@ use App\Http\Controllers\DatabaseController;
 use App\Http\Controllers\CalenderController;
 use App\Http\Controllers\TestimgController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductController;
 
 
 Route::middleware(['auth'])->group(function () {
@@ -39,6 +42,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+     Route::get('/permissions', function () {
+        return view('permissions');
+    })->name('permissions');
+    
     
     Route::get('employees', App\Http\Livewire\Crud::class);
 
@@ -51,9 +59,15 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('display-events', [EventController::class, 'displayEvents'])->name('display-events');
 
+    Route::get('/permissions', [TestimgController::class, 'permissions'])->name('permissions');
     Route::get('/dashboard', [TestimgController::class, 'dashboard'])->name('dashboard');
 
-    Route::get('/', function () {
-        return view('welcome');
+    Route::resource('roles', RoleController::class);
+    Route::resource('users', UserController::class);
+    Route::resource('products', ProductController::class);
+    
+    Route::redirect('/', '/dashboard');
 });
-});
+Auth::routes();
+
+Route::get('/permissions', [App\Http\Controllers\HomeController::class, 'index'])->name('permissions');
