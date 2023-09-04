@@ -25,6 +25,9 @@
                     <x-nav-link href="{{ route('contact-form') }}" :active="request()->routeIs('contact-form')">
                         {{ __('Contact-Us') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('permissions') }}" :active="request()->routeIs('permissions')">
+                        {{ __('Permissions') }}
+                    </x-nav-link>
                 </div>
             </div>
 

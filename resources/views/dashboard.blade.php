@@ -25,7 +25,7 @@
             .navbar-grid {
                 width: 100%;
                 display: grid;
-                grid-template-columns: 52% 12% 12% 12% 12%; 
+                grid-template-columns: 40% 12% 12% 12% 12% 12%; 
                 grid-template-rows: min-content; 
                 position: relative;
             }
