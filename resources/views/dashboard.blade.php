@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7bd1cbe5a78ad39d3b0f6029a5610e2f41131b13
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -76,6 +79,7 @@
         @livewireScripts
     </body>
 </html>
+<<<<<<< HEAD
 =======
 <x-app-layout>
     <x-slot name="header">
@@ -87,3 +91,5 @@
 </x-app-layout>
 
 >>>>>>> parent of 630b73c (finished for now, testing permissions elsewhere)
+=======
+>>>>>>> 7bd1cbe5a78ad39d3b0f6029a5610e2f41131b13
