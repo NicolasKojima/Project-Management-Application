@@ -15,7 +15,7 @@ class ProductController extends Controller
     function __construct()
     {
          $this->middleware('permission:product-list|product-create|product-edit|product-delete', ['only' => ['index','show']]);
-         $this->middleware('permission:product-create', ['only' => ['create', 'store']]);
+         $this->middleware('permission:product-create', ['only' => ['create','store']]);
          $this->middleware('permission:product-edit', ['only' => ['edit','update']]);
          $this->middleware('permission:product-delete', ['only' => ['destroy']]);
     }
@@ -30,12 +30,6 @@ class ProductController extends Controller
         return view('products.index',compact('products'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
-
-    public function index1()
-    {
-        $products = Product::all();
-        return view('projects', compact('products'));
-    }
     
     /**
      * Show the form for creating a new resource.
@@ -44,7 +38,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('post-project');
+        return view('products.create');
     }
     
     /**
@@ -55,28 +49,16 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+        request()->validate([
+            'name' => 'required',
+            'detail' => 'required',
         ]);
-        $image_path = $request->file('image')->store('image', 'public');
-        $image_path_new = explode('/', $image_path);
-        $profile_image_path = $request->file('profilepic')->store('image', 'public');
-        $profile_image_path_new = explode('/', $profile_image_path);
-        
-        $productData= new product();
-        $productData->name= $request['name'];
-        $productData->projname= $request['projname'];
-        $productData->projdescription= $request['projdescription'];
-        $productData->relavance = $request['relavance'];
-        $productData->skills = $request['skills'];
     
-        $productData->image = $image_path_new[1];
-        $productData->profilepic = $profile_image_path_new[1];
-        $productData->save();
-        return redirect('/projects')->with('status', 'product submitted successfully');
+        Product::create($request->all());
     
-            }
-    
+        return redirect()->route('products.index')
+                        ->with('success','Product created successfully.');
+    }
     
     /**
      * Display the specified resource.
