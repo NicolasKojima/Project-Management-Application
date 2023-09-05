@@ -14,11 +14,17 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 
 
-Route::middleware(['auth'])->group(function () {
+// Route::middleware(['auth'])->group(function () {
+
+    Route::middleware(['permission:product-create'])->group(function () {
+        Route::get('products/create', 'ProductController@create')->name('products.create');
+        Route::post('products', 'ProductController@store')->name('products.store');
+    });
     
     
-    Route::get('post-project', [FormController::class, 'index']);
-    Route::post('store-form', [FormController::class, 'store']);
+    
+    Route::get('post-project', [ProductController::class, 'index']);
+    Route::post('store-form', [ProductController::class, 'store']);
     
     Route::get('registration', [IndivController::class, 'index']);
     Route::post('store-form1', [IndivController::class, 'store']);
@@ -27,7 +33,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('store-form2', [TestimgController::class, 'store1']);
     Route::get('/dash', [TestimgController::class, 'indexdash'])->name('dash');
     
-    Route::get('/projects', [FormController::class, 'index1'])->name('projects');
+    Route::get('/projects', [ProductController::class, 'index1'])->name('projects');
     Route::get('/about-us', [AboutusController::class, 'index'])->name('about-us');
     Route::get('/contact-form', [ContactformController::class, 'index'])->name('contact-form');
     
@@ -37,7 +43,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/forms/update/{id}', [DatabaseController::class, 'update'])->name('update');
     
     Route::post('/forms/{id}', [FormController::class, 'delete'])->name('delete');
-    Route::post('/indiv/{id}', [FormController::class, 'delete'])->name('delete');
+    Route::post('/indiv/{id}', [IndivController::class, 'delete'])->name('delete');
     
     Route::get('/dashboard', function () {
         return view('dashboard');
@@ -67,7 +73,9 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('products', ProductController::class);
     
     Route::redirect('/', '/dashboard');
-});
+    
+// });
+
 Auth::routes();
 
 Route::get('/permissions', [App\Http\Controllers\HomeController::class, 'index'])->name('permissions');

@@ -17,7 +17,7 @@
       Project Post form
     </div>
     <div class="card-body">
-      <form name="post-project" id="post-project" method="post" action="{{url('store-form')}}" enctype="multipart/form-data">
+    <form name="post-project" id="post-project" method="post" action="{{ route('products.store') }}" enctype="multipart/form-data">
        @csrf
         <div class="form-group">
           <label for="exampleInputEmail1">Your Name</label>
