@@ -17,7 +17,11 @@
       Project Post form
     </div>
     <div class="card-body">
+<<<<<<< HEAD
       <form name="post-project" id="post-project" method="post" action="{{ route('products.store') }}" enctype="multipart/form-data">
+=======
+      <form name="post-project" id="post-project" method="post" action="{{url('store-form')}}" enctype="multipart/form-data">
+>>>>>>> 3e292865c1d1f41486a3f27265541cf6cf90158a
        @csrf
         <input type="hidden" name="created_by" value="{{ auth()->user()->id }}">
         <div class="form-group">

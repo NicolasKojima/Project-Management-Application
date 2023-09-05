@@ -30,7 +30,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('store-form2', [TestimgController::class, 'store1']);
     Route::get('/dash', [TestimgController::class, 'indexdash'])->name('dash');
     
-    Route::get('/projects', [ProductController::class, 'index1'])->name('projects');
+    Route::get('/projects', [FormController::class, 'index1'])->name('projects');
     Route::get('/about-us', [AboutusController::class, 'index'])->name('about-us');
     Route::get('/contact-form', [ContactformController::class, 'index'])->name('contact-form');
     

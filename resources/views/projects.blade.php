@@ -252,31 +252,35 @@
       <div class="album py-5 bg-light">
         <div class="container">
           <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 g-1">
+<<<<<<< HEAD
             @foreach ($products->reverse() as $product)
+=======
+            @foreach ($forms as $form)
+>>>>>>> 3e292865c1d1f41486a3f27265541cf6cf90158a
             <div class="col">
               <div class="margin">
                 <div class="card shadow-sm">
                   <div class="test">
                     <div class="individual">
                       <div class="photo-name">
-                        <img style="border-radius: 50%; width: 80px; height: 80px;" src="<?php echo asset('/storage/image/'.$product->profilepic)?>" alt="Profile Picture">
+                        <img style="border-radius: 50%; width: 80px; height: 80px;" src="<?php echo asset('/storage/image/'.$form->profilepic)?>" alt="Profile Picture">
                       </div>
                       <div class="name">
-                        <p>{{$product->name}}</p>
+                        <p>{{$form->name}}</p>
                       </div>
                       <div>
-                        <a class="editlink" href="{{ route('edit', $product->id) }}">Edit Form </a>
-                        <small class="text-muted" >{{ $product->created_at->format('Y-m-d H:i:s') }}    </small>
+                        <a class="editlink" href="{{ route('edit', $form->id) }}">Edit Form </a>
+                        <small class="text-muted" >{{ $form->created_at->format('Y-m-d H:i:s') }}    </small>
                       </div>
                     </div>
                     <div class="post-grid">
                       <div class="image-box">
-                        <img class="main-image" src="<?php echo asset('/storage/image/'.$product->image)?>" alt="Main Image"></img>
+                        <img class="main-image" src="<?php echo asset('/storage/image/'.$form->image)?>" alt="Main Image"></img>
                       </div>
                       <div class="skills">
-                        <h4 class="project-title"> {{$product->projname}} </h4>
+                        <h4 class="project-title"> {{$form->projname}} </h4>
                         <div class="project-description">
-                          <p>{{$product->projdescription}}</p>
+                          <p>{{$form->projdescription}}</p>
                         </div>
                       </div>
                     </div>  
@@ -285,10 +289,22 @@
                     <div class="card-body">
                       <div class="post-bottom-grid">
                         <div class="skill-rele">
-                          <h6 class="card-text">{{$product->skills}}</h6>
-                          <p class="skill-desc"> {{$product->Relavance}}</p>
+                          <h6 class="card-text">{{$form->skills}}</h6>
+                          <p class="skill-desc"> {{$form->Relavance}}</p>
                           <div class="d-flex justify-content-between align-items-center"></div>
+<<<<<<< HEAD
                         </div>
+=======
+                        </div>  
+                        <!-- <div class="delete-button">
+                          <form action="{{ route('delete', $form->id) }}" method="POST" id="del-form">
+                            @csrf
+                            @method('DELETE')
+                            <button type="button" class="btn btn-danger" onclick="del()">Delete</button>
+                            
+                          </form>
+                        </div> -->
+>>>>>>> 3e292865c1d1f41486a3f27265541cf6cf90158a
                       </div>
                     </div>
                   </div>

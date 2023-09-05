@@ -5,6 +5,11 @@
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>Add New Post</h2>
+<<<<<<< HEAD
+=======
+            </div>
+            <div class="pull-right">
+>>>>>>> 3e292865c1d1f41486a3f27265541cf6cf90158a
                 <a class="btn btn-primary" href="{{ route('products.index') }}"> Back </a>
             </div>
             
