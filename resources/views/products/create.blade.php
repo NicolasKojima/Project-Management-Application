@@ -4,11 +4,10 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Add New Product</h2>
-            </div>
-            <div class="pull-right">
+                <h2>Add New Post</h2>
                 <a class="btn btn-primary" href="{{ route('products.index') }}"> Back </a>
             </div>
+            
         </div>
     </div>
 
@@ -23,26 +22,39 @@
         </div>
     @endif
 
-    <form action="{{ route('products.store') }}" method="POST">
-    	@csrf
-
-         <div class="row">
-		    <div class="col-xs-12 col-sm-12 col-md-12">
-		        <div class="form-group">
-		            <strong>Name:</strong>
-		            <input type="text" name="name" class="form-control" placeholder="Name">
-		        </div>
-		    </div>
-		    <div class="col-xs-12 col-sm-12 col-md-12">
-		        <div class="form-group">
-		            <strong>Detail:</strong>
-		            <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail"></textarea>
-		        </div>
-		    </div>
-		    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-		            <button type="submit" class="btn btn-primary">Submit</button>
-		    </div>
-		</div>
-
-    </form>
+    <form name="post-project" id="post-project" method="post" action="{{ route('products.store') }}" enctype="multipart/form-data">
+       @csrf
+        <input type="hidden" name="created_by" value="{{ auth()->user()->id }}">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Your Name</label>
+          <input type="string" id="name" name="name" class="form-control" required="" placeholder="enter your name">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Project Name</label>
+          <input type="string" id="projname" name="projname" class="form-control" required="" placeholder="enter project name">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Project Description</label>
+          <textarea name="projdescription" class="form-control" required="" placeholder="enter a description of your project; what did you do? how did you do it? what resources did you use?"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Relavance</label>
+          <input type="string" id="Relavance" name="relavance" class="form-control" required="" placeholder="what relavance does this project have with the company?">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">skills</label>
+          <input type="string" id="skills" name="skills" class="form-control" required="" placeholder="e.g. HTML, CSS, Python, Laravel, CMS">
+        </div>
+        <div class="form-group">
+          <p> Project Image </p>
+          <input type="file" name="image" placeholder="Choose image" id="image">
+        </div>
+          <p> Image of Self</p>
+        <div class="form-group">
+          <input type="file" name="profilepic" placeholder="Choose image" id="profilepic">
+        </div>
+        <div class="submit-button-1">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
 @endsection

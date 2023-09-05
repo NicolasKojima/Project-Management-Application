@@ -203,7 +203,10 @@
               <p class="company-intro"> The Digital Communications Department (DC) is a department which focuses on the monitoring, analysis, and distribution of Data, as well as the creation, update and maintenance of Digital Websites, Tech Related Material, and EC Sites </p>
             </div>
             <div class="col-sm-4 offset-md-1 py-4">
-              <h4 class="text-white">Contact information</h4>
+              <h4 class="text-white">Contact in
+                
+              
+              mation</h4>
               <ul class="list-unstyled">
                 <li><a href="#" class="text-white">Phone: 03-6452-9977</a></li>
                 <li><a href="#" class="text-white">Fax: 03-6452-9988</a></li>
@@ -249,7 +252,7 @@
       <div class="album py-5 bg-light">
         <div class="container">
           <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 g-1">
-            @foreach ($products as $product)
+            @foreach ($products->reverse() as $product)
             <div class="col">
               <div class="margin">
                 <div class="card shadow-sm">
@@ -285,7 +288,7 @@
                           <h6 class="card-text">{{$product->skills}}</h6>
                           <p class="skill-desc"> {{$product->Relavance}}</p>
                           <div class="d-flex justify-content-between align-items-center"></div>
-                        </div>  
+                        </div>
                       </div>
                     </div>
                   </div>
