@@ -17,6 +17,10 @@
         .badge {
       color: black;
     }
+
+     .submit-button-1 {
+        margin-top:2vh;
+     }
     </style>
 </head>
 <body>
@@ -24,7 +28,7 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Profile Page
+                    < Back to Profile Page
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -46,7 +50,6 @@
                             <li><a class="nav-link" href="{{ route('roles.index') }}">Manage Role</a></li>
                             <li><a class="nav-link" href="{{ route('products.index') }}">Manage Posts</a></li>
                             <li class="ml-auto">
-                            <a class="nav-link" href="#">{{ Auth::user()->name }}</a>
                         </li>
                         @endguest
                     </ul>

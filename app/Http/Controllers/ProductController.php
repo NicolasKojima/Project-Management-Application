@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
     
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
     
 class ProductController extends Controller
 { 
@@ -30,6 +31,12 @@ class ProductController extends Controller
         return view('products.index',compact('products'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
+
+    public function index1()
+    {
+        $products = Product::all();
+        return view('projects', compact('products'));
+    }
     
     /**
      * Show the form for creating a new resource.
@@ -48,17 +55,32 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        request()->validate([
-            'name' => 'required',
-            'detail' => 'required',
-        ]);
+{
+    $this->validate($request, [
+        'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+    ]);
+    $image_path = $request->file('image')->store('image', 'public');
+    $image_path_new = explode('/', $image_path);
+    $profile_image_path = $request->file('profilepic')->store('image', 'public');
+    $profile_image_path_new = explode('/', $profile_image_path);
+
+    $user = auth()->user();
     
-        Product::create($request->all());
-    
-        return redirect()->route('products.index')
-                        ->with('success','Product created successfully.');
-    }
+    $ProductData= new product();
+    $ProductData->name= $request['name'];
+    $ProductData->projname= $request['projname'];
+    $ProductData->projdescription= $request['projdescription'];
+    $ProductData->relavance = $request['relavance'];
+    $ProductData->skills = $request['skills'];
+    $ProductData->created_by = $user->id;
+
+    $ProductData->image = $image_path_new[1];
+    $ProductData->profilepic = $profile_image_path_new[1];
+    $ProductData->save();
+    return redirect('/projects')->with('status', 'Form submitted successfully');
+
+        }
+
     
     /**
      * Display the specified resource.
