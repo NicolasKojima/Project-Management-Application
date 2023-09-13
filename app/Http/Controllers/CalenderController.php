@@ -9,14 +9,42 @@ class CalenderController extends Controller
 {
     public function index(Request $request)
     {
-        if($request->ajax()) {  
+        if ($request->ajax()) {  
             $data = CrudEvents::whereDate('event_start', '>=', $request->start)
-                ->whereDate('event_end',   '<=', $request->end)
-                ->get(['id', 'employee_name', 'project_name', 'event_start', 'event_end']);
+                ->whereDate('event_end', '<=', $request->end)
+                ->get()
+                ->map(function ($event) {
+                    return [
+                        'id' => $event->id,
+                        'title' => $event->employee_name . ' - ' . $event->project_name,
+                        'start' => $event->event_start,
+                        'end' => $event->event_end,
+                    ];
+                });
             return response()->json($data);
         }
-        return view('register-events');
+        return view('schedule');
     }
+    
+        // CalendarController.php
+        public function getEvents(Request $request)
+        {
+            $events = CrudEvents::all();
+    
+            // Convert the events data to the required format
+            $formattedEvents = [];
+            foreach ($events as $event) {
+                $formattedEvents[] = [
+                    'id' => $event->id,
+                    'title' => $event->employee_name . ' - ' . $event->project_name,
+                    'start' => $event->event_start,
+                    'end' => $event->event_end,
+                ];
+            }
+    
+            return response()->json($formattedEvents);
+        }
+    
 
     public function calendarEvents(Request $request)
     {
