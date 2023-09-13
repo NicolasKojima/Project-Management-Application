@@ -238,7 +238,7 @@
                   <a href="dashboard" class="btn btn-primary my-2" > Profile</a>
                 </div>
                 <div class="link">
-                  <a href="post-project" class="btn btn-secondary my-2" > Post Project</a>
+                  <a  href="post-project" class="btn btn-secondary my-2" > Post Project</a>
                 </div>
               </div>
             </p>
@@ -284,18 +284,18 @@
                         <div class="skill-rele">
                           <h6 class="card-text">{{$product->skills}}</h6>
                           <p class="skill-desc"> {{$product->Relavance}}</p>
-                          <div class="d-flex justify-content-between align-items-center"></div>
+                        <div class="d-flex justify-content-between align-items-center"></div>
                         </div>  
-                      </div>
+                      </div>                    
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+           </div>
+          @endforeach
           </div>
-        @endforeach
+        </div>
       </div>
-    </div>
 
     <script>
 

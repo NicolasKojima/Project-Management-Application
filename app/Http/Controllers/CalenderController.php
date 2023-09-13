@@ -7,9 +7,8 @@ use App\Models\CrudEvents;
 
 class CalenderController extends Controller
 {
-    public function event_reg(Request $request)
+    public function index(Request $request)
     {
-        
         if($request->ajax()) {  
             $data = CrudEvents::whereDate('event_start', '>=', $request->start)
                 ->whereDate('event_end',   '<=', $request->end)
@@ -21,7 +20,6 @@ class CalenderController extends Controller
 
     public function calendarEvents(Request $request)
     {
-
         switch ($request->type) {
            case 'create':
               $event = CrudEvents::create([
@@ -32,6 +30,7 @@ class CalenderController extends Controller
               ]);
 
               return response()->json($event);
+              break;
   
            case 'edit':
               $event = CrudEvents::find($request->id)->update([
@@ -42,11 +41,13 @@ class CalenderController extends Controller
               ]);
  
               return response()->json($event);
+              break;
 
            case 'delete':
               $event = CrudEvents::find($request->id)->delete();
 
               return response()->json($event);
+             break;
  
            default:
              # ...

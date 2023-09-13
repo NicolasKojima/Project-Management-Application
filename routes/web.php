@@ -22,6 +22,8 @@ Route::middleware(['auth'])->group(function () {
         Route::post('products', 'ProductController@store')->name('products.store');
     });
     
+    Route::get('post-project', [ProductController::class, 'form']);
+    Route::post('post-project', [ProductController::class, 'store1']);
     
     Route::get('registration', [IndivController::class, 'index']);
     Route::post('store-form1', [IndivController::class, 'store']);
@@ -53,17 +55,19 @@ Route::middleware(['auth'])->group(function () {
     
     Route::get('employees', App\Http\Livewire\Crud::class);
 
-    
     Route::get('/register-events', function () {
-        return view('/register-events');
+        return view('register-events');
     });
-    Route::get('/calendar-events', [CalenderController::class, 'event_reg']);
-    Route::post('/calendar-crud-ajax', [CalenderController::class, 'calendarEvents']);
+    Route::get('calendar-event', [CalenderController::class, 'index']);
+    Route::post('calendar-crud-ajax', [CalenderController::class, 'calendarEvents']);
+
+    Route::get('display-events', [EventController::class, 'displayEvents']);
+
 
     Route::get('display-events', [EventController::class, 'displayEvents'])->name('display-events');
 
     Route::get('/permissions', [TestimgController::class, 'permissions'])->name('permissions');
-    Route::get('/dashboard', [TestimgController::class, 'dashboard'])->name('dashboard');
+    Route::get('/dashboard', [ProductController::class, 'dashboard'])->name('dashboard');
 
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);

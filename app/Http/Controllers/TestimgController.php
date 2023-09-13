@@ -12,14 +12,6 @@ class TestimgController extends Controller
         return view('testimg-upload');
     }
 
-
-
-    public function dashboard()
-{
-    $profileinfoData = Profileinfo::all(); 
-    return view('layouts.app', compact('profileinfoData'));
-}
-
     public function permissions()
     {
         $profileinfoData = Profileinfo::all(); 

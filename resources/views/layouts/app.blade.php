@@ -224,11 +224,13 @@
 
                 .main-image {
                 box-sizing: border-box;
-                max-width: 90vw;
+                max-width: 100%;
+                max-height: 100%;
                 margin-right: auto;
                 margin-left: auto;
                 display: block; /* Make sure the images are displayed as block elements */
                 margin: 0 auto;
+
                 }
 
                 .page-heading {
@@ -282,95 +284,63 @@
                         <div class="example-grid">
                             <div class="gallery-example">
                                 <div class="slideshow-container">
-                                    @foreach ($profileinfoData as $data)
-                                    <!-- <div class="slide"> -->
+                                    @php $slideIndex = 1; @endphp
+                                    @foreach ($products as $data)
                                     <div class="mySlides">
-                                        <div class="numbertext"> 1 / 6</div>
-                                        <img class="main-image" src="<?php echo asset('/storage/image/'.$data->image1)?>" alt="Main Image"></img>
+                                        <div class="numbertext">{{ $slideIndex }} / {{ count($products) }}</div>
+                                        <img class="main-image" src="{{ asset('/storage/image/' . $data->image) }}" alt="Main Image">
                                     </div>
-                                    <div class="mySlides">
-                                        <div class="numbertext"> 2 / 6</div>
-                                        <img class="main-image" src="<?php echo asset('/storage/image/'.$data->image2)?>" alt="Main Image"></img>
-                                    </div>
-                                    <div class="mySlides">
-                                        <div class="numbertext"> 3 / 6</div>
-                                        <img class="main-image" src="<?php echo asset('/storage/image/'.$data->image3)?>" alt="Main Image"></img>
-                                    </div>
-                                    <div class="mySlides">
-                                        <div class="numbertext"> 4 / 6</div>
-                                        <img class="main-image" src="<?php echo asset('/storage/image/'.$data->image4)?>" alt="Main Image"></img>
-                                    </div>
-                                    <div class="mySlides">
-                                        <div class="numbertext"> 5 / 6</div>                                            <img class="main-image" src="<?php echo asset('/storage/image/'.$data->image5)?>" alt="Main Image"></img>
-                                        </div>
-                                    <div class="mySlides">
-                                        <div class="numbertext"> 6 / 6</div>
-                                        <img class="main-image" src="<?php echo asset('/storage/image/'.$data->image6)?>" alt="Main Image"></img>
-                                    </div>
-                                @endforeach
-                                <a class="prev" onclick="plusSlides(-1)">❮</a>
-                                <a class="next" onclick="plusSlides(1)">❯</a>
-                                </div>  
-                                <div class="caption-container">
-                                    <p id="caption"></p>
+                                    @php $slideIndex++; @endphp
+                                    @endforeach
+                                    <a class="prev" onclick="plusSlides(-1)">❮</a>
+                                    <a class="next" onclick="plusSlides(1)">❯</a>
                                 </div>
                             </div>
-                        <div class="descriptions">
-                            @foreach ($profileinfoData as $data)
-                            <div class="project-name">{{ $data->projname1 }}</div>
-                            <div class="description-text">{{ $data->projdescription1 }}</div>
-                            <div class="project-name">{{ $data->projname2 }}</div>
-                            <div class="description-text">{{ $data->projdescription2 }}</div>
-                            <div class="project-name">{{ $data->projname3 }}</div>
-                            <div class="description-text">{{ $data->projdescription3 }}</div>
-                            <div class="project-name">{{ $data->projname4 }}</div>
-                            <div class="description-text">{{ $data->projdescription4 }}</div>
-                            <div class="project-name">{{ $data->projname5 }}</div>
-                            <div class="description-text">{{ $data->projdescription5 }}</div>
-                            <div class="project-name">{{ $data->projname6 }}</div>
-                            <div class="description-text">{{ $data->projdescription6 }}</div>
-                            @endforeach
+                            <div class="descriptions">
+                                @foreach ($products as $data)
+                                <div class="project-description">
+                                    <div class="project-name">{{ $data->projname }}</div>
+                                    <div class="description-text">{{ $data->projdescription }}</div>
+                                </div>
+                                @endforeach
+                            </div>
                         </div>
-                        </div>
-                    </div>
-                </div>
+
+                        <script>
+                            let slideIndex = 1;
+                            showSlides(slideIndex);
+
+                            function plusSlides(n) {
+                                showSlides((slideIndex += n));
+                            }
+
+                            function showSlides(n) {
+                                let i;
+                                let slides = document.getElementsByClassName("mySlides");
+                                let projectDescriptions = document.getElementsByClassName("project-description");
+
+                                if (n > slides.length) {
+                                    slideIndex = 1;
+                                }
+                                if (n < 1) {
+                                    slideIndex = slides.length;
+                                }
+
+                                for (i = 0; i < slides.length; i++) {
+                                    slides[i].style.display = "none";
+                                }
+
+                                for (i = 0; i < projectDescriptions.length; i++) {
+                                    projectDescriptions[i].style.display = "none";
+                                }
+
+                                slides[slideIndex - 1].style.display = "block";
+                                projectDescriptions[slideIndex - 1].style.display = "block";
+                            }
+                        </script>
+
             </main>
         </div>
-            <script>
-                let slideIndex = 1;
-                showSlides(slideIndex);
-
-                function plusSlides(n) {
-                    showSlides(slideIndex += n);
-                }
-
-                function showSlides(n) {
-                    let i;
-                    let slides = document.getElementsByClassName("mySlides");
-                    let descriptions = document.getElementsByClassName("description-text");
-                    let title = document.getElementsByClassName("project-name");
-
-                    if (n > slides.length) {slideIndex = 1}
-                    if (n < 1) {slideIndex = slides.length}
-
-                    for (i = 0; i < slides.length; i++) {
-                        slides[i].style.display = "none";
-                    }
-            
-                    for (i = 0; i < descriptions.length; i++) {
-                        descriptions[i].style.display = "none";
-                    }
-
-                    for (i = 0; i < title.length; i++) {
-                        title[i].style.display = "none";
-                    }
-
-                    slides[slideIndex - 1].style.display = "block";
-                    descriptions[slideIndex - 1].style.display = "block";
-                    title[slideIndex - 1].style.display = "block";
-                }
-
-            </script>
                 
         @stack('modals')
         @livewireScripts

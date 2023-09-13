@@ -54,7 +54,7 @@
             var calendar = $('#full_calendar_events').fullCalendar({
                 editable: true,
                 editable: true,
-                events: SITEURL + "/calendar-events",
+                events: SITEURL + "/calendar-event",
                 displayEventTime: true,
                 eventRender: function (event, element, view) {
                     if (event.allDay === 'true') {

@@ -37,6 +37,17 @@ class ProductController extends Controller
         $products = Product::all();
         return view('projects', compact('products'));
     }
+
+    public function form()
+    {
+        return view('post-project');
+    }
+
+    public function dashboard()
+    {
+        $products = Product::all(); 
+        return view('layouts.app', compact('products'));
+    }
     
     /**
      * Show the form for creating a new resource.
@@ -80,6 +91,33 @@ class ProductController extends Controller
     return redirect('/projects')->with('status', 'Form submitted successfully');
 
         }
+
+        public function store1(Request $request)
+        {
+            $this->validate($request, [
+                'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            ]);
+            $image_path = $request->file('image')->store('image', 'public');
+            $image_path_new = explode('/', $image_path);
+            $profile_image_path = $request->file('profilepic')->store('image', 'public');
+            $profile_image_path_new = explode('/', $profile_image_path);
+        
+            $user = auth()->user();
+            
+            $ProductData= new product();
+            $ProductData->name= $request['name'];
+            $ProductData->projname= $request['projname'];
+            $ProductData->projdescription= $request['projdescription'];
+            $ProductData->relavance = $request['relavance'];
+            $ProductData->skills = $request['skills'];
+            $ProductData->created_by = $user->id;
+        
+            $ProductData->image = $image_path_new[1];
+            $ProductData->profilepic = $profile_image_path_new[1];
+            $ProductData->save();
+            return redirect('/projects')->with('status', 'Form submitted successfully');
+        
+                }
 
     
     /**

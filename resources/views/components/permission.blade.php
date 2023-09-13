@@ -21,6 +21,12 @@
      .submit-button-1 {
         margin-top:2vh;
      }
+
+
+    .table3 {
+        overflow-y: auto;
+    }
+
     </style>
 </head>
 <body>
