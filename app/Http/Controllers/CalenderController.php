@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\CrudEvents; 
+use App\Models\UserColor;
 
 class CalenderController extends Controller
 {
@@ -63,5 +64,34 @@ class CalenderController extends Controller
                 // Handle other cases or errors here
                 break;
         }
+    }
+    public function getCalendarEvents()
+    {
+        // Fetch events from the database (replace with your actual query)
+        $eventsFromDatabase = CrudEvents::all();
+
+        $events = []; // Initialize an array to store events
+
+        // Fetch events and add them to the $events array with different background colors
+        foreach ($eventsFromDatabase as $event) {
+            $userId = $event->user_id;
+
+            // Fetch the user's color from the user_colors table
+            $userColor = UserColor::where('user_id', $userId)->value('color');
+
+            // Use the user's color or provide a default color
+            $eventColor = $userColor ?: 'green';
+
+            // Create the event data with the backgroundColor property
+            $events[] = [
+                'title' => $event->project_name,
+                'start' => $event->event_start,
+                'end' => $event->event_end,
+                'allDay' => false, // Adjust as needed
+                'backgroundColor' => $eventColor, // Set the background color
+            ];
+        }
+
+        return response()->json($events); // Return the events as JSON
     }
 }

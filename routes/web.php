@@ -61,7 +61,10 @@ Route::middleware(['auth'])->group(function () {
         return view('register-events');
     });
     Route::get('calendar-event', [CalenderController::class, 'index']);
+    
     Route::post('calendar-crud-ajax', [CalenderController::class, 'calendarEvents']);
+
+    Route::get('/calendar-events', [CalenderController::class, 'getCalendarEvents'])->name('calendar-events');
 
 
 

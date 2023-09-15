@@ -9,7 +9,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Spatie\Permission\Models\Role;
-
+use App\Models\UserColor;
 class RegisterController extends Controller
 {
     /*
@@ -62,6 +62,7 @@ class RegisterController extends Controller
      *
      * @param  array  $data
      * @return \App\Models\User
+     * 
      */
     protected function create(array $data)
 {
@@ -72,10 +73,17 @@ class RegisterController extends Controller
         'password' => Hash::make($data['password']),
     ]);
 
+    $randomColor = '#' . str_pad(dechex(mt_rand(0, 0xFFFFFF)), 6, '0', STR_PAD_LEFT);
+
     // Assign the 'guest' role to the user
     $role = Role::findByName('Guest');
     $user->assignRole($role);
 
+    UserColor::create([
+        'user_id' => $user->id,
+        'color' => $randomColor,
+    ]);
+    
     return $user;
 }
 }

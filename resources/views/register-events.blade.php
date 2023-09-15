@@ -57,6 +57,7 @@
                 events: SITEURL + "/calendar-event",
                 displayEventTime: true,
                 eventRender: function (event, element, view) {
+                    element.css('background-color', event.backgroundColor);
                     if (event.allDay === 'true') {
                         event.allDay = true;
                     } else {
@@ -134,6 +135,7 @@
                         });
                     }
                 }
+                
             });
         });
 
