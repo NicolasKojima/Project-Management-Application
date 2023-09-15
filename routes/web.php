@@ -62,9 +62,10 @@ Route::middleware(['auth'])->group(function () {
     Route::post('calendar-crud-ajax', [CalenderController::class, 'calendarEvents']);
 
     Route::get('display-events', [EventController::class, 'displayEvents']);
-
-
     Route::get('display-events', [EventController::class, 'displayEvents'])->name('display-events');
+
+    Route::get('register-events', [EventController::class, 'registerEvents']);
+    Route::get('register-events', [EventController::class, 'registerEvents'])->name('register-events');
 
     Route::get('/permissions', [TestimgController::class, 'permissions'])->name('permissions');
     Route::get('/dashboard', [ProductController::class, 'dashboard'])->name('dashboard');
