@@ -19,7 +19,7 @@
                     <x-nav-link href="{{ route('about-us') }}" :active="request()->routeIs('about-us')">
                         {{ __('Employees') }}
                     </x-nav-link>
-                    <x-nav-link href="{{ route('register-events') }}" :active="request()->routeIs('register-events')">
+                    <x-nav-link href="{{ route('display-events') }}" :active="request()->routeIs('display-events')">
                         {{ __('Schedule') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('contact-form') }}" :active="request()->routeIs('contact-form')">

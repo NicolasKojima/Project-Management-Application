@@ -14,12 +14,5 @@ class EventController extends Controller
         return view('display-events', compact('events'));
     }
 
-    public function registerEvents()
-    {
-        $events = CrudEvents::all();
-
-        return view('register-events', compact('events'));
-    }
-
     // ...
 }
