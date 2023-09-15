@@ -29,7 +29,7 @@
                 <h2 class="h2 text-center "> Register New Project Period </h2>
             </div>
             <div class="link">
-                <a href="display-events" class="btn btn-primary my-2" > Schedule </a> 
+                <a href="dashboard" class="btn btn-primary my-2" > Profile </a> 
             </div>
         </div>
 

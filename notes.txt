@@ -18,3 +18,7 @@ Branch Text:
 creating admin users
 
 php artisan db:seed --class=CreateAdminUserSeeder
+
+creating roles
+
+php artisan db:seed --class=PermissionTableSeeder

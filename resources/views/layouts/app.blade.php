@@ -339,6 +339,10 @@
                             }
                         </script>
 
+                        <div style="width:100%; height:55px; background-color:white;">
+                            <h1 class="page-heading" style="font-size:x-large; padding-top: 10px; padding-left: 10px;"> Your Schedule </h1>
+                        </div>
+
             </main>
         </div>
                 

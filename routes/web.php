@@ -18,8 +18,8 @@ Route::middleware(['auth'])->group(function () {
     
     
     Route::middleware(['permission:product-create'])->group(function () {
-        Route::get('products/create', 'ProductController@create')->name('products.create');
-        Route::post('products', 'ProductController@store')->name('products.store');
+    Route::get('products/create', 'ProductController@create')->name('products.create');
+    Route::post('products', 'ProductController@store')->name('products.store');
     });
     
     Route::get('post-project', [ProductController::class, 'form']);
@@ -65,6 +65,8 @@ Route::middleware(['auth'])->group(function () {
 
 
     Route::get('display-events', [EventController::class, 'displayEvents'])->name('display-events');
+    Route::get('register-events', [EventController::class, 'registerEvents'])->name('register-events');
+
 
     Route::get('/permissions', [TestimgController::class, 'permissions'])->name('permissions');
     Route::get('/dashboard', [ProductController::class, 'dashboard'])->name('dashboard');
