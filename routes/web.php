@@ -14,6 +14,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 
 
+
+
 Route::middleware(['auth'])->group(function () {
     
     
@@ -61,15 +63,16 @@ Route::middleware(['auth'])->group(function () {
     Route::get('calendar-event', [CalenderController::class, 'index']);
     Route::post('calendar-crud-ajax', [CalenderController::class, 'calendarEvents']);
 
-    Route::get('display-events', [EventController::class, 'displayEvents']);
 
 
-    Route::get('display-events', [EventController::class, 'displayEvents'])->name('display-events');
+    
+    Route::get('display-events', [EventController::class, 'displayEvents1'])->name('display-events');
     Route::get('register-events', [EventController::class, 'registerEvents'])->name('register-events');
 
 
     Route::get('/permissions', [TestimgController::class, 'permissions'])->name('permissions');
-    Route::get('/dashboard', [ProductController::class, 'dashboard'])->name('dashboard');
+
+    Route::get('dashboard', [EventController::class, 'dashboard'])->name('dashboard');
 
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);

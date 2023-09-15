@@ -10,6 +10,7 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" />
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -265,6 +266,18 @@
                     font-size:25px;
                     font-weight: bold;
                 }
+                
+                .links {
+                    display: grid;
+                    grid-template-columns: 80% 8% 12%;
+                    gap: 5px;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .link {
+                    display: flex;
+                }
 
         </style>
     </head>
@@ -285,26 +298,44 @@
                             <div class="gallery-example">
                                 <div class="slideshow-container">
                                     @php $slideIndex = 1; @endphp
+                                    @php $hasData = false; @endphp
                                     @foreach ($products as $data)
-                                    <div class="mySlides">
-                                        <div class="numbertext">{{ $slideIndex }} / {{ count($products) }}</div>
-                                        <img class="main-image" src="{{ asset('/storage/image/' . $data->image) }}" alt="Main Image">
-                                    </div>
-                                    @php $slideIndex++; @endphp
+                                        @if ($data->created_by == auth()->user()->id)
+                                            <div class="mySlides">
+                                                <div class="numbertext">{{ $slideIndex }} / {{ count($products) }}</div>
+                                                <img class="main-image" src="{{ asset('/storage/image/' . $data->image) }}" alt="Main Image">
+                                            </div>
+                                            @php $slideIndex++; @endphp
+                                            @php $hasData = true; @endphp
+                                        @endif
                                     @endforeach
-                                    <a class="prev" onclick="plusSlides(-1)">❮</a>
-                                    <a class="next" onclick="plusSlides(1)">❯</a>
+                                    @if ($slideIndex > 1)
+                                        <a class="prev" onclick="plusSlides(-1)">❮</a>
+                                        <a class="next" onclick="plusSlides(1)">❯</a>
+                                    @endif
                                 </div>
                             </div>
                             <div class="descriptions">
-                                @foreach ($products as $data)
+                            @foreach ($products as $data)
+                                @if ($data->created_by == auth()->user()->id)
+                                    <div class="project-description">
+                                        <div class="project-name">{{ $data->projname }}</div>
+                                        <div class="description-text">{{ $data->projdescription }}</div>
+                                    </div>
+                                @endif
+                            @endforeach
+                            @if (!$hasData)
+                                <!-- Display a message when no data is available -->
                                 <div class="project-description">
-                                    <div class="project-name">{{ $data->projname }}</div>
-                                    <div class="description-text">{{ $data->projdescription }}</div>
+                                    <div class="project-name">No data available</div>
+                                    <div class="description-text">You haven't posted any products yet.</div>
                                 </div>
-                                @endforeach
+                            @endif
                             </div>
                         </div>
+
+
+
 
                         <script>
                             let slideIndex = 1;
@@ -339,10 +370,44 @@
                             }
                         </script>
 
-                        <div style="width:100%; height:55px; background-color:white;">
-                            <h1 class="page-heading" style="font-size:x-large; padding-top: 10px; padding-left: 10px;"> Your Schedule </h1>
+                        <div style="width:100%; height:55px;">
+                            <h1 style="font-size:x-large; padding-top: 10px; padding-left: 10px;"></h1>
                         </div>
-
+                        <div class="container mt-5">
+                            <div class="links">
+                                <div class="link">
+                                    <h2 class="h2 text-center">Project Schedule</h2>
+                                </div>
+                                <div class="link">
+                                    <a href="dashboard" class="btn btn-primary my-2">Profile</a>
+                                </div>
+                                <div class="link">
+                                    <a href="register-events" class="btn btn-primary my-2">Register Event</a>
+                                </div>
+                            </div>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Title</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($events as $event)
+                                    @if($event->user_id == auth()->user()->id)
+                                    <tr>
+                                        <td>{{ $event->employee_name }}</td>
+                                        <td>{{ $event->project_name }}</td>
+                                        <td>{{ $event->event_start }}</td>
+                                        <td>{{ $event->event_end }}</td>
+                                    </tr>
+                                    @endif
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
             </main>
         </div>
                 

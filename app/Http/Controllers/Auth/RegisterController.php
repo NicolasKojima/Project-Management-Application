@@ -73,7 +73,7 @@ class RegisterController extends Controller
     ]);
 
     // Assign the 'guest' role to the user
-    $role = Role::findByName('guest');
+    $role = Role::findByName('Guest');
     $user->assignRole($role);
 
     return $user;

@@ -18,8 +18,11 @@ class CreateCrudEventsTable extends Migration
             $table->string('employee_name');
             $table->string('project_name');
             $table->date('event_start');
-            $table->date('event_end');            
+            $table->date('event_end');
+            $table->unsignedBigInteger('user_id')->nullable();            
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
     /**
