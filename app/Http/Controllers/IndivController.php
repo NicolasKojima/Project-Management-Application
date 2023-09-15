@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\indivs;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 class IndivController extends Controller
 {
     public function index()
@@ -11,6 +12,15 @@ class IndivController extends Controller
         return view('registration');
     }
 
+
+    public function showRegistrationForm()
+    {
+        // Get the currently logged-in user
+        $user = Auth::user();
+
+        // Pass user data to the view
+        return view('registration', compact('user'));
+    }
     public function index1()
     {
         $indivs = indivs::all();

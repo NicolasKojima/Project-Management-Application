@@ -28,6 +28,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('post-project', [ProductController::class, 'store1']);
     
     Route::get('registration', [IndivController::class, 'index']);
+    Route::get('registration', [IndivController::class, 'showRegistrationForm']);
     Route::post('store-form1', [IndivController::class, 'store']);
 
     Route::get('testimg-upload', [TestimgController::class, 'index']);

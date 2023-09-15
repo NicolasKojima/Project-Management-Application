@@ -19,13 +19,16 @@
     <div class="card-body">
       <form name="registration" id="registration" method="post" action="{{url('store-form1')}}"  enctype="multipart/form-data">
        @csrf
+        <!-- Name Field -->
         <div class="form-group">
-          <label for="exampleInputEmail1">Your Name</label>
-          <input type="string" id="name" name="name" class="form-control" required="" placeholder="enter your name">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" class="form-control" required placeholder="Enter your name" value="{{ $user->name }}">
         </div>
+
+        <!-- Email Field -->
         <div class="form-group">
-          <label for="exampleInputEmail1">Email</label>
-          <input type="string" id="email" name="email" class="form-control" required="" placeholder="enter your email">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" class="form-control" required placeholder="Enter your email" value="{{ $user->email }}">
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">Introduction</label>
