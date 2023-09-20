@@ -37,7 +37,9 @@ Route::middleware(['auth'])->group(function () {
     
     Route::get('/projects', [ProductController::class, 'index1'])->name('projects');
     Route::get('/about-us', [AboutusController::class, 'index'])->name('about-us');
+
     Route::get('/contact-form', [ContactformController::class, 'index'])->name('contact-form');
+     Route::post('contact-form', [ContactformController::class, 'store']);
     
     Route::get('/forms/edit/{id}', [DatabaseController::class, 'edit']);
     Route::post('/forms/update/{id}', [DatabaseController::class, 'update']);
@@ -46,7 +48,9 @@ Route::middleware(['auth'])->group(function () {
     
     Route::post('/forms/{id}', [FormController::class, 'delete'])->name('delete');
     Route::post('/indiv/{id}', [FormController::class, 'delete'])->name('delete');
-    
+
+    Route::post('/profiles', [EventController::class, 'UserSelection'])->name('UserSelection');
+
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
@@ -67,7 +71,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/calendar-events', [CalenderController::class, 'getCalendarEvents'])->name('calendar-events');
 
-
+    Route::get('/testshit', function () {
+        return view('testshit');
+    })->name('testshit');
 
     
     Route::get('display-events', [EventController::class, 'displayEvents1'])->name('display-events');
@@ -77,6 +83,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/permissions', [TestimgController::class, 'permissions'])->name('permissions');
 
     Route::get('dashboard', [EventController::class, 'dashboard'])->name('dashboard');
+    Route::get('profiles', [EventController::class, 'profiles'])->name('profiles');
 
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);

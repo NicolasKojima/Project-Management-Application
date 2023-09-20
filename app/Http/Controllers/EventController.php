@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\CrudEvents;
 use App\Models\Product;
+use App\Models\User;
 
 class EventController extends Controller
 {
@@ -19,10 +20,26 @@ class EventController extends Controller
 {
     $events = CrudEvents::all();
     $products = Product::all();
+    $users = User::all();
 
-    return view('layouts.app', compact('events', 'products'));
+    return view('layouts.app', compact('events', 'products', 'users'));
 }
+    public function profiles()
+    {
+        $events = CrudEvents::all();
+        $products = Product::all();
+        $users = User::all();
 
-
-    // ...
+        return view('profiles', compact('events', 'products', 'users'));
+    }
+    public function UserSelection(Request $request)
+    {
+        // Retrieve the selected user's ID from the request
+        $selectedUserId = $request->input('selectedUserId');
+        $events = CrudEvents::all();
+        $products = Product::all();
+        $users = User::all();
+    
+        return view('profiles', compact('events', 'products', 'users','selectedUserId'));
+    }
 }

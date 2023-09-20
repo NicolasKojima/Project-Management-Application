@@ -26,9 +26,6 @@
                 <h2 class="h2 text-center">Project Schedule</h2>
             </div>
             <div class="link">
-                <a href="dashboard" class="btn btn-primary my-2">Profile</a>
-            </div>
-            <div class="link">
                 <a href="register-events" class="btn btn-primary my-2">Register Event</a>
             </div>
         </div>

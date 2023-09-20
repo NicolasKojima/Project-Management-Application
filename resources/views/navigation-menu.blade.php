@@ -16,14 +16,17 @@
                     <x-nav-link href="{{ route('projects') }}" :active="request()->routeIs('projects')">
                         {{ __('Projects') }}
                     </x-nav-link>
-                    <x-nav-link href="{{ route('about-us') }}" :active="request()->routeIs('about-us')">
+                    <!-- <x-nav-link href="{{ route('about-us') }}" :active="request()->routeIs('about-us')">
                         {{ __('Employees') }}
-                    </x-nav-link>
+                    </x-nav-link> -->
                     <x-nav-link href="{{ route('register-events') }}" :active="request()->routeIs('register-events')">
                         {{ __('Schedule') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('contact-form') }}" :active="request()->routeIs('contact-form')">
                         {{ __('Contact-Us') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('profiles') }}" :active="request()->routeIs('profiles')">
+                        {{ __('Profiles') }}
                     </x-nav-link>
                     @if (!auth()->user()->hasRole('guest'))
                         <x-nav-link href="{{ route('permissions') }}" :active="request()->routeIs('permissions')">
