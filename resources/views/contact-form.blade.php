@@ -33,8 +33,8 @@
         body {
             min-height: 100vh;
             width: 100%;
-            background: #c8e8e9;
-            display: flex;
+            /* background: #c8e8e9; */
+            /* display: flex; */
             align-items: center;
             justify-content: center;
         }

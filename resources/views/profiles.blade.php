@@ -243,6 +243,10 @@
                 color: white;
                 }
 
+                .add-button{
+                    right: 0;
+                }
+
                 .row:after {
                 content: "";
                 display: table;
@@ -343,9 +347,9 @@
             <main>
                 <div class="container">
                     <div class="content">
-                        <div style="width:100%; height:55px; background-color:white;">
-                            <h1 class="page-heading" style="font-size:x-large; padding-top: 10px; padding-left: 10px;">
-                                Profile @if(isset($selectedUserId)) - {{ $users->firstWhere('id', $selectedUserId)->name }} @endif
+                        <div style="width: 100%; height: 55px; background-color: white;">
+                            <h1 class="page-heading" style="font-size: x-large; padding-top: 10px; padding-left: 10px;">
+                                @if(isset($selectedUserId)) {{ $users->firstWhere('id', $selectedUserId)->name }} - <a href="mailto:{{ $users->firstWhere('id', $selectedUserId)->email }}"> Contact </a> @endif
                             </h1>
                         </div>
                         @if(isset($selectedUserId))
@@ -393,7 +397,9 @@
                                     <a href="dashboard" class="btn btn-primary my-2">Profile</a>
                                 </div>
                                 <div class="link">
-                                    <a href="register-events" class="btn btn-primary my-2">Register Event</a>
+                                    <div class="add-button">
+                                        <a href="register-events" class="btn btn-primary my-2">Add Event</a>
+                                    </div>
                                 </div>
                             </div>
                             <table class="table">
@@ -413,6 +419,31 @@
                                             <td>{{ $event->project_name }}</td>
                                             <td>{{ $event->event_start }}</td>
                                             <td>{{ $event->event_end }}</td>
+                                        </tr>
+                                        @endif
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            <div class="links">
+                                <div class="link">
+                                    <h2 class="h2 text-center">Skills</h2>
+                                </div>
+                            </div>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Allocated time</th>
+                                        <th>Proficiency</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($skills as $skill)
+                                        @if ($skill->user_id  == $selectedUserId)
+                                        <tr>
+                                            <td>{{ $skill->name }}</td>
+                                            <td>{{ $skill->allocated_time}}</td>
+                                            <td>{{ $skill->proficiency_level}}</td>
                                         </tr>
                                         @endif
                                     @endforeach

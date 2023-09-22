@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\CrudEvents;
 use App\Models\Product;
 use App\Models\User;
+use App\Models\Skill;
 
 class EventController extends Controller
 {
@@ -21,16 +22,18 @@ class EventController extends Controller
     $events = CrudEvents::all();
     $products = Product::all();
     $users = User::all();
+    $skills = Skill::all();
 
-    return view('layouts.app', compact('events', 'products', 'users'));
+    return view('layouts.app', compact('events', 'products', 'users', 'skills'));
 }
     public function profiles()
     {
         $events = CrudEvents::all();
         $products = Product::all();
+        $skills = Skill::all();
         $users = User::all();
 
-        return view('profiles', compact('events', 'products', 'users'));
+        return view('profiles', compact('events', 'products', 'users', 'skills'));
     }
     public function UserSelection(Request $request)
     {
@@ -39,7 +42,8 @@ class EventController extends Controller
         $events = CrudEvents::all();
         $products = Product::all();
         $users = User::all();
+        $skills = Skill::all();
     
-        return view('profiles', compact('events', 'products', 'users','selectedUserId'));
+        return view('profiles', compact('events', 'products', 'users','selectedUserId', 'skills'));
     }
 }

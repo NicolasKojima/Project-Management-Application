@@ -78,6 +78,7 @@
           height: 80px;
         }
 
+
       .name {
           font-size: 7vh;
           grid-column: 2;
@@ -105,6 +106,14 @@
 
       .project-title{
         margin: 0;
+        position: relative;
+      }
+
+      .header-grid {
+        padding: 10px;
+        display: grid;
+        grid-template-columns: 60% 40%; 
+        grid-template-rows: min-content; 
         position: relative;
       }
 
@@ -174,8 +183,13 @@
     .links {
       display: flex;
       gap: 5px;
-      align-items: center;
       justify-content: center;
+      align-items: center; 
+    }
+
+    .project-blog {
+      justify-content: center;
+      align-items: center; 
     }
 
 
@@ -189,15 +203,15 @@
 
             <!-- Page Content -->
             <main>
-            <section class="py-5 text-center container">
-            <div class="row py-lg-5">
-              <div class="col-lg-6 col-md-8 mx-auto">
-                <h1>DC Project Blog</h1>
+            <section class="">
+            <div class="header-grid">
+              <div class="project-blog">
+                <h1 class="page-heading" style="font-size:x-large; padding-top: 12px; padding-left: 10px;"> DC Project Blog </h1>
+              </div>
+              <div class="links">
                 <p>
-                  <div class="links">
-                    <div class="link">
-                      <a  href="post-project" class="btn btn-secondary my-2" > Post Project</a>
-                    </div>
+                  <div class="link">
+                    <a  href="post-project" class="btn btn-secondary my-2" > Post Project</a>
                   </div>
                 </p>
               </div>

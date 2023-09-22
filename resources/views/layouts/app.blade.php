@@ -255,6 +255,10 @@
                     box-sizing: border-box;
                 }
 
+                .add-button{
+                    right: 0;
+                }
+
                 .content {
                     display: flex;
                     flex-wrap: wrap;
@@ -379,10 +383,9 @@
                                     <h2 class="h2 text-center">Project Schedule</h2>
                                 </div>
                                 <div class="link">
-                                    <a href="dashboard" class="btn btn-primary my-2">Profile</a>
-                                </div>
-                                <div class="link">
-                                    <a href="register-events" class="btn btn-primary my-2">Register Event</a>
+                                    <div class="add-button">
+                                        <a href="register-events" class="btn btn-primary my-2">Add Event</a>
+                                    </div>
                                 </div>
                             </div>
                             <table class="table">
@@ -404,6 +407,36 @@
                                         <td>{{ $event->event_end }}</td>
                                     </tr>
                                     @endif
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            <div class="links">
+                                <div class="link">
+                                    <h2 class="h2 text-center">Skills</h2>
+                                </div>
+                                <div class="link">
+                                    <div class="add-button">
+                                        <a href="skillform" class="btn btn-primary my-2">Add Skill</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Allocated time</th>
+                                        <th>Proficiency</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($skills as $skill)
+                                        @if($skill->skill_id == auth()->user()->id)
+                                        <tr>
+                                            <td>{{ $skill->name }}</td>
+                                            <td>{{ $skill->allocated_time}}</td>
+                                            <td>{{ $skill->proficiency_level}}</td>
+                                        </tr>
+                                        @endif
                                     @endforeach
                                 </tbody>
                             </table>

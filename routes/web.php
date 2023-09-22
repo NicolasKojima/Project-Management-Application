@@ -12,6 +12,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SkillController;
 
 
 
@@ -88,8 +89,14 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
     Route::resource('products', ProductController::class);
-    
+
+    Route::get('skillform', [SkillController::class, 'create'])->name('create');
+    Route::post('skillform', [SkillController::class, 'store'])->name('store');
+
+        
     Route::redirect('/', '/dashboard');
+
+    // Route::post('/submit-form', [FormController::class, 'submitForm'])->name('submit.form');
 });
 Auth::routes();
 
