@@ -12,17 +12,11 @@ class TestimgController extends Controller
         return view('testimg-upload');
     }
 
-    public function indexdash()
+    public function permissions()
     {
-        $profileinfos = profileinfo::all();
-        return view('dashboard', compact('profileinfos'));
+        $profileinfoData = Profileinfo::all(); 
+        return view('components.permission', compact('profileinfoData'));
     }
-
-    public function dashboard()
-{
-    $profileinfoData = Profileinfo::all(); 
-    return view('layouts.app', compact('profileinfoData'));
-}
 
     public function store1(Request $request)
 {

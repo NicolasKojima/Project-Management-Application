@@ -13,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // Register your application services here, if needed.
     }
 
     /**
@@ -23,6 +23,22 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // Register custom Blade components here.
+        $this->registerBladeComponents();
+    }
+
+    /**
+     * Register custom Blade components.
+     *
+     * @return void
+     */
+    protected function registerBladeComponents()
+    {
+        view()->composer('*', function ($view) {
+            $view->with('components', [
+                'x-permission' => \App\View\Components\CustomLayout::class,
+                // Add more components as needed.
+            ]);
+        });
     }
 }

@@ -10,6 +10,7 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" />
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -224,11 +225,13 @@
 
                 .main-image {
                 box-sizing: border-box;
-                max-width: 90vw;
+                max-width: 100%;
+                max-height: 100%;
                 margin-right: auto;
                 margin-left: auto;
                 display: block; /* Make sure the images are displayed as block elements */
                 margin: 0 auto;
+
                 }
 
                 .page-heading {
@@ -252,6 +255,10 @@
                     box-sizing: border-box;
                 }
 
+                .add-button{
+                    right: 0;
+                }
+
                 .content {
                     display: flex;
                     flex-wrap: wrap;
@@ -262,6 +269,18 @@
                 .project-name {
                     font-size:25px;
                     font-weight: bold;
+                }
+                
+                .links {
+                    display: grid;
+                    grid-template-columns: 80% 8% 12%;
+                    gap: 5px;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .link {
+                    display: flex;
                 }
 
         </style>
@@ -282,95 +301,148 @@
                         <div class="example-grid">
                             <div class="gallery-example">
                                 <div class="slideshow-container">
-                                    @foreach ($profileinfoData as $data)
-                                    <!-- <div class="slide"> -->
-                                    <div class="mySlides">
-                                        <div class="numbertext"> 1 / 6</div>
-                                        <img class="main-image" src="<?php echo asset('/storage/image/'.$data->image1)?>" alt="Main Image"></img>
-                                    </div>
-                                    <div class="mySlides">
-                                        <div class="numbertext"> 2 / 6</div>
-                                        <img class="main-image" src="<?php echo asset('/storage/image/'.$data->image2)?>" alt="Main Image"></img>
-                                    </div>
-                                    <div class="mySlides">
-                                        <div class="numbertext"> 3 / 6</div>
-                                        <img class="main-image" src="<?php echo asset('/storage/image/'.$data->image3)?>" alt="Main Image"></img>
-                                    </div>
-                                    <div class="mySlides">
-                                        <div class="numbertext"> 4 / 6</div>
-                                        <img class="main-image" src="<?php echo asset('/storage/image/'.$data->image4)?>" alt="Main Image"></img>
-                                    </div>
-                                    <div class="mySlides">
-                                        <div class="numbertext"> 5 / 6</div>                                            <img class="main-image" src="<?php echo asset('/storage/image/'.$data->image5)?>" alt="Main Image"></img>
-                                        </div>
-                                    <div class="mySlides">
-                                        <div class="numbertext"> 6 / 6</div>
-                                        <img class="main-image" src="<?php echo asset('/storage/image/'.$data->image6)?>" alt="Main Image"></img>
-                                    </div>
-                                @endforeach
-                                <a class="prev" onclick="plusSlides(-1)">❮</a>
-                                <a class="next" onclick="plusSlides(1)">❯</a>
-                                </div>  
-                                <div class="caption-container">
-                                    <p id="caption"></p>
+                                    @php $slideIndex = 1; @endphp
+                                    @php $hasData = false; @endphp
+                                    @foreach ($products as $data)
+                                        @if ($data->created_by == auth()->user()->id)
+                                            <div class="mySlides">
+                                                <div class="numbertext">{{ $slideIndex }} / {{ count($products) }}</div>
+                                                <img class="main-image" src="{{ asset('/storage/image/' . $data->image) }}" alt="Main Image">
+                                            </div>
+                                            @php $slideIndex++; @endphp
+                                            @php $hasData = true; @endphp
+                                        @endif
+                                    @endforeach
+                                    @if ($slideIndex > 1)
+                                        <a class="prev" onclick="plusSlides(-1)">❮</a>
+                                        <a class="next" onclick="plusSlides(1)">❯</a>
+                                    @endif
                                 </div>
                             </div>
-                        <div class="descriptions">
-                            @foreach ($profileinfoData as $data)
-                            <div class="project-name">{{ $data->projname1 }}</div>
-                            <div class="description-text">{{ $data->projdescription1 }}</div>
-                            <div class="project-name">{{ $data->projname2 }}</div>
-                            <div class="description-text">{{ $data->projdescription2 }}</div>
-                            <div class="project-name">{{ $data->projname3 }}</div>
-                            <div class="description-text">{{ $data->projdescription3 }}</div>
-                            <div class="project-name">{{ $data->projname4 }}</div>
-                            <div class="description-text">{{ $data->projdescription4 }}</div>
-                            <div class="project-name">{{ $data->projname5 }}</div>
-                            <div class="description-text">{{ $data->projdescription5 }}</div>
-                            <div class="project-name">{{ $data->projname6 }}</div>
-                            <div class="description-text">{{ $data->projdescription6 }}</div>
+                            <div class="descriptions">
+                            @foreach ($products as $data)
+                                @if ($data->created_by == auth()->user()->id)
+                                    <div class="project-description">
+                                        <div class="project-name">{{ $data->projname }}</div>
+                                        <div class="description-text">{{ $data->projdescription }}</div>
+                                    </div>
+                                @endif
                             @endforeach
+                            @if (!$hasData)
+                                <!-- Display a message when no data is available -->
+                                <div class="project-description">
+                                    <div class="project-name">No data available</div>
+                                    <div class="description-text">You haven't posted any products yet.</div>
+                                </div>
+                            @endif
+                            </div>
                         </div>
+
+
+
+
+                        <script>
+                            let slideIndex = 1;
+                            showSlides(slideIndex);
+
+                            function plusSlides(n) {
+                                showSlides((slideIndex += n));
+                            }
+
+                            function showSlides(n) {
+                                let i;
+                                let slides = document.getElementsByClassName("mySlides");
+                                let projectDescriptions = document.getElementsByClassName("project-description");
+
+                                if (n > slides.length) {
+                                    slideIndex = 1;
+                                }
+                                if (n < 1) {
+                                    slideIndex = slides.length;
+                                }
+
+                                for (i = 0; i < slides.length; i++) {
+                                    slides[i].style.display = "none";
+                                }
+
+                                for (i = 0; i < projectDescriptions.length; i++) {
+                                    projectDescriptions[i].style.display = "none";
+                                }
+
+                                slides[slideIndex - 1].style.display = "block";
+                                projectDescriptions[slideIndex - 1].style.display = "block";
+                            }
+                        </script>
+
+                        <div style="width:100%; height:55px;">
+                            <h1 style="font-size:x-large; padding-top: 10px; padding-left: 10px;"></h1>
                         </div>
-                    </div>
-                </div>
+                        <div class="container mt-5">
+                            <div class="links">
+                                <div class="link">
+                                    <h2 class="h2 text-center">Project Schedule</h2>
+                                </div>
+                                <div class="link">
+                                    <div class="add-button">
+                                        <a href="register-events" class="btn btn-primary my-2">Add Event</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Title</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($events as $event)
+                                    @if($event->user_id == auth()->user()->id)
+                                    <tr>
+                                        <td>{{ $event->employee_name }}</td>
+                                        <td>{{ $event->project_name }}</td>
+                                        <td>{{ $event->event_start }}</td>
+                                        <td>{{ $event->event_end }}</td>
+                                    </tr>
+                                    @endif
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            <div class="links">
+                                <div class="link">
+                                    <h2 class="h2 text-center">Skills</h2>
+                                </div>
+                                <div class="link">
+                                    <div class="add-button">
+                                        <a href="skillform" class="btn btn-primary my-2">Add Skill</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Allocated time</th>
+                                        <th>Proficiency</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($skills as $skill)
+                                        @if($skill->skill_id == auth()->user()->id)
+                                        <tr>
+                                            <td>{{ $skill->name }}</td>
+                                            <td>{{ $skill->allocated_time}}</td>
+                                            <td>{{ $skill->proficiency_level}}</td>
+                                        </tr>
+                                        @endif
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
             </main>
         </div>
-            <script>
-                let slideIndex = 1;
-                showSlides(slideIndex);
-
-                function plusSlides(n) {
-                    showSlides(slideIndex += n);
-                }
-
-                function showSlides(n) {
-                    let i;
-                    let slides = document.getElementsByClassName("mySlides");
-                    let descriptions = document.getElementsByClassName("description-text");
-                    let title = document.getElementsByClassName("project-name");
-
-                    if (n > slides.length) {slideIndex = 1}
-                    if (n < 1) {slideIndex = slides.length}
-
-                    for (i = 0; i < slides.length; i++) {
-                        slides[i].style.display = "none";
-                    }
-            
-                    for (i = 0; i < descriptions.length; i++) {
-                        descriptions[i].style.display = "none";
-                    }
-
-                    for (i = 0; i < title.length; i++) {
-                        title[i].style.display = "none";
-                    }
-
-                    slides[slideIndex - 1].style.display = "block";
-                    descriptions[slideIndex - 1].style.display = "block";
-                    title[slideIndex - 1].style.display = "block";
-                }
-
-            </script>
                 
         @stack('modals')
         @livewireScripts

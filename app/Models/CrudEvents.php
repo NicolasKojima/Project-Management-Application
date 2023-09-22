@@ -13,6 +13,7 @@ class CrudEvents extends Model
         'employee_name', 
         'project_name',
         'event_start', 
-        'event_end'
+        'event_end',
+        'user_id',
     ];    
 }

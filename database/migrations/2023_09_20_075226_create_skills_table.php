@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCrudEventsTable extends Migration
+class CreateSkillsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,16 @@ class CreateCrudEventsTable extends Migration
      */
     public function up()
     {
-        Schema::create('crud_events', function (Blueprint $table) {
+        Schema::create('skills', function (Blueprint $table) {
             $table->id();
-            $table->string('employee_name');
-            $table->string('project_name');
-            $table->date('event_start');
-            $table->date('event_end');            
+            $table->string('name');
+            $table->string('allocated_time');
+            $table->string('proficiency_level');
+            $table->unsignedBigInteger('skill_id');
             $table->timestamps();
         });
     }
+
     /**
      * Reverse the migrations.
      *
@@ -29,6 +30,6 @@ class CreateCrudEventsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('crud_events');
+        Schema::dropIfExists('skills');
     }
 }

@@ -45,7 +45,7 @@
   <p>Please choose an option:</p>
     @if (Route::has('login'))
         @auth
-            <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
+            <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Profile</a>
             @else
                 <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
             @if (Route::has('register'))
