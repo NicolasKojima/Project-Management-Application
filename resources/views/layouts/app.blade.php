@@ -11,7 +11,11 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" />
-
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+        
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -380,6 +384,36 @@
                         <div class="container mt-5">
                             <div class="links">
                                 <div class="link">
+                                    <h2 class="h2 text-center">Skills</h2>
+                                </div>
+                                <div class="link">
+                                    <div class="add-button">
+                                        <a href="skillform" class="btn btn-primary my-2">Add Skill</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Allocated time</th>
+                                        <th>Proficiency</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($skills as $skill)
+                                        @if($skill->skill_id == auth()->user()->id)
+                                        <tr>
+                                            <td>{{ $skill->name }}</td>
+                                            <td>{{ $skill->allocated_time}}</td>
+                                            <td>{{ $skill->proficiency_level}}</td>
+                                        </tr>
+                                        @endif
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            <div class="links">
+                                <div class="link">
                                     <h2 class="h2 text-center">Project Schedule</h2>
                                 </div>
                                 <div class="link">
@@ -410,36 +444,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            <div class="links">
-                                <div class="link">
-                                    <h2 class="h2 text-center">Skills</h2>
-                                </div>
-                                <div class="link">
-                                    <div class="add-button">
-                                        <a href="skillform" class="btn btn-primary my-2">Add Skill</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Allocated time</th>
-                                        <th>Proficiency</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($skills as $skill)
-                                        @if($skill->skill_id == auth()->user()->id)
-                                        <tr>
-                                            <td>{{ $skill->name }}</td>
-                                            <td>{{ $skill->allocated_time}}</td>
-                                            <td>{{ $skill->proficiency_level}}</td>
-                                        </tr>
-                                        @endif
-                                    @endforeach
-                                </tbody>
-                            </table>
+                            <div id='full_calendar_events'></div>
                         </div>
             </main>
         </div>
