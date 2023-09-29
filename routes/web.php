@@ -13,7 +13,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SkillController;
-
+use App\Http\Controllers\timetableController;
 
 
 
@@ -56,7 +56,12 @@ Route::middleware(['auth'])->group(function () {
         return view('dashboard');
     })->name('dashboard');
 
-     Route::get('/permissions', function () {
+    Route::get('/projectschedule', function () {
+        return view('projectschedule');
+    })->name('projectschedule');
+    Route::get('projectschedule', [timetableController::class, 'displayuser'])->name('projectschedule');
+
+    Route::get('/permissions', function () {
         return view('permissions');
     })->name('permissions');
     

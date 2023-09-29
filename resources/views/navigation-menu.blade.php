@@ -21,7 +21,10 @@
                         {{ __('Employees') }}
                     </x-nav-link> -->
                     <x-nav-link href="{{ route('register-events') }}" :active="request()->routeIs('register-events')">
-                        {{ __('Schedule') }}
+                        {{ __('Calendar') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('projectschedule') }}" :active="request()->routeIs('projectschedule')">
+                        {{ __('projectschedule') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('contact-form') }}" :active="request()->routeIs('contact-form')">
                         {{ __('Contact-Us') }}
