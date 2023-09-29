@@ -24,7 +24,7 @@
                         {{ __('Calendar') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('projectschedule') }}" :active="request()->routeIs('projectschedule')">
-                        {{ __('projectschedule') }}
+                        {{ __('timetable') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('contact-form') }}" :active="request()->routeIs('contact-form')">
                         {{ __('Contact-Us') }}
