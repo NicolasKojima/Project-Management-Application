@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
          <!-- Scripts -->
          @vite(['resources/css/app.css', 'resources/js/app.js'])
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
         <!-- Styles -->
         @livewireStyles
@@ -90,7 +91,7 @@
         }
 
         .day {
-            min-width: 17%;
+            min-width: 10%;
             flex: 1;
             line-height: 50px;
             text-align: center;
@@ -124,61 +125,139 @@
         /* background-color: white; */
         }
 
+        .space {
+            width: 100%;
+            height:60px;
+        }
+
+        .calendar_title_M_Y {
+            padding:20px;
+            font-size: 300;
+            font-weight: 300;
+        }
+
+        .users-event {
+            background-color: bisque;
+            position:absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;          
+        }
+
+        .date {
+            margin-bottom: 23px;
+        }
+
+        .event-span {
+            position:relative;
+            border-top: #000 solid 1px;
+            border-bottom: #000 solid 1px;
+            margin-bottom:9.5px;
+            height:50.5px;
+        }
+
+        .selection-button{
+            margin-left: 30px;
+        }
+
 /* Adjust the styles as needed */
 
         </style>
     </head>
     <body class="font-sans antialiased">
         <x-banner />
-
         <div class="min-h-screen bg-gray-100">
             @livewire('navigation-menu')
             <!-- Page Content -->
             <main>
-                <div class="space"></div>
-                <div class="calendar-container">
-                    <div class="calendar">
-                        <div class="calendar-horizontal-grid">
-                            <div class="left-colomn">
-                                <div class="title">
-                                    <div class="title-month"> August </div>
-                                </div>
-                                @foreach ($users as $user) 
-                                    <div class="grid-item">
-                                        <p>{{$user->name}}</p>
-                                    </div>
-                                @endforeach
-                            </div>
-                            <div class="days-container">
-                                @for ($i = 1; $i <= 31; $i++)
-                                    <div class="day"> {{ $i }} </div>
+                <div class="space">
+                    <div class="title">
+                        <div class="title-month-year">
+                            <select id="monthSelect" class="selection-button">
+                                @for ($i = 1; $i <= 12; $i++)
+                                    <option value="{{ $i }}">{{ \Carbon\Carbon::create(null, $i)->format('F') }}</option>
                                 @endfor
-                            </div>
+                            </select>
+                            <select id="yearSelect" class="selection-button">
+                                @for ($i = date("Y"); $i <= date("Y") + 10; $i++)
+                                    <option value="{{ $i }}">{{ $i }}</option>
+                                @endfor
+                            </select>
+                            <button id="updateCalendar" onclick="updateCalendar()" style="font-size: 20px; margin-left: 30px">Update</button>
                         </div>
                     </div>
                 </div>
-            <script src="{{ asset('js/calendar.js') }}">
-                // calendar.js
+                <div class="calendar-container">
+    <div class="calendar">
+        <div class="calendar-horizontal-grid">
+            <div class="left-column">
+                <div class="calendar_title_M_Y">
+                    {{ \Carbon\Carbon::now()->format('F') }}
+                    {{ \Carbon\Carbon::now()->format('Y') }}
+                </div>
+                @foreach ($users as $user)
+                    <div class="grid-item">
+                        <p>{{$user->name}}</p>
+                    </div>
+                @endforeach
+            </div>
+            <div class="days-container">
+                @for ($i = 1; $i <= 31; $i++)
+                    <div class="day">
+                        <div class="date">
+                            {{ $i }}
+                        </div>
+                        @foreach ($users as $user)
+                            <div class="event-span">
+                                @foreach ($user->events as $event)
+                                    @if (\Carbon\Carbon::parse($event->event_start)->day <= $i && \Carbon\Carbon::parse($event->event_end)->day >= $i)
+                                        <span class="users-event">{{ $event->project_name }}</span>
+                                    @else
+                                        <span class="user-noevent">&nbsp;</span>
+                                    @endif
+                                @endforeach
+                            </div>
+                        @endforeach
+                    </div>
+                @endfor
+            </div>
+        </div>
+    </div>
+</div>
 
-                const daysContainer = document.querySelector('.days-container');
-                const prevMonthButton = document.getElementById('prev-month');
-                const nextMonthButton = document.getElementById('next-month');
 
-                // Handle navigation to previous month
-                prevMonthButton.addEventListener('click', () => {
-                    daysContainer.scrollLeft -= daysContainer.clientWidth;
-                });
-
-                // Handle navigation to next month
-                nextMonthButton.addEventListener('click', () => {
-                    daysContainer.scrollLeft += daysContainer.clientWidth;
-                });
-
-            </script>
-                
             </main>
         </div>
         @stack('modals')
         @livewireScripts
+        <script>
+            function updateCalendar() {
+                const monthSelect = document.getElementById("monthSelect");
+                const yearSelect = document.getElementById("yearSelect");
+                const calendarTitle = document.querySelector(".calendar_title_M_Y");
+                const daysContainer = document.querySelector(".days-container");
+
+                const selectedMonth = monthSelect.value;
+                const selectedYear = yearSelect.value;
+                const daysInMonth = new Date(selectedYear, selectedMonth, 0).getDate();
+
+                // Update the calendar title
+                calendarTitle.textContent = `${moment().month(selectedMonth - 1).format('MMMM')} ${selectedYear}`;
+
+                // Clear the existing days
+                daysContainer.innerHTML = "";
+
+                // Populate the days container with new days
+                for (let i = 1; i <= daysInMonth; i++) {
+                    const dayDiv = document.createElement("div");
+                    dayDiv.classList.add("day");
+                    dayDiv.textContent = i;
+                    daysContainer.appendChild(dayDiv);
+                }
+            }
+        </script>
+
     </body>
+
 </html>

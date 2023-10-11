@@ -160,6 +160,7 @@
                 border-radius: 0 3px 3px 0;
                 user-select: none;
                 -webkit-user-select: none;
+                background-color: grey;
                 }
 
                 /* Position the "next button" to the right */
@@ -285,6 +286,15 @@
 
                 .link {
                     display: flex;
+                }
+
+                .description-text{
+                    font-size: small;
+                    max-height: 200px; 
+                    overflow: auto;
+                    word-wrap: break-word;
+                    margin-top: 5vh;
+                    margin-right: 2vw;
                 }
 
         </style>

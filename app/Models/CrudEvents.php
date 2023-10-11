@@ -15,4 +15,10 @@ class CrudEvents extends Model
         'event_end',
         'user_id',
     ];    
+
+    public function user()
+{
+    return $this->belongsTo(User::class, 'user_id');
+}
+
 }

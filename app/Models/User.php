@@ -25,6 +25,11 @@ class User extends Authenticatable
         'facebook_id',
     ];
 
+    public function events()
+    {
+        return $this->hasMany(CrudEvents::class, 'user_id');
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

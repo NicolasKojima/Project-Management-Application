@@ -39,7 +39,7 @@
     <div class="container mt-5" style="max-width: 700px">
         <div class="links">
             <div class="link">
-                <h2 class="h2 text-center "> Register New Project Period </h2>
+                <h2 class="h2 text-center "> Projects Calendar </h2>
             </div>
         </div>
 
