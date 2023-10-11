@@ -14,8 +14,10 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\timetableController;
+use App\Http\Controllers\FacebookController;
 
-
+route::get('auth/facebook',[FacebookController::class,'facebookpage']);
+route::get('auth/facebook/callback',[FacebookController::class,'facebookredirect']);
 
 Route::middleware(['auth'])->group(function () {
     
@@ -101,7 +103,10 @@ Route::middleware(['auth'])->group(function () {
         
     Route::redirect('/', '/dashboard');
 
-    // Route::post('/submit-form', [FormController::class, 'submitForm'])->name('submit.form');
+    // routes/web.php
+    Route::post('/post-to-facebook', [FacebookController::class,'postToFacebook'])->name('post-to-facebook');
+
+
 });
 Auth::routes();
 

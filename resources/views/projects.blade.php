@@ -259,6 +259,15 @@
                         </div>  
                       </div>                    
                     </div>
+                  <div class="card-header">Post to Facebook</div>
+                    <div class="card-body">
+                        <form method="POST" action="{{ route('post-to-facebook') }}">
+                            @csrf
+                            <button type="submit" class="btn btn-primary">
+                                Post to Facebook
+                            </button>
+                        </form>
+                    </div>
                   </div>
                 </div>
               </div>

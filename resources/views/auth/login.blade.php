@@ -56,6 +56,9 @@
                     </x-button>
                 </div>
             </div>
+            <div style="text-align: center; background-color: #316FF6; margin-top: 20px; color: white; padding:2px; border-radius: 5px;">
+                <a href ="{{url('auth/facebook')}}"> Login With Facebook</a>
+            </div>
         </form>
     </x-authentication-card>
 </x-guest-layout>
