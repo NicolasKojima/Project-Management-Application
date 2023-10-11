@@ -50,10 +50,6 @@
                 <form id="create-event-form">
                     @csrf
                     <div class="form-group">
-                        <label for="employee_name">Your Name</label>
-                        <input type="text" class="form-control" id="employee_name" name="employee_name" required>
-                    </div>
-                    <div class="form-group">
                         <label for="project_name">Event Name</label>
                         <input type="text" class="form-control" id="project_name" name="project_name" required>
                     </div>
@@ -78,7 +74,6 @@
     $(document).ready(function () {
 
                     $('#create-event-btn').click(function () {
-                        var employee_name = $('#employee_name').val();
                         var project_name = $('#project_name').val();
                         var event_start = $('#event_start').val();
                         var event_end = $('#event_end').val();
@@ -86,7 +81,6 @@
                         $.ajax({
                             url: SITEURL + "/calendar-crud-ajax",
                             data: {
-                                employee_name: employee_name,
                                 project_name: project_name,
                                 event_start: event_start,
                                 event_end: event_end,
@@ -98,7 +92,6 @@
 
                                 calendar.fullCalendar('renderEvent', {
                                     id: data.id,
-                                    name: employee_name,
                                     title: project_name,
                                     start: event_start,
                                     end: event_end,
@@ -134,15 +127,13 @@
                 selectable: true,
                 selectHelper: true,
                 select: function (event_start, event_end, allDay) {
-                    var employee_name = prompt('Your Name:');
                     var project_name = prompt('Project Name:');
-                    if (employee_name) {
+                    if (project_name) {
                         var event_start = $.fullCalendar.formatDate(event_start, "Y-MM-DD HH:mm:ss");
                         var event_end = $.fullCalendar.formatDate(event_end, "Y-MM-DD HH:mm:ss");
                         $.ajax({
                             url: SITEURL + "/calendar-crud-ajax",
                             data: {
-                                employee_name: employee_name,
                                 project_name: project_name,
                                 event_start: event_start,
                                 event_end: event_end,
@@ -154,7 +145,6 @@
 
                                 calendar.fullCalendar('renderEvent', {
                                     id: data.id,
-                                    name: employee_name,
                                     title:project_name,
                                     start: event_start,
                                     end: event_end,
@@ -172,7 +162,6 @@
                     $.ajax({
                         url: SITEURL + '/calendar-crud-ajax',
                         data: {
-                            name:event.employee_name,
                             title: event.project_name,
                             start: event_start,
                             end: event_end,

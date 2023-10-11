@@ -17,7 +17,7 @@ class CalenderController extends Controller
                 ->map(function ($event) {
                     return [
                         'id' => $event->id,
-                        'title' => $event->employee_name . ' - ' . $event->project_name,
+                        'title' => $event->project_name,
                         'start' => $event->event_start,
                         'end' => $event->event_end,
                     ];
@@ -32,7 +32,6 @@ class CalenderController extends Controller
         switch ($request->type) {
             case 'create':
                 $event = new CrudEvents(); // Use the model to create a new event
-                $event->employee_name = $request->employee_name;
                 $event->project_name = $request->project_name;
                 $event->event_start = $request->event_start;
                 $event->event_end = $request->event_end;
@@ -44,7 +43,6 @@ class CalenderController extends Controller
 
             case 'edit':
                 $event = CrudEvents::find($request->id);
-                $event->employee_name = $request->employee_name;
                 $event->project_name = $request->project_name;
                 $event->event_start = $request->event_start;
                 $event->event_end = $request->event_end;

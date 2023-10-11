@@ -10,7 +10,6 @@ class CrudEvents extends Model
     use HasFactory;
     
     protected $fillable = [
-        'employee_name', 
         'project_name',
         'event_start', 
         'event_end',

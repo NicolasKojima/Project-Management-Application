@@ -415,7 +415,6 @@
                                     @foreach($events as $event)
                                         @if ($event->user_id  == $selectedUserId)
                                         <tr>
-                                            <td>{{ $event->employee_name }}</td>
                                             <td>{{ $event->project_name }}</td>
                                             <td>{{ $event->event_start }}</td>
                                             <td>{{ $event->event_end }}</td>
