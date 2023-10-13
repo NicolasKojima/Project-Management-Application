@@ -10,6 +10,6 @@ class Skill extends Model
     use HasFactory;
 
     // Define the fillable fields for mass assignment
-    protected $fillable = ['name', 'allocated_time', 'proficiency_level', 'skill_id'];
+    protected $fillable = ['name', 'allocated_time', 'proficiency_level', 'user_id', 'skill_id'];
 
 }

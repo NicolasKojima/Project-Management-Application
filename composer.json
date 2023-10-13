@@ -6,10 +6,12 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "facebook/graph-sdk": "^5.1",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.19",
         "laravel/jetstream": "^3.0",
         "laravel/sanctum": "^3.0",
+        "laravel/socialite": "^5.9",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^4.2",
         "laravelcollective/html": "^6.4",

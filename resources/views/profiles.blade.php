@@ -54,6 +54,19 @@
                 margin: 0 auto;
             }
 
+            .submit-skill-form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                background-color: #f2f2f2;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
             /* Style for the label */
             .user-selection label {
                 font-weight: bold;
@@ -335,6 +348,40 @@
                     display: flex;
                 }
 
+                .post-grid {
+                    margin-top: 5vh;
+                    display: grid;
+                    grid-template-columns: 60% 40%; 
+                    grid-template-rows: min-content; 
+                    position: relative;
+                }
+
+                .card {
+                    width: 300px;
+                    margin-right: 30px;
+                    margin-top: 40px;
+                }
+                
+                .skill_information {
+                    margin-top: 15px;
+                }
+
+                .user_name {
+                    font-size: large;
+                    font-weight: 800;
+                }
+
+                .other_skills_dropdown {
+                    margin-top: 20px;
+                }
+
+                .skill_name{
+                    font-weight: 800;
+                }
+
+                .email {
+                    color: #0000EE;
+                }
         </style>
     </head>
     <body class="font-sans antialiased">
@@ -393,14 +440,6 @@
                                 <div class="link">
                                     <h2 class="h2 text-center">Project Schedule</h2>
                                 </div>
-                                <div class="link">
-                                    <a href="dashboard" class="btn btn-primary my-2">Profile</a>
-                                </div>
-                                <div class="link">
-                                    <div class="add-button">
-                                        <a href="register-events" class="btn btn-primary my-2">Add Event</a>
-                                    </div>
-                                </div>
                             </div>
                             <table class="table">
                                 <thead>
@@ -415,7 +454,6 @@
                                     @foreach($events as $event)
                                         @if ($event->user_id  == $selectedUserId)
                                         <tr>
-                                            <td>{{ $event->employee_name }}</td>
                                             <td>{{ $event->project_name }}</td>
                                             <td>{{ $event->event_start }}</td>
                                             <td>{{ $event->event_end }}</td>
@@ -450,6 +488,43 @@
                                 </tbody>
                             </table>
                         </div>
+
+                        @elseif(isset($selectedSkillId))
+                        @foreach($skills as $skill)
+                            @if($skill->name == $selectedSkillId)
+                                <div class="individual_profile">
+                                    @foreach($users as $user)
+                                        @if($user->id == $skill->skill_id)
+                                            <div class="col-md-4 mb-4"> <!-- Added 'col-md-4' class for column sizing and 'mb-4' for margin-bottom -->
+                                                <div class="card box-shadow">
+                                                    <div class="card-body">
+                                                        <div class="post-grid">
+                                                            <div class="user_name">{{$user->name}}</div>
+                                                        </div>
+                                                        <a href="mailto:{{$user->email}}" class="email">{{$user->email}}</a>
+                                                        <div class="skill_information">
+                                                            <div class="skill_name">{{$skill->name}}</div>
+                                                            <p>{{$skill->allocated_time}} - {{$skill->proficiency_level}} </p>
+                                                        </div>
+                                                        <div class="other_skills_dropdown">
+                                                            <label for="other_skills_{{ $user->id }}">Other Skills:</label>
+                                                            @if ($user->skills)
+                                                                <select name="other_skills_{{ $user->id }}" id="other_skills_{{ $user->id }}">
+                                                                    @foreach ($user->skills as $userSkill)
+                                                                        <option value="{{ $userSkill->name }}">{{ $userSkill->name }}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endif
+                                    @endforeach
+                                </div>
+                            @endif
+                        @endforeach
+
                         @else
                         <div class="submit-user-form">
                             <div class="user-selection">
@@ -457,21 +532,53 @@
                                 <select id="userSelect" onchange="loadUserData()">
                                     <option value="">Select a User</option>
                                     @foreach($users as $user)
-                                        <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                        @if($user->hasRole('Employee'))
+                                            <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                        @endif
                                     @endforeach
                                 </select>
                             </div>
-                                <form id="yourForm" method="POST" action="{{ route('UserSelection') }}">
-                                    @csrf <!-- Add a CSRF token for security -->
-                                    
-                                    <!-- Add a hidden input field to store the selected user's ID -->
-                                    <input type="hidden" id="selectedUserId" name="selectedUserId">
+                            <form id="yourForm" method="POST" action="{{ route('UserSelection') }}">
+                                @csrf <!-- Add a CSRF token for security -->
+                                
+                                <!-- Add a hidden input field to store the selected user's ID -->
+                                <input type="hidden" id="selectedUserId" name="selectedUserId">
 
-                                    <!-- Your other form elements go here -->
-                                    
-                                    <button class="submit-button" type="submit">Submit</button>
-                                </form>
+                                <!-- Your other form elements go here -->
+                                
+                                <button class="submit-button" type="submit">Submit</button>
+                            </form>
+                        </div>
+                        <div class="submit-skill-form">
+                            <div class="skill-selection">
+                                <label for="skillSelect">Select Skill:</label>
+                                <select id="skillSelect" onchange="loadSkillData()">
+                                    <option value="">Select a Skill</option>
+                                    @php
+                                        $uniqueSkillNames = [];
+                                    @endphp
+                                    @foreach($skills as $skill)
+                                        @if (!in_array($skill->name, $uniqueSkillNames))
+                                            <option value="{{ $skill->name }}">{{ $skill->name }}</option>
+                                            @php
+                                                $uniqueSkillNames[] = $skill->name;
+                                            @endphp
+                                        @endif
+                                    @endforeach
+                                </select>
                             </div>
+                            <form id="yourForm" method="POST" action="{{ route('UserSelection') }}">
+                                @csrf <!-- Add a CSRF token for security -->
+                                
+                                <!-- Add a hidden input field to store the selected user's ID -->
+                                <input type="hidden" id="selectedSkillId" name="selectedSkillId">
+
+                                <!-- Your other form elements go here -->
+                                
+                                <button class="submit-button" type="submit">Submit</button>
+                            </form>
+                        </div>
+
                         @endif
                         
                         <script>
@@ -512,6 +619,14 @@
 
                                 // Set the value of the hidden input field
                                 document.getElementById("selectedUserId").value = selectedUserId;
+                            }
+
+                            function loadSkillData() {
+                                // Get the selected user's ID from the dropdown
+                                selectedSkillId = document.getElementById("skillSelect").value;
+
+                                // Set the value of the hidden input field
+                                document.getElementById("selectedSkillId").value = selectedSkillId;
                             }
 
                         </script>

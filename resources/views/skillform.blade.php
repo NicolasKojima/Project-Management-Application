@@ -67,8 +67,18 @@
         <form method="POST" action="{{ route('store') }}">
             @csrf
             <div class="form-group">
-                <label for="name">Skill Name</label>
-                <input type="text" name="name" id="name" class="form-control" required>
+                <label for="skill">Skill</label>
+                <select name="name" id="name" class="form-control" required>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="Java">Java</option>
+                    <option value="CSS">CSS</option>
+                    <option value="HTML">HTML</option>
+                    <option value="MySQL">MySQL</option>
+                    <option value="Server Deloyment">Server Deployment</option>
+                    <option value="Python">Python</option>
+                    <option value="AWS">AWS</option>
+                    <!-- Add more skills as needed -->
+                </select>
             </div>
             <div class="form-group">
                 <label for="allocated_time">Allocated Time</label>

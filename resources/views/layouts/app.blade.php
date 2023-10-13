@@ -15,7 +15,6 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
-        
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -160,6 +159,7 @@
                 border-radius: 0 3px 3px 0;
                 user-select: none;
                 -webkit-user-select: none;
+                background-color: grey;
                 }
 
                 /* Position the "next button" to the right */
@@ -285,6 +285,19 @@
 
                 .link {
                     display: flex;
+                }
+
+                .description-text{
+                    font-size: small;
+                    max-height: 200px; 
+                    overflow: auto;
+                    word-wrap: break-word;
+                    margin-top: 5vh;
+                    margin-right: 2vw;
+                }
+
+                .table {
+                    margin-bottom: 10vh;
                 }
 
         </style>
@@ -425,7 +438,6 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
                                         <th>Title</th>
                                         <th>Start Date</th>
                                         <th>End Date</th>
@@ -435,7 +447,6 @@
                                     @foreach($events as $event)
                                     @if($event->user_id == auth()->user()->id)
                                     <tr>
-                                        <td>{{ $event->employee_name }}</td>
                                         <td>{{ $event->project_name }}</td>
                                         <td>{{ $event->event_start }}</td>
                                         <td>{{ $event->event_end }}</td>
@@ -443,8 +454,8 @@
                                     @endif
                                     @endforeach
                                 </tbody>
-                            </table>
-                            <div id='full_calendar_events'></div>
+                        </table>
+                            
                         </div>
             </main>
         </div>

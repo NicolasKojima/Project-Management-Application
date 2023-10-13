@@ -15,7 +15,6 @@ class CreateCrudEventsTable extends Migration
     {
         Schema::create('crud_events', function (Blueprint $table) {
             $table->id();
-            $table->string('employee_name');
             $table->string('project_name');
             $table->date('event_start');
             $table->date('event_end');

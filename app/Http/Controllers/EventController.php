@@ -38,12 +38,14 @@ class EventController extends Controller
     public function UserSelection(Request $request)
     {
         // Retrieve the selected user's ID from the request
+        $selectedSkillId = $request->input('selectedSkillId');
         $selectedUserId = $request->input('selectedUserId');
         $events = CrudEvents::all();
         $products = Product::all();
         $users = User::all();
         $skills = Skill::all();
     
-        return view('profiles', compact('events', 'products', 'users','selectedUserId', 'skills'));
+        return view('profiles', compact('events', 'products', 'users','selectedUserId','selectedSkillId', 'skills'));
     }
+
 }
