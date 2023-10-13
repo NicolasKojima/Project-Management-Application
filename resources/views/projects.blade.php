@@ -174,6 +174,7 @@
 
       .btn-primary {
       width:120px;
+      background-color: #316FF6;
     }
 
     .btn-secondary {
