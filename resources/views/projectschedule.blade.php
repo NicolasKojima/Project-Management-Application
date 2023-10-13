@@ -107,13 +107,14 @@
         }
 
         .grid-item {
+        color: white;
         border-top: 1px solid #000; /* Border for each box */
         border-bottom: 1px solid #000;
         padding: 10px; /* Add spacing inside the box */
         margin-top: 10px; 
         width: 100%;
         height: 50px;
-        background-color: white;
+        background-color: #0F2770;
         }
 
         .title {
@@ -137,7 +138,7 @@
         }
 
         .users-event {
-            background-color: bisque;
+            background-color: #E2FDFF;
             position:absolute;
             top: 0;
             right: 0;
@@ -161,6 +162,13 @@
             margin-left: 30px;
         }
 
+        .title {
+            padding-left: 20px;
+            padding-top:5px;
+            font-family: verdana, sans-serif;
+            font-weight:normal !important;
+        }
+
 /* Adjust the styles as needed */
 
         </style>
@@ -173,7 +181,8 @@
             <main>
                 <div class="space">
                     <div class="title">
-                        <div class="title-month-year">
+                        <p> DC Department Individual Schedules </p>
+                        <!-- <div class="title-month-year">
                             <select id="monthSelect" class="selection-button">
                                 @for ($i = 1; $i <= 12; $i++)
                                     <option value="{{ $i }}">{{ \Carbon\Carbon::create(null, $i)->format('F') }}</option>
@@ -185,7 +194,7 @@
                                 @endfor
                             </select>
                             <button id="updateCalendar" onclick="updateCalendar()" style="font-size: 20px; margin-left: 30px">Update</button>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="calendar-container">
@@ -196,11 +205,14 @@
                     {{ \Carbon\Carbon::now()->format('F') }}
                     {{ \Carbon\Carbon::now()->format('Y') }}
                 </div>
-                @foreach ($users as $user)
+                @foreach ($users->filter(function ($user) {
+                    return $user->hasRole('Employee');
+                }) as $user)
                     <div class="grid-item">
                         <p>{{$user->name}}</p>
                     </div>
                 @endforeach
+
             </div>
             <div class="days-container">
                 @for ($i = 1; $i <= 31; $i++)
@@ -209,16 +221,19 @@
                             {{ $i }}
                         </div>
                         @foreach ($users as $user)
-                            <div class="event-span">
-                                @foreach ($user->events as $event)
-                                    @if (\Carbon\Carbon::parse($event->event_start)->day <= $i && \Carbon\Carbon::parse($event->event_end)->day >= $i)
-                                        <span class="users-event">{{ $event->project_name }}</span>
-                                    @else
-                                        <span class="user-noevent">&nbsp;</span>
-                                    @endif
-                                @endforeach
-                            </div>
+                            @if ($user->hasRole('Employee'))
+                                <div class="event-span">
+                                    @foreach ($user->events as $event)
+                                        @if (\Carbon\Carbon::parse($event->event_start)->day <= $i && \Carbon\Carbon::parse($event->event_end)->day >= $i)
+                                            <span class="users-event">{{ $event->project_name }}</span>
+                                        @else
+                                            <span class="user-noevent">&nbsp;</span>
+                                        @endif
+                                    @endforeach
+                                </div>
+                            @endif
                         @endforeach
+
                     </div>
                 @endfor
             </div>

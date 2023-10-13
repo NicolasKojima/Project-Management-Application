@@ -92,4 +92,10 @@ class CalenderController extends Controller
 
         return response()->json($events); // Return the events as JSON
     }
+    public function fetchEvents($user_id)
+    {
+        // Fetch events for the specified user and return them as JSON
+        $events = CrudEvents::where('user_id', $user_id)->get();
+        return response()->json($events);
+    }
 }

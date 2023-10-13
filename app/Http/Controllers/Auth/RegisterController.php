@@ -76,8 +76,8 @@ class RegisterController extends Controller
     $randomColor = '#' . str_pad(dechex(mt_rand(0, 0xFFFFFF)), 6, '0', STR_PAD_LEFT);
 
     // Assign the 'guest' role to the user
-    // $role = Role::findByName('Guest');
-    // $user->assignRole($role);
+    $role = Role::findByName('Employee');
+    $user->assignRole($role);
 
     UserColor::create([
         'user_id' => $user->id,
