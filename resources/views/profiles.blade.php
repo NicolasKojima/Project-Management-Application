@@ -72,6 +72,10 @@
                 font-weight: bold;
             }
 
+            .skill-selection label {
+                font-weight: bold;
+            }
+
             /* Style for the select dropdown */
             .user-select {
                 width: 100%;
@@ -206,6 +210,8 @@
                 .cursor {
                 cursor: pointer;
                 }
+
+
 
                 .prev,
                 .next {
@@ -382,6 +388,40 @@
                 .email {
                     color: #0000EE;
                 }
+
+                .description_box{
+                    height: 430px;
+                    width: 600px;
+                    border: black solid 2px;
+                    margin: 40px;
+                    border-radius: 20px;
+                    background-color: #ffb366
+;
+                }
+                
+                .container {
+                    /* Your container styles here */
+                    display: flex;
+                    justify-content: center; /* Center horizontally */
+                    align-items: center; /* Center vertically */
+                    }
+
+                .how_to_search {
+                    width: 540px;
+                    height: 220px;
+                    /* border: 1px solid black; */
+                    justify-content: center; /* Center horizontally */
+                    align-items: center;
+                    margin:20px;
+                    border-radius: 20px;
+                    background-color: #f2f2f2;
+                    }
+                
+                .search_description {
+                    margin:10px;
+                    margin-top:20px;
+                }
+
         </style>
     </head>
     <body class="font-sans antialiased">
@@ -395,9 +435,7 @@
                 <div class="container">
                     <div class="content">
                         <div style="width: 100%; height: 55px; background-color: white;">
-                            <h1 class="page-heading" style="font-size: x-large; padding-top: 10px; padding-left: 10px;">
-                                @if(isset($selectedUserId)) {{ $users->firstWhere('id', $selectedUserId)->name }} - <a href="mailto:{{ $users->firstWhere('id', $selectedUserId)->email }}"> Contact </a> @endif
-                            </h1>
+                            <h1 class="page-heading" style="font-size: x-large; padding-top: 10px; padding-left: 10px;"> Search for Employees</h1>
                         </div>
                         @if(isset($selectedUserId))
                             <div class="example-grid" id="userDataContainer">
@@ -526,59 +564,76 @@
                         @endforeach
 
                         @else
-                        <div class="submit-user-form">
-                            <div class="user-selection">
-                                <label for="userSelect">Select User:</label>
-                                <select id="userSelect" onchange="loadUserData()">
-                                    <option value="">Select a User</option>
-                                    @foreach($users as $user)
-                                        @if($user->hasRole('Employee'))
-                                            <option value="{{ $user->id }}">{{ $user->name }}</option>
-                                        @endif
-                                    @endforeach
-                                </select>
+                        <div class="description_box">
+                            <div class="how_to_search">
+                                <div class="search_description">
+                                    <p style="font-weight: 600; font-size:Medium; margin:5px;">From the dropdown search option at the bottom of this box you are able to search for and look at the profiles of specific Employees.<br><br></p>
+                                        <p>You will be able to see their:</p>
+                                        <p> &emsp;&emsp;&emsp;Contact Information</p>
+                                        <p> &emsp;&emsp;&emsp;Schedule</p>
+                                        <p> &emsp;&emsp;&emsp;Skills / Languages Applicable </p>
+                                        <p> &emsp;&emsp;&emsp;Past Projects</p>
+                                </div>
                             </div>
-                            <form id="yourForm" method="POST" action="{{ route('UserSelection') }}">
-                                @csrf <!-- Add a CSRF token for security -->
-                                
-                                <!-- Add a hidden input field to store the selected user's ID -->
-                                <input type="hidden" id="selectedUserId" name="selectedUserId">
+                            <div class="submit-user-form">
+                                <div class="user-selection">
+                                    <label for="userSelect">Select User:</label>
+                                    <select id="userSelect" onchange="loadUserData()">
+                                        <option value="">Select an Employee</option>
+                                        @foreach($users as $user)
+                                            @if($user->hasRole('Employee'))
+                                                <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <form id="yourForm" method="POST" action="{{ route('UserSelection') }}">
+                                    @csrf <!-- Add a CSRF token for security -->
+                                    
+                                    <!-- Add a hidden input field to store the selected user's ID -->
+                                    <input type="hidden" id="selectedUserId" name="selectedUserId">
 
-                                <!-- Your other form elements go here -->
-                                
-                                <button class="submit-button" type="submit">Submit</button>
-                            </form>
-                        </div>
-                        <div class="submit-skill-form">
-                            <div class="skill-selection">
-                                <label for="skillSelect">Select Skill:</label>
-                                <select id="skillSelect" onchange="loadSkillData()">
-                                    <option value="">Select a Skill</option>
-                                    @php
-                                        $uniqueSkillNames = [];
-                                    @endphp
-                                    @foreach($skills as $skill)
-                                        @if (!in_array($skill->name, $uniqueSkillNames))
-                                            <option value="{{ $skill->name }}">{{ $skill->name }}</option>
-                                            @php
-                                                $uniqueSkillNames[] = $skill->name;
-                                            @endphp
-                                        @endif
-                                    @endforeach
-                                </select>
+                                    <!-- Your other form elements go here -->
+                                    
+                                    <button class="submit-button" type="submit">Submit</button>
+                                </form>
                             </div>
-                            <form id="yourForm" method="POST" action="{{ route('UserSelection') }}">
-                                @csrf <!-- Add a CSRF token for security -->
-                                
-                                <!-- Add a hidden input field to store the selected user's ID -->
-                                <input type="hidden" id="selectedSkillId" name="selectedSkillId">
-
-                                <!-- Your other form elements go here -->
-                                
-                                <button class="submit-button" type="submit">Submit</button>
-                            </form>
                         </div>
+                        <div class="description_box">
+                            <div class="how_to_search">
+                                <div class="search_description">
+                                        <p style="font-weight: 600; font-size:Medium;  margin:5px;">From the dropdown search at the bottom of this box, you are able to search for a specific skill you are searching for, and a list of the employees that have registered that skill on their profiles will be displayed.<br><br></p>
+                                    </div>
+                            </div>
+                            <div class="submit-skill-form">
+                                <div class="skill-selection">
+                                    <label for="skillSelect">Select Skill:</label>
+                                    <select id="skillSelect" onchange="loadSkillData()">
+                                        <option value="">Select a Skill or Language</option>
+                                        @php
+                                            $uniqueSkillNames = [];
+                                        @endphp
+                                        @foreach($skills as $skill)
+                                            @if (!in_array($skill->name, $uniqueSkillNames))
+                                                <option value="{{ $skill->name }}">{{ $skill->name }}</option>
+                                                @php
+                                                    $uniqueSkillNames[] = $skill->name;
+                                                @endphp
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <form id="yourForm" method="POST" action="{{ route('UserSelection') }}">
+                                    @csrf <!-- Add a CSRF token for security -->
+                                    
+                                    <!-- Add a hidden input field to store the selected user's ID -->
+                                    <input type="hidden" id="selectedSkillId" name="selectedSkillId">
 
+                                    <!-- Your other form elements go here -->
+                                    
+                                    <button class="submit-button" type="submit">Submit</button>
+                                </form>
+                            </div>
                         @endif
                         
                         <script>

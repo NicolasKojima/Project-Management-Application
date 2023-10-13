@@ -20,6 +20,8 @@
          <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
         <!-- Styles -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
         @livewireStyles
         <style>
         .links {
@@ -74,6 +76,8 @@
             cursor: pointer;
         }
 
+        
+
         .calendar-horizontal-grid{
             position:absolute;
             width: 100%;
@@ -89,6 +93,17 @@
             overflow-x: scroll;
             width:100%;
         }
+
+        /* Initially hide the dropdown content */
+        .dropdown-content {
+            display: none;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            position: absolute;
+            z-index: 1;
+        }
+
 
         .day {
             min-width: 10%;
@@ -114,7 +129,7 @@
         margin-top: 10px; 
         width: 100%;
         height: 50px;
-        background-color: #0F2770;
+        background-color: #003300;
         }
 
         .title {
@@ -137,8 +152,49 @@
             font-weight: 300;
         }
 
+        /* Style the dropdown container */
+        .dropdown-content {
+            display: none;
+            color: #004d1a;
+            position: absolute;
+            background-color:white; /* Set a cheerful background color */
+            border: 1px solid #d68fca; /* Border color */
+            padding: 10px;
+            left: 0; /* Position from the left edge of the parent element */
+            z-index: 1;
+        }
+
+        /* Style the list items inside the dropdown */
+        .dropdown-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        /* Style each list item */
+        .dropdown-content li {
+            margin-bottom: 5px; /* Add some space between items */
+        }
+
+        /* Style the clickable span */
+        .users-event.clickable {
+            cursor: pointer; /* Change the cursor to a pointer when hovering */
+            color: black; /* Change text color for a clickable appearance */
+            text-decoration: underline; /* Add underline to indicate it's clickable */
+        }
+
+        /* Add a hover effect for the clickable span */
+        .users-event.clickable:hover {
+            color: #0052cc; /* Change text color on hover */
+        }
+
+        /* Style the "no event" span */
+        .user-noevent {
+            background-color: #f3f3f3; /* Background color for no events */
+        }
+
+
         .users-event {
-            background-color: #E2FDFF;
+            background-color: #e6ffee;
             position:absolute;
             top: 0;
             right: 0;
@@ -223,17 +279,35 @@
                         @foreach ($users as $user)
                             @if ($user->hasRole('Employee'))
                                 <div class="event-span">
+                                    @php
+                                        $hasEventsForDate = false; // Flag to track if events exist for the current date
+                                    @endphp
                                     @foreach ($user->events as $event)
                                         @if (\Carbon\Carbon::parse($event->event_start)->day <= $i && \Carbon\Carbon::parse($event->event_end)->day >= $i)
-                                            <span class="users-event">{{ $event->project_name }}</span>
-                                        @else
-                                            <span class="user-noevent">&nbsp;</span>
+                                            @php
+                                                $hasEventsForDate = true;
+                                            @endphp
                                         @endif
                                     @endforeach
+                                    @if ($hasEventsForDate)
+                                        <span class="users-event clickable">
+                                            See Schedule
+                                            <div class="dropdown-content">
+                                                <ul>
+                                                    @foreach ($user->events as $event)
+                                                        @if (\Carbon\Carbon::parse($event->event_start)->day <= $i && \Carbon\Carbon::parse($event->event_end)->day >= $i)
+                                                            <li>{{ $event->project_name }}</li>
+                                                        @endif
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        </span>
+                                    @else
+                                        <span class="user-noevent">&nbsp;</span>
+                                    @endif
                                 </div>
                             @endif
                         @endforeach
-
                     </div>
                 @endfor
             </div>
@@ -271,6 +345,16 @@
                     daysContainer.appendChild(dayDiv);
                 }
             }
+
+            $(document).ready(function() {
+                // Add a click event for elements with the 'clickable' class
+                $('.clickable').click(function() {
+                    // Toggle the visibility of the dropdown content
+                    $(this).find('.dropdown-content').toggle();
+                });
+            });
+
+
         </script>
 
     </body>
