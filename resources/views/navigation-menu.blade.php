@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <img src="{{ asset('storage/image/ZEALTEAM_logo.jpg') }}" alt="Image" class="image-size" style="width:250px; height:50px;">
+                    <img src="{{ asset('storage/image/ZEALTEAM_logo.jpg') }}" alt="Image" class="image-size" style="width: 250px; height: 50px;">
                     </a>                
                 </div>
                 <!-- Navigation Links -->
@@ -25,6 +25,9 @@
                     </x-nav-link>
                     <x-nav-link href="{{ route('projectschedule') }}" :active="request()->routeIs('projectschedule')">
                         {{ __('Timetable') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('projectschedule1') }}" :active="request()->routeIs('projectschedule1')">
+                        {{ __('TimetableT') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('contact-form') }}" :active="request()->routeIs('contact-form')">
                         {{ __('Contact-Us') }}

@@ -13,11 +13,13 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SkillController;
-use App\Http\Controllers\timetableController;
+use App\Http\Controllers\TimetableController;
 use App\Http\Controllers\FacebookController;
 
 route::get('auth/facebook',[FacebookController::class,'facebookpage']);
 route::get('auth/facebook/callback',[FacebookController::class,'facebookredirect']);
+
+
 
 Route::middleware(['auth'])->group(function () {
     
@@ -61,7 +63,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/projectschedule', function () {
         return view('projectschedule');
     })->name('projectschedule');
-    Route::get('projectschedule', [timetableController::class, 'displayuser'])->name('projectschedule');
+    Route::get('projectschedule', [TimetableController::class, 'displayuser'])->name('projectschedule');
+
+    Route::get('/projectschedule1', function () {
+        return view('projectschedule1');
+    })->name('projectschedule1');
+    Route::get('projectschedule1', [TimetableController::class, 'displayuser1'])->name('projectschedule1');
 
     Route::get('/permissions', function () {
         return view('permissions');

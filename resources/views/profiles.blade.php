@@ -394,9 +394,7 @@
                     width: 600px;
                     border: black solid 2px;
                     margin: 40px;
-                    border-radius: 20px;
-                    background-color: #ffb366
-;
+                    border-radius: 20px;;
                 }
                 
                 .container {
@@ -414,7 +412,6 @@
                     align-items: center;
                     margin:20px;
                     border-radius: 20px;
-                    background-color: #f2f2f2;
                     }
                 
                 .search_description {
@@ -603,6 +600,7 @@
                             <div class="how_to_search">
                                 <div class="search_description">
                                         <p style="font-weight: 600; font-size:Medium;  margin:5px;">From the dropdown search at the bottom of this box, you are able to search for a specific skill you are searching for, and a list of the employees that have registered that skill on their profiles will be displayed.<br><br></p>
+                                        <p>List of skills include: JavaScript, MySQL, Python, HTML, CSS, Laravel</p>
                                     </div>
                             </div>
                             <div class="submit-skill-form">
