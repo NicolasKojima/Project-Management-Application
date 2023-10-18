@@ -15,6 +15,23 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\TimetableController;
 use App\Http\Controllers\FacebookController;
+use Spatie\Sitemap\Sitemap;
+use Spatie\Sitemap\Tags\Url;
+use App\Models\Blogposts;
+
+route::get('/sitemap', function(){
+    $sitemap=Sitemap::create()
+        ->add(Url::create('/dashboard'))
+        ->add(Url::create('/profile'));
+
+        // Blogposts::all()->each(function(Blogposts $blogpost) use ($sitemap){
+        //     $sitemap->add(Url::create("/blogposts/{$blogpost -> slug}"));
+        // });
+
+        $sitemap->writeTofile(public_path('sitemap.xml'));
+
+        return 'Sitemap Created Succesfully';
+});
 
 route::get('auth/facebook',[FacebookController::class,'facebookpage']);
 route::get('auth/facebook/callback',[FacebookController::class,'facebookredirect']);
