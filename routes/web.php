@@ -15,11 +15,10 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\TimetableController;
 use App\Http\Controllers\FacebookController;
+use Spatie\Sitemap\SitemapGenerator;
+use App\Http\Controllers\SitemapController;
 
-route::get('auth/facebook',[FacebookController::class,'facebookpage']);
-route::get('auth/facebook/callback',[FacebookController::class,'facebookredirect']);
-
-
+Route::get('/generate-sitemap', [SitemapController::class, 'generate']);
 
 Route::middleware(['auth'])->group(function () {
     

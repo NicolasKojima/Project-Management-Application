@@ -26,9 +26,9 @@
                     <x-nav-link href="{{ route('projectschedule') }}" :active="request()->routeIs('projectschedule')">
                         {{ __('Timetable') }}
                     </x-nav-link>
-                    <x-nav-link href="{{ route('projectschedule1') }}" :active="request()->routeIs('projectschedule1')">
+                    <!-- <x-nav-link href="{{ route('projectschedule1') }}" :active="request()->routeIs('projectschedule1')">
                         {{ __('TimetableT') }}
-                    </x-nav-link>
+                    </x-nav-link> -->
                     <x-nav-link href="{{ route('contact-form') }}" :active="request()->routeIs('contact-form')">
                         {{ __('Contact-Us') }}
                     </x-nav-link>
