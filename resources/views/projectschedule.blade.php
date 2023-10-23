@@ -147,9 +147,9 @@
         }
 
         .calendar_title_M_Y {
-            padding:20px;
             font-size: 300;
             font-weight: 300;
+            height: 10.1vh;
         }
 
         /* Style the dropdown container */
@@ -194,7 +194,7 @@
 
 
         .users-event {
-            background-color: #e6ffee;
+            background-color: #fbefea;
             position:absolute;
             top: 0;
             right: 0;
@@ -225,6 +225,27 @@
             font-weight:normal !important;
         }
 
+        .header {
+            display:grid;
+            grid-template-columns: 60%  40%;
+        }
+
+        .date_form{
+            margin-top: 1.5vh;
+            left:0px;
+        }
+
+        .month-display {
+            font-size: x-large;
+            padding:20px;
+        }
+
+        .time-selection-button{
+            background-color: #e7a88a;
+            padding: 10px;
+            border-radius: 5px;
+                }
+
 /* Adjust the styles as needed */
 
         </style>
@@ -236,21 +257,31 @@
             <!-- Page Content -->
             <main>
                 <div class="space">
-                    <div class="title">
-                        <p> DC Department Individual Schedules </p>
-                        <!-- <div class="title-month-year">
-                            <select id="monthSelect" class="selection-button">
-                                @for ($i = 1; $i <= 12; $i++)
-                                    <option value="{{ $i }}">{{ \Carbon\Carbon::create(null, $i)->format('F') }}</option>
-                                @endfor
-                            </select>
-                            <select id="yearSelect" class="selection-button">
-                                @for ($i = date("Y"); $i <= date("Y") + 10; $i++)
-                                    <option value="{{ $i }}">{{ $i }}</option>
-                                @endfor
-                            </select>
-                            <button id="updateCalendar" onclick="updateCalendar()" style="font-size: 20px; margin-left: 30px">Update</button>
-                        </div> -->
+                    <div class="header">
+                        <div class="title">
+                            <p> DC Department Individual Schedules </p>
+                        </div>
+                        <div class="date_form">
+                            <form method="POST" action="{{ route('calculate-dates') }}">
+                                @csrf
+
+                                <label for="year">Select Year:</label>
+                                <select name="year" id="year">
+                                    @for ($i = date('Y'); $i >= 1900; $i--)
+                                        <option value="{{ $i }}">{{ $i }}</option>
+                                    @endfor
+                                </select>
+
+                                <label for="month">Select Month:</label>
+                                <select name="month" id="month">
+                                    @for ($i = 1; $i <= 12; $i++)
+                                        <option value="{{ $i }}">{{ date('F', mktime(0, 0, 0, $i, 1)) }}</option>
+                                    @endfor
+                                </select>
+
+                                <button class="time-selection-button" type="submit">See Timetable</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
                 <div class="calendar-container">
@@ -258,8 +289,62 @@
         <div class="calendar-horizontal-grid">
             <div class="left-column">
                 <div class="calendar_title_M_Y">
-                    {{ \Carbon\Carbon::now()->format('F') }}
-                    {{ \Carbon\Carbon::now()->format('Y') }}
+                    @isset ($count)
+                        @if ($month == 1)
+                            <div class="month-display">
+                                <p> January {{$year}}</p>
+                            </div>
+                        @elseif ($month == 2)
+                            <div class="month-display">
+                                <p> February {{$year}}</p>
+                            </div>
+                        @elseif ($month == 3)
+                            <div class="month-display">
+                                <p> March {{$year}}</p>
+                            </div>
+                        @elseif ($month == 4)
+                            <div class="month-display">
+                                <p> April {{$year}}</p>
+                            </div>
+                        @elseif ($month == 5)
+                            <div class="month-display">
+                                <p> May {{$year}}</p>
+                            </div>
+                        @elseif ($month == 6)
+                            <div class="month-display">
+                                <p> June {{$year}}</p>
+                            </div>
+                        @elseif ($month == 7)
+                            <div class="month-display">
+                                <p> July {{$year}}</p>
+                            </div>
+                        @elseif ($month == 8)
+                            <div class="month-display">
+                                <p> August {{$year}}</p>
+                            </div>
+                        @elseif ($month == 9)
+                            <div class="month-display">
+                                <p> September {{$year}}</p>
+                            </div>
+                        @elseif ($month == 10)
+                            <div class="month-display">
+                                <p> October {{$year}}</p>
+                            </div>
+                        @elseif ($month == 11)
+                            <div class="month-display">
+                                <p> November {{$year}}</p>
+                            </div>
+                        @elseif ($month == 12)
+                            <div class="month-display">
+                                <p> December {{$year}}</p>
+                            </div>
+                        @endif
+                    @else
+                        <div class="month-display">
+                            {{ \Carbon\Carbon::now()->format('F') }}
+                            {{ \Carbon\Carbon::now()->format('Y') }}
+                        </div>
+                    @endisset
                 </div>
                 @foreach ($users->filter(function ($user) {
                     return $user->hasRole('Employee');
@@ -270,47 +355,62 @@
                 @endforeach
 
             </div>
-            <div class="days-container">
-                @for ($i = 1; $i <= 31; $i++)
-                    <div class="day">
-                        <div class="date">
-                            {{ $i }}
-                        </div>
-                        @foreach ($users as $user)
-                            @if ($user->hasRole('Employee'))
-                                <div class="event-span">
-                                    @php
-                                        $hasEventsForDate = false; // Flag to track if events exist for the current date
-                                    @endphp
-                                    @foreach ($user->events as $event)
-                                        @if (\Carbon\Carbon::parse($event->event_start)->day <= $i && \Carbon\Carbon::parse($event->event_end)->day >= $i)
+            @isset($count)
+                <div class="days-container">
+                    @for ($i = 1; $i < $count + 1; $i++)
+                        @php
+                        // Format $i with leading zero if it's a single-digit number
+                        $formattedI = str_pad($i, 2, '0', STR_PAD_LEFT);
+                        $currentDate = $year . '-' . $month . '-' . $formattedI;
+                        @endphp
+                        <div class="day">
+                            <div class="date">
+                                {{ $currentDate }}
+                            </div>
+                            @foreach ($users as $user)
+                                @if ($user->hasRole('Employee'))
+                                    <div class="event-span">
+                                        @php
+                                            $hasEventsForDate = false; // Flag to track if events exist for the current date
+                                        @endphp
+                                        @foreach ($user->events as $event)
                                             @php
-                                                $hasEventsForDate = true;
+                                            $eventStartDate = \Carbon\Carbon::parse($event->event_start)->format('Y-m-d');
+                                            $eventEndDate = \Carbon\Carbon::parse($event->event_end)->format('Y-m-d');
                                             @endphp
-                                        @endif
-                                    @endforeach
-                                    @if ($hasEventsForDate)
-                                        <span class="users-event clickable">
-                                            See Schedule
-                                            <div class="dropdown-content">
-                                                <ul>
+                                            @if ($currentDate >= $eventStartDate && $currentDate <= $eventEndDate)
+                                                @php
+                                                    $hasEventsForDate = true;
+                                                @endphp
+                                            @endif
+                                        @endforeach
+                                        @if ($hasEventsForDate)
+                                            <span class="users-event clickable">
+                                                See Schedule
+                                                <div class="dropdown-content">
+                                                    <ul>
                                                     @foreach ($user->events as $event)
-                                                        @if (\Carbon\Carbon::parse($event->event_start)->day <= $i && \Carbon\Carbon::parse($event->event_end)->day >= $i)
+                                                        @php
+                                                        $eventStartDate = \Carbon\Carbon::parse($event->event_start)->format('Y-m-d');
+                                                        $eventEndDate = \Carbon\Carbon::parse($event->event_end)->format('Y-m-d');
+                                                        @endphp
+                                                        @if ($currentDate >= $eventStartDate && $currentDate <= $eventEndDate)
                                                             <li>{{ $event->project_name }}</li>
                                                         @endif
                                                     @endforeach
-                                                </ul>
-                                            </div>
-                                        </span>
-                                    @else
-                                        <span class="user-noevent">&nbsp;</span>
-                                    @endif
-                                </div>
-                            @endif
-                        @endforeach
-                    </div>
-                @endfor
-            </div>
+                                                    </ul>
+                                                </div>
+                                            </span>
+                                        @else
+                                            <span class="user-noevent">&nbsp;</span>
+                                        @endif
+                                    </div>
+                                @endif
+                            @endforeach
+                        </div>
+                    @endfor
+                </div>
+            @endisset
         </div>
     </div>
 </div>

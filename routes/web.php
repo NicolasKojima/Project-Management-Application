@@ -59,15 +59,17 @@ Route::middleware(['auth'])->group(function () {
         return view('dashboard');
     })->name('dashboard');
 
+    // Route::get('/projectschedule', function () {
+    //     return view('projectschedule');
+    // })->name('projectschedule');
+    // Route::get('projectschedule', [TimetableController::class, 'displayuser'])->name('projectschedule');
+
     Route::get('/projectschedule', function () {
         return view('projectschedule');
     })->name('projectschedule');
     Route::get('projectschedule', [TimetableController::class, 'displayuser'])->name('projectschedule');
 
-    Route::get('/projectschedule1', function () {
-        return view('projectschedule1');
-    })->name('projectschedule1');
-    Route::get('projectschedule1', [TimetableController::class, 'displayuser1'])->name('projectschedule1');
+    Route::post('/calculate-dates',  [TimetableController::class, 'calculateDates'])->name('calculate-dates');
 
     Route::get('/permissions', function () {
         return view('permissions');
