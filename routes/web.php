@@ -15,6 +15,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\TimetableController;
 use App\Http\Controllers\FacebookController;
+use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 use Spatie\Sitemap\SitemapGenerator;
 use App\Http\Controllers\SitemapController;
 
@@ -22,7 +23,9 @@ Route::get('/generate-sitemap', [SitemapController::class, 'generate']);
 
 Route::middleware(['auth'])->group(function () {
     
-    
+Route::middleware(['auth', 'checkUnapproved'])->group(function () {
+    // Define your protected routes here
+
     Route::middleware(['permission:product-create'])->group(function () {
     Route::get('products/create', 'ProductController@create')->name('products.create');
     Route::post('products', 'ProductController@store')->name('products.store');
@@ -59,17 +62,16 @@ Route::middleware(['auth'])->group(function () {
         return view('dashboard');
     })->name('dashboard');
 
-    // Route::get('/projectschedule', function () {
-    //     return view('projectschedule');
-    // })->name('projectschedule');
-    // Route::get('projectschedule', [TimetableController::class, 'displayuser'])->name('projectschedule');
+    Route::get('/create-new-event', function () {
+        return view('create-new-event');
+    })->name('create-new-event');
 
-    Route::get('/projectschedule', function () {
-        return view('projectschedule');
-    })->name('projectschedule');
-    Route::get('projectschedule', [TimetableController::class, 'displayuser'])->name('projectschedule');
+    Route::get('/timetable', function () {
+        return view('timetable');
+    })->name('timetable');
+    Route::get('timetable', [TimetableController::class, 'displayuser'])->name('timetable');
 
-    Route::post('/calculate-dates',  [TimetableController::class, 'calculateDates'])->name('calculate-dates');
+    Route::post('/timetable-dates',  [TimetableController::class, 'calculateDates'])->name('timetable-dates');
 
     Route::get('/permissions', function () {
         return view('permissions');
@@ -78,8 +80,8 @@ Route::middleware(['auth'])->group(function () {
     
     Route::get('employees', App\Http\Livewire\Crud::class);
 
-    Route::get('/register-events', function () {
-        return view('register-events');
+    Route::get('/calendar-display', function () {
+        return view('calendar-display');
     });
     Route::get('calendar-event', [CalenderController::class, 'index']);
     
@@ -93,7 +95,7 @@ Route::middleware(['auth'])->group(function () {
 
     
     Route::get('display-events', [EventController::class, 'displayEvents1'])->name('display-events');
-    Route::get('register-events', [EventController::class, 'registerEvents'])->name('register-events');
+    Route::get('calendar-display', [EventController::class, 'registerEvents'])->name('calendar-display');
 
 
     Route::get('/permissions', [TestimgController::class, 'permissions'])->name('permissions');
@@ -116,6 +118,16 @@ Route::middleware(['auth'])->group(function () {
 
 
 });
+});
+
 Auth::routes();
 
 Route::get('/permissions', [App\Http\Controllers\HomeController::class, 'index'])->name('permissions');
+
+Route::get('/waitingpage', function () {
+    return view('waitingpage');
+})->name('waitingpage');
+
+Route::post('/waitingpage', [AuthenticatedSessionController::class, 'destroy'])
+    ->middleware('auth')
+    ->name('logout');

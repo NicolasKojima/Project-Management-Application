@@ -14,7 +14,7 @@ class EventController extends Controller
     {
         $events = CrudEvents::all();
 
-        return view('register-events', compact('events'));
+        return view('calendar-display', compact('events'));
     }
 
     public function dashboard()

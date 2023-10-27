@@ -26,7 +26,7 @@
                 <h2 class="h2 text-center">Project Schedule</h2>
             </div>
             <div class="link">
-                <a href="register-events" class="btn btn-primary my-2">Register Event</a>
+                <a href="calendar-display" class="btn btn-primary my-2">Register Event</a>
             </div>
         </div>
         <table class="table">

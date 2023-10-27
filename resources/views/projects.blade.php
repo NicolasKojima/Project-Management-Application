@@ -42,24 +42,37 @@
 
       .card {
         margin-bottom: 6vh;
+        border-radius:10px;
       }
 
       .image-box {
-        width: 50vw;
-        height: 50vh;
-        object-fit: contain;
-        display: flex;
-        justify-content: center;
+        max-width: 100%; /* Ensure the div doesn't overflow the viewport */
+        overflow-x: auto; /* Add horizontal scrolling when the content overflows */
+        white-space: nowrap; /* Prevent line breaks */
+    }
+
+      .main-image {
+          max-width: 100%; /* Ensure the image doesn't exceed the container width */
+          height: auto;
+          margin-left:10px;
       }
 
-      .photo-name {
-        max-width: 80px;  /* Set maximum width */
-        max-height: 80px; /* Set maximum height */
-        width: auto;      /* Allow automatic width adjustment */
-        height: auto;     /* Allow automatic height adjustment */
-        border-radius: 50%;
-        object-fit: cover; /* Maintain aspect ratio and cover container */
-    }
+      /* Original styles for .photo-name */
+.photo-name {
+  max-width: 80px; 
+  max-height: 80px; 
+  width: auto; 
+  height: auto; 
+  border-radius: 50%;
+  object-fit: cover; 
+}
+
+@media (max-width: 800px) {
+  .photo-name {
+    display: none;
+  }
+}
+
       
 
 
@@ -80,11 +93,12 @@
 
 
       .name {
-          font-size: 7vh;
+          font-size: xx-large;
           grid-column: 2;
           display: flex;
           align-items: center;
           padding-top: 10px;
+          
         }
 
       .skills {
@@ -97,16 +111,17 @@
 
       .project-description {
         font-size: small;
-        max-height: 200px; 
+        max-height: 20vw; 
         overflow: auto;
         word-wrap: break-word;
-        margin-top: 5vh;
+        margin-top: 5vw;
         margin-right: 2vw;
       }
 
       .project-title{
         margin: 0;
         position: relative;
+        font-size: 3vw;
       }
 
       .header-grid {
@@ -209,6 +224,7 @@
               <div class="project-blog">
                 <h1 class="page-heading" style="font-size:x-large; padding-top: 12px; padding-left: 10px;"> DC Project Blog </h1>
               </div>
+              @if (!auth()->user()->hasRole('Guest'))
               <div class="links">
                 <p>
                   <div class="link">
@@ -216,6 +232,7 @@
                   </div>
                 </p>
               </div>
+              @endif
             </div>
             </section>
 
@@ -234,7 +251,7 @@
                         <p>{{$product->name}}</p>
                       </div>
                       <div>
-                        <a class="editlink" href="{{ route('edit', $product->id) }}">Edit Form </a>
+                        <!-- <a class="editlink" href="{{ route('edit', $product->id) }}">Edit Form </a> -->
                         <small class="text-muted" >{{ $product->created_at->format('Y-m-d H:i:s') }}    </small>
                       </div>
                     </div>

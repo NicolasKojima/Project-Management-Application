@@ -36,6 +36,11 @@
                 background-color:black;
             }
 
+            .inside-table {
+                    display:grid;
+                    grid-template-columns:33% 33% 33%;
+                }
+
             .slideshow{
                 position: relative;
             }
@@ -52,6 +57,7 @@
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
                 max-width: 300px;
                 margin: 0 auto;
+                border-radius: 20px;
             }
 
             .submit-skill-form {
@@ -149,7 +155,7 @@
                 width: 90%;
                 display: grid;
                 grid-template-columns: 60% 40%; 
-                height:400px;
+                height:30vw;
                 margin-top: 5vh;
             }
 
@@ -195,7 +201,7 @@
 
                 /* Position the image container (needed to position the left and right arrows) */
                 .container {
-                position: relative;
+                position: absolute;
                 }
 
                 /* Hide the images by default */
@@ -227,6 +233,7 @@
                 border-radius: 0 3px 3px 0;
                 user-select: none;
                 -webkit-user-select: none;
+                background-color:grey;
                 }
 
                 /* Position the "next button" to the right */
@@ -333,19 +340,20 @@
                 .content {
                     display: flex;
                     flex-wrap: wrap;
-
-                    /* Additional styling for your content */
+                    justify-content: center;
+                    align-items: center;
                 }
 
                 .project-name {
-                    font-size:25px;
+                    height: 30px;
+                    font-size:20px;
                     font-weight: bold;
+                    overflow-x: auto; 
+                    overflow-y: hidden;
                 }
                 
                 .links {
-                    display: grid;
-                    grid-template-columns: 80% 8% 12%;
-                    gap: 5px;
+
                     align-items: center;
                     justify-content: center;
                 }
@@ -389,34 +397,57 @@
                     color: #0000EE;
                 }
 
-                .description_box{
-                    height: 430px;
-                    width: 600px;
+                .description_box {
+                    height: auto; /* Default for screens less than 800px */
+                    width: 80vw; /* Default for screens less than 800px */
                     border: black solid 2px;
-                    margin: 40px;
-                    border-radius: 20px;;
+                    border-radius: 20px;
+                    margin: 10px; /* Default margin for screens less than 800px */
                 }
+
+                /* Media query for screens 800px and wider */
+                @media (min-width: 800px) {
+                    .description_box {
+                        width: 44vw; /* Adjusted width for screens over 800px */
+                        height: auto; /* Adjusted height for screens over 800px */
+                        margin: 1vw; /* Adjusted margin for screens over 800px */
+                    }
+                }
+
+                .description-text{
+                    font-size: small;
+                    max-height: 20vw; 
+                    overflow: auto;
+                    word-wrap: break-word;
+                    margin-top: 3vw;
+                    margin-right: 2vw;
+                }
+
                 
                 .container {
                     /* Your container styles here */
-                    display: flex;
-                    justify-content: center; /* Center horizontally */
                     align-items: center; /* Center vertically */
                     }
 
                 .how_to_search {
-                    width: 540px;
+                    width: auto;
                     height: 220px;
                     /* border: 1px solid black; */
                     justify-content: center; /* Center horizontally */
                     align-items: center;
                     margin:20px;
                     border-radius: 20px;
+                    overflow: auto;
                     }
                 
                 .search_description {
                     margin:10px;
                     margin-top:20px;
+                }
+
+                body {
+                    background-color: #f3f4f6
+;
                 }
 
         </style>
@@ -470,16 +501,14 @@
                         <div style="width:100%; height:55px;">
                             <h1 style="font-size:x-large; padding-top: 10px; padding-left: 10px;"></h1>
                         </div>
-                        <div class="container mt-5">
                             <div class="links">
                                 <div class="link">
-                                    <h2 class="h2 text-center">Project Schedule</h2>
+                                    <h2 class="h2" style="left:0;">Project Schedule</h2>
                                 </div>
                             </div>
                             <table class="table">
                                 <thead>
-                                    <tr>
-                                        <th>Name</th>
+                                    <tr class="inside-table">
                                         <th>Title</th>
                                         <th>Start Date</th>
                                         <th>End Date</th>
@@ -488,7 +517,7 @@
                                 <tbody>
                                     @foreach($events as $event)
                                         @if ($event->user_id  == $selectedUserId)
-                                        <tr>
+                                        <tr class="inside-table">
                                             <td>{{ $event->project_name }}</td>
                                             <td>{{ $event->event_start }}</td>
                                             <td>{{ $event->event_end }}</td>
@@ -499,12 +528,12 @@
                             </table>
                             <div class="links">
                                 <div class="link">
-                                    <h2 class="h2 text-center">Skills</h2>
+                                    <h2 class="h2" style="float:left;">Skills</h2>
                                 </div>
                             </div>
                             <table class="table">
                                 <thead>
-                                    <tr>
+                                    <tr class="inside-table">
                                         <th>Name</th>
                                         <th>Allocated time</th>
                                         <th>Proficiency</th>
@@ -513,7 +542,7 @@
                                 <tbody>
                                     @foreach($skills as $skill)
                                         @if ($skill->user_id  == $selectedUserId)
-                                        <tr>
+                                        <tr class="inside-table">
                                             <td>{{ $skill->name }}</td>
                                             <td>{{ $skill->allocated_time}}</td>
                                             <td>{{ $skill->proficiency_level}}</td>
@@ -522,7 +551,6 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                        </div>
 
                         @elseif(isset($selectedSkillId))
                         @foreach($skills as $skill)

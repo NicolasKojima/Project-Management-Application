@@ -13,6 +13,9 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
     <!-- Styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <style>
         .badge {
       color: black;
@@ -39,27 +42,15 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-    
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto"></ul>
-
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                            <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
-                        @else
-                            <li><a class="nav-link" href="{{ route('users.index') }}">Manage Users</a></li>
-                            <li><a class="nav-link" href="{{ route('roles.index') }}">Manage Role</a></li>
-                            <li><a class="nav-link" href="{{ route('products.index') }}">Manage Posts</a></li>
-                            <li class="ml-auto">
-                        </li>
-                        @endguest
+                    <!-- Authentication Links -->
+                        <li><a class="nav-link" href="{{ route('users.index') }}">Manage Users</a></li>
+                        <li><a class="nav-link" href="{{ route('roles.index') }}">Manage Role</a></li>
+                        <li><a class="nav-link" href="{{ route('products.index') }}">Manage Posts</a></li>
+                        <li class="ml-auto"></li>
                     </ul>
-                </div>
             </div>
         </nav>
 

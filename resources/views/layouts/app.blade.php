@@ -32,7 +32,6 @@
 
             .container-contents {
                 width: 90vw;
-                height: 70vh;
                 margin-right: auto;
                 margin-left: auto;
                 margin-top: 10px;
@@ -67,7 +66,6 @@
                 width: 100%;
                 margin-left: 5vw;
                 margin-right:10vw;
-                max-height:400px;
                 overflow: auto;
                 word-wrap: break-word;
                 font-size:small;
@@ -83,7 +81,7 @@
                 width: 90%;
                 display: grid;
                 grid-template-columns: 60% 40%; 
-                height:400px;
+                height:30vw;
                 margin-top: 5vh;
             }
 
@@ -254,13 +252,13 @@
 
                 .container {
                     max-width: 100%;
-                    height:600px;
-                    padding: 20px;
                     box-sizing: border-box;
                 }
 
                 .add-button{
                     right: 0;
+                    font-size: 2vw;
+                    max-width:20px
                 }
 
                 .content {
@@ -271,7 +269,6 @@
                 }
 
                 .project-name {
-                    font-size:25px;
                     font-weight: bold;
                 }
                 
@@ -289,10 +286,10 @@
 
                 .description-text{
                     font-size: small;
-                    max-height: 200px; 
+                    max-height: 20vw; 
                     overflow: auto;
                     word-wrap: break-word;
-                    margin-top: 5vh;
+                    margin-top: 3vw;
                     margin-right: 2vw;
                 }
 
@@ -300,9 +297,21 @@
                     margin-bottom: 10vh;
                 }
 
+                .inside-table {
+                    display:grid;
+                    grid-template-columns:33% 33% 33%;
+                }
+
         </style>
     </head>
     <body class="font-sans antialiased">
+    @if (auth()->user()->hasRole('Guest'))
+        @php
+            header("Location: " . route('profiles'));
+            exit;
+        @endphp
+
+    @endif
         <x-banner />
 
         <div class="min-h-screen bg-gray-100">
@@ -312,9 +321,6 @@
             <main>
                 <div class="container">
                     <div class="content">
-                        <div style="width:100%; height:55px; background-color:white;">
-                            <h1 class="page-heading" style="font-size:x-large; padding-top: 10px; padding-left: 10px;"> Your Profile </h1>
-                        </div>
                         <div class="example-grid">
                             <div class="gallery-example">
                                 <div class="slideshow-container">
@@ -391,9 +397,6 @@
                             }
                         </script>
 
-                        <div style="width:100%; height:55px;">
-                            <h1 style="font-size:x-large; padding-top: 10px; padding-left: 10px;"></h1>
-                        </div>
                         <div class="container mt-5">
                             <div class="links">
                                 <div class="link">
@@ -401,13 +404,13 @@
                                 </div>
                                 <div class="link">
                                     <div class="add-button">
-                                        <a href="skillform" class="btn btn-primary my-2">Add Skill</a>
+                                        <a href="skillform" class="btn btn-primary my-2" style="white-space: nowrap;">Add Skill</a>
                                     </div>
                                 </div>
                             </div>
                             <table class="table">
                                 <thead>
-                                    <tr>
+                                    <tr class="inside-table">
                                         <th>Name</th>
                                         <th>Allocated time</th>
                                         <th>Proficiency</th>
@@ -416,7 +419,7 @@
                                 <tbody>
                                     @foreach($skills as $skill)
                                         @if($skill->skill_id == auth()->user()->id)
-                                        <tr>
+                                        <tr class="inside-table">
                                             <td>{{ $skill->name }}</td>
                                             <td>{{ $skill->allocated_time}}</td>
                                             <td>{{ $skill->proficiency_level}}</td>
@@ -431,13 +434,13 @@
                                 </div>
                                 <div class="link">
                                     <div class="add-button">
-                                        <a href="register-events" class="btn btn-primary my-2">Add Event</a>
+                                        <a href="create-new-event" class="btn btn-primary my-2 n" style="white-space: nowrap;">Add Event</a>
                                     </div>
                                 </div>
                             </div>
                             <table class="table">
                                 <thead>
-                                    <tr>
+                                    <tr  class="inside-table">
                                         <th>Title</th>
                                         <th>Start Date</th>
                                         <th>End Date</th>
@@ -445,13 +448,13 @@
                                 </thead>
                                 <tbody>
                                     @foreach($events as $event)
-                                    @if($event->user_id == auth()->user()->id)
-                                    <tr>
-                                        <td>{{ $event->project_name }}</td>
-                                        <td>{{ $event->event_start }}</td>
-                                        <td>{{ $event->event_end }}</td>
-                                    </tr>
-                                    @endif
+                                        @if($event->user_id == auth()->user()->id)
+                                        <tr class="inside-table">
+                                            <td>{{ $event->project_name }}</td>
+                                            <td>{{ $event->event_start }}</td>
+                                            <td>{{ $event->event_end }}</td>
+                                        </tr>
+                                        @endif
                                     @endforeach
                                 </tbody>
                         </table>

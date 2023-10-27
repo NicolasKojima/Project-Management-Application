@@ -349,7 +349,7 @@ function updateCalendarWithEvents() {
     var formattedDate = new Date(selectedYear, selectedMonth - 1, 1).toLocaleString('default', { month: 'long', year: 'numeric' });
     calendarTitle.textContent = formattedDate;
 
-    fetch('/api/projectschedule1')
+    fetch('/api/create-new-event')
         .then(response => response.json())
         .then(eventsData => {
             // Loop through the days in the selected month

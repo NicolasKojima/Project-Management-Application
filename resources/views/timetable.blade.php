@@ -78,20 +78,27 @@
 
         
 
-        .calendar-horizontal-grid{
-            position:absolute;
+        .calendar-horizontal-grid {
+            position: absolute;
             width: 100%;
-            height:100%;
-            display:grid;
+            height: 100%;
+            display: grid;
             grid-template-columns: 15% 85%;
-            top:0;
+            top: 0;
+        }
+
+        /* Media query for screens smaller than 800px */
+        @media (max-width: 800px) {
+            .calendar-horizontal-grid {
+                grid-template-columns: 20% 80%;
+            }
         }
 
         .days-container {
             display: flex;
             justify-content: flex-start;
             overflow-x: scroll;
-            width:100%;
+            width:100vw;
         }
 
         /* Initially hide the dropdown content */
@@ -106,7 +113,7 @@
 
 
         .day {
-            min-width: 10%;
+            min-width: 60px;
             flex: 1;
             line-height: 50px;
             text-align: center;
@@ -115,10 +122,16 @@
             white-space: nowrap;
         }
 
-        .left-colomn{
+        @media (min-width: 600px) {
+            .day {
+                min-width: 10vw;
+            }
+        }
+
+
+
+        .left-column{
             height:100%;
-            background-color: lightgray;
-            border: 3px grey solid;
         }
 
         .grid-item {
@@ -126,20 +139,29 @@
         border-top: 1px solid #000; /* Border for each box */
         border-bottom: 1px solid #000;
         padding: 10px; /* Add spacing inside the box */
-        margin-top: 10px; 
+        margin-top: 1vh; 
         width: 100%;
         height: 50px;
         background-color: #003300;
         }
 
         .title {
+        display:block;
         height:50px;
         width:100%;
-        font-size: 2em;
         font-weight: bold;
         color: #333;
-        /* background-color: white; */
         }
+
+        .title {
+            display: block; /* Ensure it's visible by default */
+            }
+
+            @media (max-width: 800px) {
+            .title {
+                display: none; /* Hide the div when the screen width is 800px or less */
+            }
+            }
 
         .space {
             width: 100%;
@@ -147,10 +169,16 @@
         }
 
         .calendar_title_M_Y {
-            font-size: 300;
-            font-weight: 300;
+            display: flex;
+            justify-content: center; /* Horizontal centering */
+            align-items: center; /* Vertical centering */
+            height: 100vh; /* Set container height to the viewport height */
+            overflow: hidden; /* Prevent contents from spilling out */
             height: 10.1vh;
-        }
+            width: 100%;
+
+            }
+        
 
         /* Style the dropdown container */
         .dropdown-content {
@@ -203,15 +231,15 @@
         }
 
         .date {
-            margin-bottom: 23px;
+            height:10vh
         }
 
         .event-span {
             position:relative;
             border-top: #000 solid 1px;
             border-bottom: #000 solid 1px;
-            margin-bottom:9.5px;
-            height:50.5px;
+            margin-top:1vh;
+            height:50px;
         }
 
         .selection-button{
@@ -219,34 +247,112 @@
         }
 
         .title {
-            padding-left: 20px;
+            padding-left: 2vw;
             padding-top:5px;
             font-family: verdana, sans-serif;
-            font-weight:normal !important;
+            font-weight:800 !important;
         }
 
         .header {
-            display:grid;
-            grid-template-columns: 60%  40%;
-        }
+            display: grid;
+            grid-template-columns: 70% 10% 20%;
+            }
 
-        .date_form{
+            @media (max-width: 800px) {
+            .header {
+                grid-template-columns: 50% 50%;
+            }
+            }
+        .date-form{
             margin-top: 1.5vh;
             left:0px;
         }
 
         .month-display {
-            font-size: x-large;
-            padding:20px;
-        }
+            font-size: 20px;
+            height:10vh;
+            padding-top:1vw;
+            }
 
         .time-selection-button{
+            margin-top:10px;
+            float:right;
             background-color: #e7a88a;
             padding: 10px;
             border-radius: 5px;
                 }
+        
+            /* Style the dropdown button */
+            .dropbtn {
+                background-color: #4CAF50;
+                color: white;
+                padding: 10px;
+                font-size: 16px;
+                border: none;
+                cursor: pointer;
+                margin-top: 5px;
+                margin-right:10px;
+                float: right;
+                border-radius: 5px;
+            }
 
-/* Adjust the styles as needed */
+            /* Style the dropdown content (hidden by default) */
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+            }
+
+            /* Style the dropdown links */
+            .dropdown-content form {
+                display: block;
+                padding: 15px;
+                text-decoration: none;
+                color: black;
+            }
+
+            /* Change color on hover */
+            .dropdown-content form:hover {
+                background-color: #f1f1f1;
+            }
+
+            /* Show the dropdown content on hover */
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+
+            .date-full {
+                display: none;
+            }
+
+            .date-small {
+                display: block;
+            }
+
+            @media (min-width: 800px) {
+                .date-full {
+                    display: block;
+                }
+
+                .date-small {
+                    display: none;
+                }
+            }
+                .responsive-select {
+            width: 100%; /* Use 100% width to make the select elements expand to the container's width */
+            margin-bottom: 10px; /* Add some spacing between elements */
+        }
+
+        @media (min-width: 768px) {
+            .year, .month {
+                display: inline-block; /* Arrange elements horizontally on larger screens */
+                width: 50%; /* Give each select element 50% width */
+            }
+}
+
 
         </style>
     </head>
@@ -261,26 +367,33 @@
                         <div class="title">
                             <p> DC Department Individual Schedules </p>
                         </div>
-                        <div class="date_form">
-                            <form method="POST" action="{{ route('calculate-dates') }}">
-                                @csrf
-
-                                <label for="year">Select Year:</label>
-                                <select name="year" id="year">
-                                    @for ($i = date('Y'); $i >= 1900; $i--)
-                                        <option value="{{ $i }}">{{ $i }}</option>
-                                    @endfor
-                                </select>
-
-                                <label for="month">Select Month:</label>
-                                <select name="month" id="month">
-                                    @for ($i = 1; $i <= 12; $i++)
-                                        <option value="{{ $i }}">{{ date('F', mktime(0, 0, 0, $i, 1)) }}</option>
-                                    @endfor
-                                </select>
-
-                                <button class="time-selection-button" type="submit">See Timetable</button>
-                            </form>
+                        <div class="create-event-link">
+                            <a  href="create-new-event" class="btn btn-secondary my-2" style="margin-left:5px;"> Create </a>
+                        </div>
+                        <div class="dropdown">
+                            <button class="dropbtn">Search</button>
+                            <div class="dropdown-content">
+                                <form method="POST" action="{{ route('timetable-dates') }}">
+                                    @csrf
+                                    <div class="year">
+                                        <label for="year">Select Year:</label>
+                                        <select class="responsive-select" name="year" id="year">
+                                            @for ($i = date('Y'); $i >= 1900; $i--)
+                                                <option value="{{ $i }}">{{ $i }}</option>
+                                            @endfor
+                                        </select>
+                                    </div>
+                                    <div class="month">
+                                        <label for="month">Select Month:</label>
+                                        <select class="responsive-select" name="month" id="month">
+                                            @for ($i = 1; $i <= 12; $i++)
+                                                <option value="{{ $i }}">{{ date('F', mktime(0, 0, 0, $i, 1)) }}</option>
+                                            @endfor
+                                        </select>
+                                    </div>
+                                    <button class="time-selection-button" type="submit">See Schedule</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -364,8 +477,11 @@
                         $currentDate = $year . '-' . $month . '-' . $formattedI;
                         @endphp
                         <div class="day">
-                            <div class="date">
+                            <div class="date date-full"> <!-- Initially hide on small screens -->
                                 {{ $currentDate }}
+                            </div>
+                            <div class="date date-small"> <!-- Initially shown on small screens -->
+                                {{ $formattedI }}
                             </div>
                             @foreach ($users as $user)
                                 @if ($user->hasRole('Employee'))
@@ -386,7 +502,7 @@
                                         @endforeach
                                         @if ($hasEventsForDate)
                                             <span class="users-event clickable">
-                                                See Schedule
+                                                Event
                                                 <div class="dropdown-content">
                                                     <ul>
                                                     @foreach ($user->events as $event)
@@ -421,6 +537,8 @@
         @stack('modals')
         @livewireScripts
         <script>
+
+            
             function updateCalendar() {
                 const monthSelect = document.getElementById("monthSelect");
                 const yearSelect = document.getElementById("yearSelect");

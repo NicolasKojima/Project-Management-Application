@@ -9,20 +9,21 @@ use App\Models\CrudEvents;
 
 class TimetableController extends Controller
 {
+    // public function displayuser(Request $request)
+    // {
+    //     $users = User::all();
+    //     $dates = calendar_table::all();
+    
+    //     return view('timetable', compact('users', 'dates'));
+    // }
+
     public function displayuser(Request $request)
     {
         $users = User::all();
         $dates = calendar_table::all();
+        $events = CrudEvents::all();
     
-        return view('projectschedule', compact('users', 'dates'));
-    }
-
-    public function displayuser1(Request $request)
-    {
-        $users = User::all();
-        $dates = calendar_table::all();
-    
-        return view('projectschedule1', compact('users', 'dates'));
+        return view('timetable', compact('users', 'dates','events'));
     }
 
     public function initializeCalendar()
@@ -44,7 +45,7 @@ class TimetableController extends Controller
     $users = User::all();
     $dates = calendar_table::all();
 
-    return view('projectschedule', compact('count', 'month', 'year', 'users', 'dates'));
+    return view('timetable', compact('count', 'month', 'year', 'users', 'dates'));
 }
 
 }
