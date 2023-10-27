@@ -35,12 +35,12 @@
 	        <td class="table3">{{ $product->projdescription }}</td>
             <td>
                     @can('product-edit')
-                        <a class="btn btn-info" href="{{ route('products.show', $product->id) }}">Show</a>
-                        <a class="btn btn-primary" href="{{ route('products.edit', $product->id) }}">Edit</a>
+                        <a class="btn btn-info" href="{{ route('products.show', $product->id) }}"style="width:70px;">Show</a>
+                        <a class="btn btn-primary" href="{{ route('products.edit', $product->id) }}"style="width:70px;">Edit</a>
                     @endcan
 
                     @can('product-delete')
-                        {!! Form::open(['method' => 'DELETE', 'route' => ['products.destroy', $product->id], 'style' => 'display:inline']) !!}
+                        {!! Form::open(['method' => 'DELETE', 'route' => ['products.destroy', $product->id], 'style' => 'display:inline;width:70px;']) !!}
                         {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                         {!! Form::close() !!}
                     @endcan

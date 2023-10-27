@@ -34,12 +34,12 @@
         <td>{{ $role->name }}</td>
         <td>
             @can('role-edit')
-                <a class="btn btn-info" href="{{ route('roles.show', $role->id) }}">Show</a>
-                <a class="btn btn-primary" href="{{ route('roles.edit', $role->id) }}">Edit</a>
+                <a class="btn btn-info" href="{{ route('roles.show', $role->id) }}"style="width:70px;">Show</a>
+                <a class="btn btn-primary" href="{{ route('roles.edit', $role->id) }}"style="width:70px;">Edit</a>
             @endcan
 
             @can('role-delete')
-                {!! Form::open(['method' => 'DELETE', 'route' => ['roles.destroy', $role->id], 'style' => 'display:inline']) !!}
+                {!! Form::open(['method' => 'DELETE', 'route' => ['roles.destroy', $role->id], 'style' => 'display:inline; width:70px;']) !!}
                 {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                 {!! Form::close() !!}
             @endcan

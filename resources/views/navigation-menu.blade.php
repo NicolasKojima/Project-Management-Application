@@ -6,33 +6,44 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <img src="{{ asset('storage/image/ZEALTEAM_logo.jpg') }}" alt="Image" class="image-size" style="width:250px; height:50px;">
+                    <img src="{{ asset('storage/image/ZEALTEAM_logo.jpg') }}" alt="Image" class="image-size" style="width: 250px; height: 50px;">
                     </a>                
                 </div>
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    @if (auth()->user()->hasRole('Guest'))
+                        <x-nav-link href="{{ route('profiles') }}" :active="request()->routeIs('profiles')">
+                            {{ __('Profiles') }}
+                        </x-nav-link>
+                    @endif
+                    @if (!auth()->user()->hasRole('Guest'))
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Profile') }}
                     </x-nav-link>
+                    @endif
                     <x-nav-link href="{{ route('projects') }}" :active="request()->routeIs('projects')">
                         {{ __('Projects') }}
                     </x-nav-link>
                     <!-- <x-nav-link href="{{ route('about-us') }}" :active="request()->routeIs('about-us')">
                         {{ __('Employees') }}
                     </x-nav-link> -->
-                    <x-nav-link href="{{ route('register-events') }}" :active="request()->routeIs('register-events')">
+                    @if (!auth()->user()->hasRole('Guest'))
+                    <x-nav-link href="{{ route('calendar-display') }}" :active="request()->routeIs('calendar-display')">
                         {{ __('Calendar') }}
                     </x-nav-link>
-                    <x-nav-link href="{{ route('projectschedule') }}" :active="request()->routeIs('projectschedule')">
+                    @endif
+                    <x-nav-link href="{{ route('timetable') }}" :active="request()->routeIs('timetable')">
                         {{ __('Timetable') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('contact-form') }}" :active="request()->routeIs('contact-form')">
                         {{ __('Contact-Us') }}
                     </x-nav-link>
+                    @if (!auth()->user()->hasRole('Guest'))
                     <x-nav-link href="{{ route('profiles') }}" :active="request()->routeIs('profiles')">
                         {{ __('Profiles') }}
                     </x-nav-link>
-                    @if (!auth()->user()->hasRole('guest'))
+                    @endif
+                    @if (auth()->user()->hasRole('Admin'))
                         <x-nav-link href="{{ route('permissions') }}" :active="request()->routeIs('permissions')">
                             {{ __('Permissions') }}
                         </x-nav-link>
@@ -113,11 +124,6 @@
                         </x-slot>
 
                         <x-slot name="content">
-                            <!-- Account Management -->
-                            <div class="block px-4 py-2 text-xs text-gray-400">
-                                {{ __('Manage Account') }}
-                            </div>
-
                             <x-dropdown-link href="{{ route('profile.show') }}">
                                 {{ __('Profile') }}
                             </x-dropdown-link>
@@ -181,16 +187,47 @@
 
             <div class="mt-3 space-y-1">
                 <!-- Account Management -->
-                <x-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
-                    {{ __('Profile') }}
-                </x-responsive-nav-link>
-
-                @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-                    <x-responsive-nav-link href="{{ route('api-tokens.index') }}" :active="request()->routeIs('api-tokens.index')">
-                        {{ __('API Tokens') }}
-                    </x-responsive-nav-link>
-                @endif
-
+                <div class=" space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <div style="margin:1vw; border: grey 1px solid;">
+                    @if (auth()->user()->hasRole('Guest'))
+                        <x-nav-link href="{{ route('profiles') }}" :active="request()->routeIs('profiles')" >
+                            {{ __('Profiles') }}
+                        </x-nav-link>
+                    @endif
+                    @if (!auth()->user()->hasRole('Guest'))
+                    <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                        {{ __('Profile') }}
+                    </x-nav-link>
+                    @endif
+                    <x-nav-link href="{{ route('projects') }}" :active="request()->routeIs('projects')">
+                        {{ __('Projects') }}
+                    </x-nav-link>
+                    <!-- <x-nav-link href="{{ route('about-us') }}" :active="request()->routeIs('about-us')">
+                        {{ __('Employees') }}
+                    </x-nav-link> -->
+                    @if (!auth()->user()->hasRole('Guest'))
+                    <x-nav-link href="{{ route('calendar-display') }}" :active="request()->routeIs('calendar-display')">
+                        {{ __('Calendar') }}
+                    </x-nav-link>
+                    @endif
+                    <x-nav-link href="{{ route('timetable') }}" :active="request()->routeIs('timetable')">
+                        {{ __('Timetable') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('contact-form') }}" :active="request()->routeIs('contact-form')">
+                        {{ __('Contact-Us') }}
+                    </x-nav-link>
+                    @if (!auth()->user()->hasRole('Guest'))
+                    <x-nav-link href="{{ route('profiles') }}" :active="request()->routeIs('profiles')">
+                        {{ __('Profiles') }}
+                    </x-nav-link>
+                    @endif
+                    @if (auth()->user()->hasRole('Admin'))
+                        <x-nav-link href="{{ route('permissions') }}" :active="request()->routeIs('permissions')">
+                            {{ __('Permissions') }}
+                        </x-nav-link>
+                    @endif
+                    </div>
+                </div>
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}" x-data>
                     @csrf
@@ -200,37 +237,6 @@
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>
                 </form>
-
-                <!-- Team Management -->
-                @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
-                    <div class="border-t border-gray-200"></div>
-
-                    <div class="block px-4 py-2 text-xs text-gray-400">
-                        {{ __('Manage Team') }}
-                    </div>
-
-                    <!-- Team Settings -->
-                    <x-responsive-nav-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}" :active="request()->routeIs('teams.show')">
-                        {{ __('Team Settings') }}
-                    </x-responsive-nav-link>
-
-                    @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
-                        <x-responsive-nav-link href="{{ route('teams.create') }}" :active="request()->routeIs('teams.create')">
-                            {{ __('Create New Team') }}
-                        </x-responsive-nav-link>
-                    @endcan
-
-                    <div class="border-t border-gray-200"></div>
-
-                    <!-- Team Switcher -->
-                    <div class="block px-4 py-2 text-xs text-gray-400">
-                        {{ __('Switch Teams') }}
-                    </div>
-
-                    @foreach (Auth::user()->allTeams() as $team)
-                        <x-switchable-team :team="$team" component="responsive-nav-link" />
-                    @endforeach
-                @endif
             </div>
         </div>
     </div>

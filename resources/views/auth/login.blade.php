@@ -52,7 +52,7 @@
                     </x-button>
 
                     <x-button class="ml-4">
-                        {{ __('Log in') }}
+                        {{ __('Login') }}
                     </x-button>
                 </div>
             </div>

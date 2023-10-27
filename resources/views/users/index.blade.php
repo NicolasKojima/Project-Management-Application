@@ -9,7 +9,7 @@
         </div>
         <div class="pull-right">
         @if(auth()->user()->hasRole('Admin'))
-            <a class="btn btn-success" href="{{ route('users.create') }}">Create New User</a>
+            <a class="btn btn-success" href="{{ route('users.create') }}" style="margin-bottom:10px;">Create New User</a>
         @endif
         </div>
     </div>
@@ -25,13 +25,14 @@
 
 <table class="table table-bordered">
  <tr>
-   <th>No</th>
-   <th>Name</th>
-   <th>Email</th>
-   <th>Roles</th>
+   <th >No</th>
+   <th >Name</th>
+   <th >Email</th>
+   <th >Roles</th>
    <th width="280px">Action</th>
  </tr>
  @foreach ($data as $key => $user)
+ @if (!auth()->user()->hasRole('unapproved'))
   <tr>
     <td>{{ ++$i }}</td>
     <td>{{ $user->name }}</td>
@@ -45,19 +46,19 @@
     </td>
     <td>
         @if(auth()->user()->hasRole('Admin'))
-            <a class="btn btn-info" href="{{ route('users.show',$user->id) }}">Show</a>
-            <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">Edit</a>
-            {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
-                {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+        <a class="btn btn-info" href="{{ route('users.show',$user->id) }}" style="width:70px;">Show</a>
+        <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}"style="width:70px;">Edit</a>
+        {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline; width:70px;']) !!}
+                {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-display']) !!}
             {!! Form::close() !!}
         @else
             <span class="text-danger">You do not have permission to perform this action.</span>
         @endif
     </td>
   </tr>
- @endforeach
+  @endif
+ @endforeach 
 </table>
-
 
 {!! $data->render() !!}
 

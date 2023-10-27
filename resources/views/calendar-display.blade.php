@@ -30,6 +30,11 @@
         margin-bottom: 3rem;
         border-bottom: black solid 2px;
         }
+
+        .btn-success {
+            margin-top: 5px;
+            background-color: #3a87ad;
+        }
         </style>
     </head>
     <body class="font-sans antialiased">
