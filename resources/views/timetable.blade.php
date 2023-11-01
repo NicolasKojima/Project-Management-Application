@@ -142,7 +142,7 @@
         margin-top: 1vh; 
         width: 100%;
         height: 50px;
-        background-color: #003300;
+        background-color:  	 #973b02;
         }
 
         .title {
@@ -255,7 +255,7 @@
 
         .header {
             display: grid;
-            grid-template-columns: 70% 10% 20%;
+            grid-template-columns: 60% 20% 20%;
             }
 
             @media (max-width: 800px) {
@@ -364,36 +364,68 @@
             <main>
                 <div class="space">
                     <div class="header">
-                        <div class="title">
+                        <div class="title" style="margin-top: 13px;">
                             <p> DC Department Individual Schedules </p>
                         </div>
-                        <div class="create-event-link">
-                            <a  href="create-new-event" class="btn btn-secondary my-2" style="margin-left:5px;"> Create </a>
-                        </div>
-                        <div class="dropdown">
-                            <button class="dropbtn">Search</button>
-                            <div class="dropdown-content">
-                                <form method="POST" action="{{ route('timetable-dates') }}">
-                                    @csrf
-                                    <div class="year">
-                                        <label for="year">Select Year:</label>
-                                        <select class="responsive-select" name="year" id="year">
-                                            @for ($i = date('Y'); $i >= 1900; $i--)
-                                                <option value="{{ $i }}">{{ $i }}</option>
-                                            @endfor
-                                        </select>
-                                    </div>
-                                    <div class="month">
-                                        <label for="month">Select Month:</label>
-                                        <select class="responsive-select" name="month" id="month">
-                                            @for ($i = 1; $i <= 12; $i++)
-                                                <option value="{{ $i }}">{{ date('F', mktime(0, 0, 0, $i, 1)) }}</option>
-                                            @endfor
-                                        </select>
-                                    </div>
-                                    <button class="time-selection-button" type="submit">See Schedule</button>
-                                </form>
+                        @if (!auth()->user()->hasRole('Guest'))
+                            <div class="dropdown">
+                                <button class="dropbtn " style="background-color:#fd721c; margin-top: 8px;">Search</button>
+                                <div class="dropdown-content">
+                                    <form method="POST" action="{{ route('timetable-dates') }}">
+                                        @csrf
+                                        <div class="year">
+                                            <label for="year">Select Year:</label>
+                                            <select class="responsive-select" name="year" id="year">
+                                                @for ($i = date('Y'); $i >= 1900; $i--)
+                                                    <option value="{{ $i }}">{{ $i }}</option>
+                                                @endfor
+                                            </select>
+                                        </div>
+                                        <div class="month">
+                                            <label for="month">Select Month:</label>
+                                            <select class="responsive-select" name="month" id="month">
+                                                @for ($i = 1; $i <= 12; $i++)
+                                                    <option value="{{ $i }}">{{ date('F', mktime(0, 0, 0, $i, 1)) }}</option>
+                                                @endfor
+                                            </select>
+                                        </div>
+                                        <button class="time-selection-button" type="submit">See Schedule</button>
+                                    </form>
+                                </div>
                             </div>
+                        @endif
+                        <div>
+                            @if (!auth()->user()->hasRole('Guest'))
+                                <div class="create-event-link">
+                                    <a  href="create-new-event" class="btn btn-secondary my-2" style="margin-left:5px; height:43px;"> Create New Event</a>
+                                </div>
+                            @elseif (auth()->user()->hasRole('Guest'))
+                                <div class="dropdown">
+                                    <button class="dropbtn " style="background-color:#fd721c; margin-top: 8px;">Search</button>
+                                    <div class="dropdown-content">
+                                        <form method="POST" action="{{ route('timetable-dates') }}">
+                                            @csrf
+                                            <div class="year">
+                                                <label for="year">Select Year:</label>
+                                                <select class="responsive-select" name="year" id="year">
+                                                    @for ($i = date('Y'); $i >= 1900; $i--)
+                                                        <option value="{{ $i }}">{{ $i }}</option>
+                                                    @endfor
+                                                </select>
+                                            </div>
+                                            <div class="month">
+                                                <label for="month">Select Month:</label>
+                                                <select class="responsive-select" name="month" id="month">
+                                                    @for ($i = 1; $i <= 12; $i++)
+                                                        <option value="{{ $i }}">{{ date('F', mktime(0, 0, 0, $i, 1)) }}</option>
+                                                    @endfor
+                                                </select>
+                                            </div>
+                                            <button class="time-selection-button" type="submit">See Schedule</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>

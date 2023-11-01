@@ -151,12 +151,21 @@
                 clear: both;
                 }
             
+                .block-container {
+                margin-top:20px;
+                outline: 2px solid black;
+                display: inline-block;
+                border-radius: 10px;
+                box-shadow: 5px;
+                background-color: white;
+            }
             .example-grid {
+                margin: 5vh;
                 width: 90%;
                 display: grid;
-                grid-template-columns: 60% 40%; 
-                height:30vw;
-                margin-top: 5vh;
+                grid-template-columns: 70% 30%; 
+                height:40vw;
+                /* margin-top: 5vh; */
             }
 
             .gallery-example {
@@ -165,7 +174,7 @@
                 margin-left: 2vw;
                 width: 100%;
                 height: 100%;
-                margin-top: 5vh;
+                /* margin-top: 5vh; */
                 overflow: hidden; /* Ensure content within the container doesn't overflow */
             }
 
@@ -462,41 +471,50 @@
             <main>
                 <div class="container">
                     <div class="content">
-                        <div style="width: 100%; height: 55px; background-color: white;">
-                            <h1 class="page-heading" style="font-size: x-large; padding-top: 10px; padding-left: 10px;"> Search for Employees</h1>
-                        </div>
                         @if(isset($selectedUserId))
-                            <div class="example-grid" id="userDataContainer">
-                            <div class="gallery-example">
-                                <div class="slideshow-container">
-                                    @php $slideIndex = 1; @endphp
-                                    @php $hasData = false; @endphp
-                                    @foreach ($products as $data)
-                                        @if ($data->created_by  == $selectedUserId)
-                                            <div class="mySlides">
-                                            <img class="main-image" src="{{ asset('/storage/image/' . $data->image) }}" alt="Main Image">
-                                            </div>
-                                            @php $slideIndex++; @endphp
-                                            @php $hasData = true; @endphp
-                                        @endif
-                                    @endforeach
-                                    @if ($slideIndex > 1)
-                                        <a class="prev" onclick="plusSlides(-1)">❮</a>
-                                        <a class="next" onclick="plusSlides(1)">❯</a>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="descriptions">
-                            @foreach ($products as $data)
-                                @if ($data->created_by  == $selectedUserId)
-                                    <div class="project-description">
-                                        <div class="project-name">{{ $data->projname }}</div>
-                                        <div class="description-text">{{ $data->projdescription }}</div>
+                            @foreach ($users as $user)
+                                @if ($user -> id == $selectedUserId)
+                                    <div style="width: 100%; height: 55px; background-color: white;">
+                                        <h1 class="page-heading" style="font-size: x-large; padding-top: 10px; padding-left: 10px;"> {{$user -> name}} </h1>
                                     </div>
                                 @endif
                             @endforeach
+                            <div class="block-container">
+                                <div class="example-grid" id="userDataContainer">
+                                    <div class="gallery-example">
+                                        <div class="slide-title">
+                                            <h1 class="page-heading" style="font-size: x-large; padding-left: 10px;"> Projects </h1>
+                                        </div>
+                                        <div class="slideshow-container">
+                                            @php $slideIndex = 1; @endphp
+                                            @php $hasData = false; @endphp
+                                            @foreach ($products as $data)
+                                                @if ($data->created_by  == $selectedUserId)
+                                                    <div class="mySlides">
+                                                    <img class="main-image" src="{{ asset('/storage/image/' . $data->image) }}" alt="Main Image">
+                                                    </div>
+                                                    @php $slideIndex++; @endphp
+                                                    @php $hasData = true; @endphp
+                                                @endif
+                                            @endforeach
+                                            @if ($slideIndex > 1)
+                                                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                                                <a class="next" onclick="plusSlides(1)">❯</a>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="descriptions">
+                                    @foreach ($products as $data)
+                                        @if ($data->created_by  == $selectedUserId)
+                                            <div class="project-description">
+                                                <div class="project-name">{{ $data->projname }}</div>
+                                                <div class="description-text">{{ $data->projdescription }}</div>
+                                            </div>
+                                        @endif
+                                    @endforeach
+                                    </div>
+                                </div>\
                             </div>
-                        </div>
 
                         <div style="width:100%; height:55px;">
                             <h1 style="font-size:x-large; padding-top: 10px; padding-left: 10px;"></h1>
@@ -620,7 +638,7 @@
 
                                     <!-- Your other form elements go here -->
                                     
-                                    <button class="submit-button" type="submit">Submit</button>
+                                    <button class="submit-button" type="submit" style="background-color:#fd721c;">Submit</button>
                                 </form>
                             </div>
                         </div>
@@ -657,7 +675,7 @@
 
                                     <!-- Your other form elements go here -->
                                     
-                                    <button class="submit-button" type="submit">Submit</button>
+                                    <button class="submit-button" type="submit" style="background-color:#fd721c;" >Submit</button>
                                 </form>
                             </div>
                         @endif

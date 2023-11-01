@@ -399,6 +399,7 @@ function updateCalendarWithEvents() {
 
     // Attach the updateCalendarWithEvents function to the 'updateCalendar' button's click event
     document.getElementById('updateCalendar').addEventListener('click', updateCalendarWithEvents);
+    //run loop with different ids so that it runs the same loop for the specified users
 
     // Function to initialize and display the calendar for the current month
     function initializeCalendar() {

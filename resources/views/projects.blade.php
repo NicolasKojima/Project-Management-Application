@@ -130,6 +130,7 @@
         grid-template-columns: 60% 40%; 
         grid-template-rows: min-content; 
         position: relative;
+        background-color: white;
       }
 
       .post-grid {
@@ -220,15 +221,15 @@
             <!-- Page Content -->
             <main>
             <section class="">
-            <div class="header-grid">
+            <div class="header-grid" >
               <div class="project-blog">
-                <h1 class="page-heading" style="font-size:x-large; padding-top: 12px; padding-left: 10px;"> DC Project Blog </h1>
+                <h1 class="page-heading" style="font-size:x-large; padding-top: 12px; padding-left: 10px; color: black;     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);"> DC Project Blog </h1>
               </div>
               @if (!auth()->user()->hasRole('Guest'))
               <div class="links">
                 <p>
                   <div class="link">
-                    <a  href="post-project" class="btn btn-secondary my-2" > Post Project</a>
+                    <a  href="post-project" class="btn btn-secondary my-2" style="background-color: #eb5c02;"> Post Project</a>
                   </div>
                 </p>
               </div>
@@ -236,7 +237,7 @@
             </div>
             </section>
 
-      <div class="album py-5 bg-light">
+      <div class="album py-5">
         <div class="container">
           <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 g-1">
             @foreach  ($products->reverse() as $product)
@@ -268,7 +269,7 @@
                     </div>  
                     <title>Placeholder</title>
                     <rect width="100%" height="100%" fill="#55595c"/>                       
-                    <div class="card-body">
+                    <!-- <div class="card-body">
                       <div class="post-bottom-grid">
                         <div class="skill-rele">
                           <h6 class="card-text">{{$product->skills}}</h6>
@@ -276,8 +277,8 @@
                         <div class="d-flex justify-content-between align-items-center"></div>
                         </div>  
                       </div>                    
-                    </div>
-                  <div class="card-header">Post to Facebook</div>
+                    </div> -->
+                  <!-- <div class="card-header">Post to Facebook</div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('post-to-facebook') }}">
                             @csrf
@@ -286,7 +287,7 @@
                             </button>
                         </form>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             @endforeach
