@@ -76,22 +76,28 @@
                 display: table;
                 clear: both;
                 }
-            
+            .exmaple-grid-container {
+                margin-top:20px;
+                outline: 2px solid black;
+                display: inline-block;
+                border-radius: 10px;
+                box-shadow: 5px;
+                background-color: white;
+            }
             .example-grid {
+                margin: 5vh;
                 width: 90%;
                 display: grid;
-                grid-template-columns: 60% 40%; 
+                grid-template-columns: 70% 30%; 
                 height:30vw;
-                margin-top: 5vh;
+                /* margin-top: 5vh; */
             }
 
             .gallery-example {
                 align-self: center;
                 justify-content: center;
-                margin-left: 2vw;
                 width: 100%;
                 height: 100%;
-                margin-top: 5vh;
                 overflow: hidden; /* Ensure content within the container doesn't overflow */
             }
 
@@ -244,8 +250,7 @@
                 .descriptions{
                     height:100%;
                     width:90%;
-                    margin-left:5vw;
-                    padding-top: 10px;
+                    margin-left:3vw;
                 }
 
         
@@ -321,43 +326,48 @@
             <main>
                 <div class="container">
                     <div class="content">
-                        <div class="example-grid">
-                            <div class="gallery-example">
-                                <div class="slideshow-container">
-                                    @php $slideIndex = 1; @endphp
-                                    @php $hasData = false; @endphp
-                                    @foreach ($products as $data)
-                                        @if ($data->created_by == auth()->user()->id)
-                                            <div class="mySlides">
-                                                <div class="numbertext">{{ $slideIndex }} / {{ count($products) }}</div>
-                                                <img class="main-image" src="{{ asset('/storage/image/' . $data->image) }}" alt="Main Image">
-                                            </div>
-                                            @php $slideIndex++; @endphp
-                                            @php $hasData = true; @endphp
+                        <div style="width: 100%; height: 55px; background-color: white; margin-top:10px;">
+                            <h1 class="page-heading" style="font-size: x-large; padding-top: 10px; padding-left: 10px;"> Your Profile </h1>
+                        </div>
+                        <div class="exmaple-grid-container"> 
+                            <div class="example-grid">
+                                <div class="gallery-example">
+                                    <div class="slideshow-container">
+                                        @php $slideIndex = 1; @endphp
+                                        @php $hasData = false; @endphp
+                                        @foreach ($products as $data)
+                                            @if ($data->created_by == auth()->user()->id)
+                                                <div class="mySlides">
+                                                    <div class="numbertext">{{ $slideIndex }} / {{ count($products) }}</div>
+                                                    <img class="main-image" src="{{ asset('/storage/image/' . $data->image) }}" alt="Main Image">
+                                                </div>
+                                                @php $slideIndex++; @endphp
+                                                @php $hasData = true; @endphp
+                                            @endif
+                                        @endforeach
+                                        @if ($slideIndex > 1)
+                                            <a class="prev" onclick="plusSlides(-1)">❮</a>
+                                            <a class="next" onclick="plusSlides(1)">❯</a>
                                         @endif
-                                    @endforeach
-                                    @if ($slideIndex > 1)
-                                        <a class="prev" onclick="plusSlides(-1)">❮</a>
-                                        <a class="next" onclick="plusSlides(1)">❯</a>
-                                    @endif
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="descriptions">
-                            @foreach ($products as $data)
-                                @if ($data->created_by == auth()->user()->id)
+                                <div class="descriptions">
+                                @foreach ($products as $data)
+                                    @if ($data->created_by == auth()->user()->id)
+                                        <div class="project-description">
+                                            <div class="project-name">{{ $data->projname }}</div>
+                                            <div class="description-text">{{ $data->projdescription }}</div>
+                                        </div>
+                                    @endif
+                                @endforeach
+                                @if (!$hasData)
+                                    <!-- Display a message when no data is available -->
                                     <div class="project-description">
-                                        <div class="project-name">{{ $data->projname }}</div>
-                                        <div class="description-text">{{ $data->projdescription }}</div>
+                                        <div class="project-name">No data available</div>
+                                        <div class="description-text">You haven't posted any products yet.</div>
                                     </div>
                                 @endif
-                            @endforeach
-                            @if (!$hasData)
-                                <!-- Display a message when no data is available -->
-                                <div class="project-description">
-                                    <div class="project-name">No data available</div>
-                                    <div class="description-text">You haven't posted any products yet.</div>
                                 </div>
-                            @endif
                             </div>
                         </div>
 
@@ -397,9 +407,9 @@
                             }
                         </script>
 
-                        <div class="container mt-5">
-                            <div class="links">
-                                <div class="link">
+                        <div class="container">
+                            <div class="links" style="margin-top: 70px;">
+                                <div class="link" >
                                     <h2 class="h2 text-center">Skills</h2>
                                 </div>
                                 <div class="link">

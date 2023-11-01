@@ -97,7 +97,7 @@
       <div class="navbar navbar-dark shadow-sm" style="background-color: black;">
         <div class="container d-flex justify-content-between">
           <a href="#" class="navbar-brand d-flex align-items-center">
-            <img src="{{ asset('storage/image/ZEALTEAM_logo.jpg') }}" alt="Image" class="image-size" style ="width:250px; height:50px;">          </a>
+            <img src="{{ asset('storage/image/zealteam-logo1.png') }}" alt="Image" class="image-size" style ="height:50px;">          </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>

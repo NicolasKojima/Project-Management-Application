@@ -103,7 +103,7 @@
                     events: SITEURL + "/calendar-event",
                     displayEventTime: true,
                     eventRender: function (event, element, view) {
-                        element.css('background-color', event.backgroundColor);
+                        element.css('background-color', '  #fdb181');
                         if (event.allDay === 'true') {
                             event.allDay = true;
                         } else {
