@@ -14,7 +14,7 @@ class CalendarTable extends Migration
      */
     public function up()
     {
-        Schema::create('calendar_table', function (Blueprint $table) {
+        Schema::create('calendar_tables', function (Blueprint $table) {
             $table->date('dt')->primary();
             $table->smallInteger('year')->nullable();
             $table->tinyInteger('quarter')->nullable();
@@ -47,7 +47,7 @@ class CalendarTable extends Migration
         ]);
 
         DB::insert(
-            "insert into calendar_table (dt) 
+            "insert into calendar_tables (dt) 
              (
              select STR_TO_DATE('2000-01-01', '%Y-%m-%d') + interval a.i*10000 + b.i*1000 + c.i*100 + d.i*10 + e.i day 
              from ints a 
@@ -61,7 +61,7 @@ class CalendarTable extends Migration
         );
         
 
-        DB::table('calendar_table')->update([
+        DB::table('calendar_tables')->update([
             'is_weekday'=>DB::raw('case when dayofweek(dt) in (1,7) then 0 else 1 end'),
             'is_holiday'=>0,
             'year'=>DB::raw('year(dt)'),
@@ -84,6 +84,6 @@ class CalendarTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('calendar_table');
+        Schema::dropIfExists('calendar_tables');
     }
 }
