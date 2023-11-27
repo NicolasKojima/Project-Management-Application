@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\calendar_table;
+use App\Models\calendar_tables;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\CrudEvents;
@@ -12,7 +12,7 @@ class TimetableController extends Controller
     // public function displayuser(Request $request)
     // {
     //     $users = User::all();
-    //     $dates = calendar_table::all();
+    //     $dates = calendar_tables::all();
     
     //     return view('timetable', compact('users', 'dates'));
     // }
@@ -20,7 +20,7 @@ class TimetableController extends Controller
     public function displayuser(Request $request)
     {
         $users = User::all();
-        $dates = calendar_table::all();
+        $dates = calendar_tables::all();
         $events = CrudEvents::all();
     
         return view('timetable', compact('users', 'dates','events'));
@@ -38,12 +38,12 @@ class TimetableController extends Controller
     $month = $request->input('month');
 
     // Query the database to get the number of dates
-    $count = calendar_table::whereYear('dt', $year)
+    $count = calendar_tables::whereYear('dt', $year)
                             ->whereMonth('dt', $month)
                             ->count();
 
     $users = User::all();
-    $dates = calendar_table::all();
+    $dates = calendar_tables::all();
 
     return view('timetable', compact('count', 'month', 'year', 'users', 'dates'));
 }
