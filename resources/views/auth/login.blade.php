@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Page Title</title>
+
+    
+
     <style>
         body {
             background-color: #2f3d7e;
@@ -20,11 +23,6 @@
 <body>
     <x-guest-layout>
         <x-authentication-card>
-            
-            <!-- FB.getLoginStatus(function(response) {
-                statusChangeCallback(response);
-            }); -->
-
             <x-slot name="logo">
                 <img src="{{ asset('storage/image/zealteam-logo1.png') }}" alt="Image" class="image-size" style="height: 200px;">
             </x-slot>
@@ -74,62 +72,6 @@
                         </x-button>
                     </div>
                 </div>
-
-                <!-- <div style="text-align: center; background-color: #303f82 !important; margin-top: 20px; color: white; padding: 2px; border-radius: 5px;">
-                    <a href="{{ url('auth/facebook') }}"> Login With Facebook</a>
-                </div> -->
-
-                <!-- <script>
-                    var finished_rendering = function() {
-                        console.log("finished rendering plugins");
-                    var spinner = document.getElementById("spinner");
-                        spinner.removeAttribute("style");
-                        spinner.removeChild(spinner.childNodes[0]);
-                    }
-                    FB.Event.subscribe('xfbml.render', finished_rendering);
-                    </script>
-                    <div id="spinner"
-                        style="
-                            background: #4267b2;
-                            border-radius: 5px;
-                            color: white;
-                            height: 40px;
-                            text-align: center;
-                            width: 250px;">
-                        Loading
-                        <div
-                        class="fb-login-button"
-                        data-max-rows="1"
-                        data-size="large"
-                        data-button-type="continue_with"
-                        data-use-continue-as="true"
-                        ></div>
-                    </div>
-                
-                <script>
-                window.fbAsyncInit = function() {
-                    FB.init({
-                    appId      : '6808208452599792',
-                    cookie     : true,
-                    xfbml      : true,
-                    version    : 'v14.0'
-                    });
-                    
-                    FB.AppEvents.logPageView();   
-                    
-                };
-
-                (function(d, s, id){
-                    var js, fjs = d.getElementsByTagName(s)[0];
-                    if (d.getElementById(id)) {return;}
-                    js = d.createElement(s); js.id = id;
-                    js.src = "https://connect.facebook.net/en_US/sdk.js";
-                    fjs.parentNode.insertBefore(js, fjs);
-                }(document, 'script', 'facebook-jssdk'));
-
-
-
-                </script> -->
             </form>
         </x-authentication-card>
     </x-guest-layout>
