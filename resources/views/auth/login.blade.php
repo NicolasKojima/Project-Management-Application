@@ -26,7 +26,7 @@
             }); -->
 
             <x-slot name="logo">
-                <img src="{{ asset('storage/image/zealteam-logo1.png') }}" alt="Image" class="image-size" style="height: 200px;">
+                <img src="{{ asset('storage/image/logo-nk.png') }}" alt="Image" class="image-size" style="height: 200px;">
             </x-slot>
 
             <x-validation-errors class="mb-4" />

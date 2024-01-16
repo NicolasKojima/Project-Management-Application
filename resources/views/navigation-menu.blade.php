@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                    <img src="{{ asset('storage/image/zealteam-logo1.png') }}" alt="Image" class="image-size" style="height: 100px;">
+                    <img src="{{ asset('storage/image/logo-nk.png') }}" alt="Image" class="image-size" style="height: 100px;">
                     </a>                
                 </div>
                 <!-- Navigation Links -->
