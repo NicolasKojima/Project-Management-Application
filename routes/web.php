@@ -100,7 +100,7 @@ Route::middleware(['auth', 'checkUnapproved'])->group(function () {
 
     Route::get('/permissions', [TestimgController::class, 'permissions'])->name('permissions');
 
-    Route::get('/dashboard', [EventController::class, 'dashboard'])->name('dashboard');
+    Route::get('dashboard', [EventController::class, 'dashboard'])->name('dashboard');
     Route::get('profiles', [EventController::class, 'profiles'])->name('profiles');
 
     Route::resource('roles', RoleController::class);
@@ -111,7 +111,7 @@ Route::middleware(['auth', 'checkUnapproved'])->group(function () {
     Route::post('skillform', [SkillController::class, 'store'])->name('store');
 
         
-    Route::redirect('/', '/PMS1/public/dashboard');
+    Route::redirect('/', '/dashboard');
 
     // routes/web.php
     Route::post('/post-to-facebook', [FacebookController::class,'postToFacebook'])->name('post-to-facebook');
