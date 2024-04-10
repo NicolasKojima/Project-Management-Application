@@ -79,10 +79,6 @@ class RegisterController extends Controller
     $role = Role::findByName('unapproved');
     $user->assignRole($role);
 
-    UserColor::create([
-        'user_id' => $user->id,
-        'color' => $randomColor,
-    ]);
     
     return $user;
 }

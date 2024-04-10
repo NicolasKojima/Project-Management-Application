@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Skill Form</title>
+    <title>Project Management Site</title>
     <style>
         body {
             font-family: Arial, sans-serif;

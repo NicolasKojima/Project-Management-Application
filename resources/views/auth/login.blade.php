@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Page Title</title>
+    <title>Project Management Site</title>
     <style>
         body {
             background-color: #2f3d7e;
@@ -26,7 +26,7 @@
             }); -->
 
             <x-slot name="logo">
-                <img src="{{ asset('storage/image/logo-nk.png') }}" alt="Image" class="image-size" style="height: 200px;">
+                <img src="{{ asset('storage/image/PMS.png') }}" alt="Image" class="image-size" style="height: 200px; margin-bottom: 30px;">
             </x-slot>
 
             <x-validation-errors class="mb-4" />

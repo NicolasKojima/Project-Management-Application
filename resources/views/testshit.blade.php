@@ -9,7 +9,7 @@
         <!-- Fontawesome CDN Link -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>Project Management Site</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">

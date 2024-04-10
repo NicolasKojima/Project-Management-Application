@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>Project Management Site</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -267,7 +267,7 @@
                         </div>
                       </div>
                     </div>  
-                    <title>Placeholder</title>
+                    <title>Project Management Site</title>
                     <rect width="100%" height="100%" fill="#55595c"/>                       
                     <!-- <div class="card-body">
                       <div class="post-bottom-grid">

@@ -6,11 +6,11 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                    <img src="{{ asset('storage/image/logo-nk.png') }}" alt="Image" class="image-size" style="height: 100px;">
+                    <img src="{{ asset('storage/image/PMS-nb.png') }}" alt="Image" class="image-size" style="max-height: 70px;">
                     </a>                
                 </div>
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     @if (auth()->user()->hasRole('Guest'))
                         <x-nav-link href="{{ route('profiles') }}" :active="request()->routeIs('profiles')" style="color:white;">
                                 {{ __('Profiles') }}
@@ -51,7 +51,7 @@
                 </div>
             </div>
 
-            <div class="hidden sm:flex sm:items-center sm:ml-6">
+            <div class=" sm:flex sm:items-center sm:ml-6">
                 <!-- Teams Dropdown -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
                     <div class="ml-3 relative">
