@@ -6,7 +6,7 @@
     <title>Project Management Site</title>
     <style>
         body {
-            background-color: #2f3d7e;
+            background-color: #160da2 !important;
             /* Add any other CSS styles for the body here */
         }
         .links {
@@ -26,7 +26,7 @@
             }); -->
 
             <x-slot name="logo">
-                <img src="{{ asset('storage/image/PMS.png') }}" alt="Image" class="image-size" style="height: 200px; margin-bottom: 30px;">
+                <img src="{{ asset('storage/image/TCS_logo.png') }}" alt="Image" class="image-size" style="height: 200px; margin-bottom: 30px;">
             </x-slot>
 
             <x-validation-errors class="mb-4" />

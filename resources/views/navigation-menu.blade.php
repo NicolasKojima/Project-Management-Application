@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class=" border-b border-gray-100" style="background-color: #2f3d7e; color:white !important;">
+<nav x-data="{ open: false }" class=" border-b border-gray-100" style="background-color: #160da2; color:white !important;">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                    <img src="{{ asset('storage/image/PMS-nb.png') }}" alt="Image" class="image-size" style="max-height: 70px;">
+                    <img src="{{ asset('storage/image/TCS_logo1.png') }}" alt="Image" class="image-size" style="max-height: 60px;">
                     </a>                
                 </div>
                 <!-- Navigation Links -->
